@@ -21,7 +21,7 @@ function InventoryContent() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [filters, setFilters] = useState({
-    priceRange: null as any,
+    priceRange: null as { min: number; max: number } | null,
     brands: [] as string[],
     years: [] as string[],
     fuels: [] as string[],

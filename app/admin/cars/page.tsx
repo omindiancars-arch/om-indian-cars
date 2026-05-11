@@ -790,7 +790,7 @@ export default function AdminCars() {
                         <div className="relative">
                           <input 
                             type="checkbox" 
-                            checked={!!(formData as any)[feat.id]}
+                            checked={!!(formData as Record<string, any>)[feat.id]}
                             onChange={(e) => setFormData({...formData, [feat.id]: e.target.checked})}
                             className="peer sr-only"
                           />
