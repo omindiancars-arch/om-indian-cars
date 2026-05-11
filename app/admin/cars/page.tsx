@@ -282,11 +282,13 @@ export default function AdminCars() {
       const errors: string[] = [];
 
       results.forEach(res => {
-        if ('error' in res) {
+        if (!res) return;
+        
+        if ('error' in res && res.error) {
           errors.push(res.error);
-        } else if (res.type.startsWith('image/')) {
+        } else if ('url' in res && res.type && res.type.startsWith('image/')) {
           newImages.push(res.url);
-        } else if (res.type.startsWith('video/')) {
+        } else if ('url' in res && res.type && res.type.startsWith('video/')) {
           newVideos.push(res.url);
         }
       });
