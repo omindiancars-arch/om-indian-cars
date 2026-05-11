@@ -34,6 +34,7 @@ function LoginContent() {
       } else {
         await signup(formData.email, formData.password, formData.name);
       }
+      router.push("/");
     } catch (error) {
       console.error("Auth error:", error);
       alert(error instanceof Error ? error.message : "Authentication failed");
@@ -61,32 +62,32 @@ function LoginContent() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-gray-50 border border-black/5 p-10 md:p-12 shadow-2xl"
+          className="bg-gray-50 border border-black/5 p-10 md:p-12 shadow-2xl rounded-[3rem]"
         >
           <div className="text-center mb-10">
             <div className="flex justify-center mb-6">
               <img src="/omindlogo.png" alt="Logo" className="w-16 h-16 object-contain" />
             </div>
-            <h1 className="font-heading text-2xl uppercase tracking-tighter font-bold mb-2 text-black">
+            <h1 className="font-heading text-2xl uppercase tracking-tighter font-black mb-2 text-black">
               {mode === "login" ? "Account Access" : "Join The Elite"}
             </h1>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-black/30">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-black/30 font-bold">
               {mode === "login" ? "Welcome back to OM Indian Cars" : "Create your personal profile"}
             </p>
           </div>
 
-          <div className="flex bg-black/5 p-1 mb-8 rounded-lg">
+          <div className="flex bg-black/5 p-1 mb-8 rounded-xl">
             <button 
               type="button"
               onClick={() => setMode("login")}
-              className={`flex-1 py-2 text-[9px] uppercase tracking-widest font-black transition-all rounded-md ${mode === "login" ? "bg-white text-black shadow-sm" : "text-black/40 hover:text-black"}`}
+              className={`flex-1 py-3 text-[9px] uppercase tracking-widest font-black transition-all rounded-lg ${mode === "login" ? "bg-white text-black shadow-sm" : "text-black/40 hover:text-black"}`}
             >
               Login
             </button>
             <button 
               type="button"
               onClick={() => setMode("signup")}
-              className={`flex-1 py-2 text-[9px] uppercase tracking-widest font-black transition-all rounded-md ${mode === "signup" ? "bg-white text-black shadow-sm" : "text-black/40 hover:text-black"}`}
+              className={`flex-1 py-3 text-[9px] uppercase tracking-widest font-black transition-all rounded-lg ${mode === "signup" ? "bg-white text-black shadow-sm" : "text-black/40 hover:text-black"}`}
             >
               Sign Up
             </button>
@@ -111,7 +112,7 @@ function LoginContent() {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       placeholder="Enter your name"
-                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black"
+                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black rounded-xl"
                     />
                   </div>
                 </motion.div>
@@ -128,7 +129,7 @@ function LoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="name@example.com"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black rounded-xl"
                 />
               </div>
             </div>
@@ -143,7 +144,7 @@ function LoginContent() {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   placeholder="••••••••"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#B31B1B] outline-none transition-colors text-black rounded-xl"
                 />
                 <button 
                   type="button"
@@ -158,7 +159,7 @@ function LoginContent() {
             <button 
               disabled={isLoading}
               type="submit"
-              className="w-full bg-[#B31B1B] text-white py-5 font-heading font-bold uppercase tracking-widest text-xs hover:bg-[#B31B1B]/90 transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50 shadow-[0_10px_30px_rgba(179,27,27,0.2)]"
+              className="w-full bg-[#B31B1B] text-white py-6 rounded-xl font-heading font-black uppercase tracking-widest text-xs hover:bg-black transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50 shadow-xl"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -175,7 +176,7 @@ function LoginContent() {
 
           <div className="mt-10 pt-10 border-t border-black/5 text-center">
             <p className="text-[10px] text-black/20 uppercase tracking-widest leading-loose">
-              Secure administrative access for OM Indian Cars.
+              Become a member of the OM Indian Cars elite community.
             </p>
           </div>
         </motion.div>
