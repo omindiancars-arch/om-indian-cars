@@ -28,13 +28,12 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* BRAND STRIPE - High Visibility */}
       <div className="w-full bg-white overflow-hidden shadow-sm">
-        <div className="max-w-[1800px] mx-auto">
+        <div className="w-full">
           <img 
             src="/WhatsApp Image 2026-01-03 at 7.12.45 PM.jpeg" 
             alt="OM Indian Cars Brand" 
-            className="w-full h-auto object-contain max-h-[70px] md:max-h-[90px] mx-auto transition-all duration-700"
+            className="w-full h-auto object-cover md:object-contain max-h-[120px] md:max-h-[90px] transition-all duration-700"
           />
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function Home() {
         clearTimeout(failsafe);
       };
     }
-    
+
     return () => clearTimeout(failsafe);
   }, [isLoaded, loading]);
 
@@ -54,14 +54,14 @@ export default function Home() {
       <Navbar />
 
       {/* 1. ELITE HERO SECTION (SPLIT SCREEN) */}
-      <section className="relative min-h-[85vh] flex flex-col md:flex-row overflow-hidden pt-[24rem] md:pt-[20rem] gap-10 bg-[#B31B1B] px-10">
+      <section className="relative min-h-[85vh] flex flex-col md:flex-row overflow-hidden pt-[20rem] md:pt-[20rem] gap-10 bg-[#B31B1B] px-10">
         {/* Left Half: Photo */}
-        <div className="relative md:flex-[0.6] min-h-[50vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20">
-          <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700" />
-          <img 
-            src={heroImg} 
-            alt="Elite Showroom" 
-            className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
+        <div className="relative md:flex-[0.6] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-[#B31B1B]">
+          <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-all duration-700" />
+          <img
+            src={heroImg}
+            alt="Elite Showroom"
+            className="absolute inset-0 w-full h-full object-contain md:object-cover scale-100 md:scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
             onLoad={() => console.log("Hero Image Loaded")}
             onError={(e) => {
               (e.target as HTMLImageElement).src = "/hero-bg.png";
@@ -75,11 +75,11 @@ export default function Home() {
         {/* Right Half: Video */}
         <div className="relative md:flex-[0.4] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700" />
-          <video 
+          <video
             key={heroVid}
-            autoPlay 
-            loop 
-            muted 
+            autoPlay
+            loop
+            muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
           >
@@ -152,8 +152,8 @@ export default function Home() {
       <section className="py-24 bg-[#901515]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
           {[
-            { 
-              title: "Sell Your Car Instantly", 
+            {
+              title: "Sell Your Car Instantly",
               desc: "Get the best market value with immediate payment and hassle-free documentation.",
               img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80",
               btn: "Get a Valuation",
@@ -161,8 +161,8 @@ export default function Home() {
               phone: "+91 92466 20555",
               color: "bg-white text-[#B31B1B]"
             },
-            { 
-              title: "Buy Your Dream Car", 
+            {
+              title: "Buy Your Dream Car",
               desc: "Explore our elite collection of pre-owned luxury vehicles with guaranteed quality.",
               img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80",
               btn: "Browse Collection",
@@ -175,7 +175,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#B31B1B] via-[#B31B1B]/40 to-transparent p-12 md:p-16 flex flex-col justify-end">
                 <h3 className="text-4xl font-heading font-black text-white uppercase tracking-tighter mb-4">{banner.title}</h3>
                 <p className="text-white/80 text-xs uppercase tracking-widest font-black mb-6 max-w-xs leading-relaxed">{banner.desc}</p>
-                
+
                 {banner.phone && (
                   <div className="flex items-center gap-4 text-white font-black tracking-widest text-lg mb-8 bg-white/10 w-fit px-6 py-3 rounded-2xl backdrop-blur-md border border-white/10">
                     <Phone size={20} className="text-[#FFD700]" />
