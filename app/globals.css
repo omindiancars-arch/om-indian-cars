@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #B31B1B; /* Racing Red Background */
+  --color-foreground: #ffffff; /* White Lettering */
+  
+  --color-primary-saffron: #ffffff; /* Using White as primary on Red */
+  --color-primary-white: #ffffff;
+  --color-primary-green: #138808;
+  
+  --color-surface: #d32f2f;
+  --color-surface-hover: #e53935;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-playfair), serif;
+  --font-brand-primary: var(--font-cinzel), serif;
+  --font-brand-secondary: "Rosewood Std", "Playfair Display", serif;
+  --font-calligraphy: var(--font-calligraphy), cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #B31B1B !important;
+  --foreground: #ffffff !important;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #FF9933;
+  color: #000;
+}
+
+.text-brand-title {
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: relative;
+  display: inline-block;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #B31B1B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Base heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #FF9933;
+  border-radius: 10px;
+}
+
+.mask-fade-edges {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Lightning Blink Animation */
+@keyframes lightning-blink {
+  0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% { 
+    opacity: 1; 
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  15%, 25%, 55%, 85% { 
+    opacity: 0.8; 
+    filter: drop-shadow(0 0 10px #fff) brightness(2); 
+    transform: scale(1.05);
+  }
+}
+
+svg:not(.no-lightning) {
+  animation: lightning-blink 4s infinite;
+  transition: all 0.3s ease;
+}
+
+svg:hover:not(.no-lightning) {
+  animation: lightning-blink 0.5s infinite;
+  filter: drop-shadow(0 0 15px #FFD700) brightness(1.5);
 }
