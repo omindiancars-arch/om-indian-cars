@@ -11,7 +11,7 @@ function TechGrid() {
   
   useFrame((state) => {
     if (gridRef.current) {
-      gridRef.current.position.z = (state.performance.now() * 0.0005) % 2;
+      gridRef.current.position.z = (state.clock.getElapsedTime() * 0.5) % 2;
     }
   });
 

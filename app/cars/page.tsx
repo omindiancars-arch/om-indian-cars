@@ -12,7 +12,9 @@ import Link from "next/link";
 import FilterSidebar from "@/components/inventory/FilterSidebar";
 import { parsePrice, parseKms } from "@/utils/carFilters";
 
-export default function InventoryPage() {
+import { Suspense } from "react";
+
+function InventoryContent() {
   const { cars } = useCars();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -208,5 +210,17 @@ export default function InventoryPage() {
         )}
       </AnimatePresence>
     </main>
+  );
+}
+
+export default function InventoryPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-[#B31B1B] animate-pulse">Initializing Collection...</div>
+      </div>
+    }>
+      <InventoryContent />
+    </Suspense>
   );
 }
