@@ -133,7 +133,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-12">
-            {cars.slice(0, 6).map((car, idx) => (
+            {cars.filter(car => car.showOnHome).slice(0, 6).map((car, idx) => (
               <motion.div
                 key={car.id}
                 initial={{ opacity: 0, y: 40 }}
