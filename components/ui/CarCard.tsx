@@ -86,22 +86,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
               </>
             )}
 
-            {/* Elite Badges */}
-            <div className="absolute top-3 md:top-6 left-3 md:left-6 z-20 flex flex-col gap-2">
-              <div className="bg-[#00FF00] text-black text-[6px] md:text-[8px] font-black uppercase tracking-widest px-2 md:px-4 py-1 md:py-2 rounded-full flex items-center gap-1 md:gap-2 shadow-lg">
-                <CheckCircle2 className="w-2.5 h-2.5 md:w-3 md:h-3" strokeWidth={4} /> Verified
-              </div>
-              {car.services?.finance && (
-                <div className="bg-[#B31B1B] text-white text-[6px] md:text-[8px] font-black uppercase tracking-widest px-2 md:px-4 py-1 md:py-2 rounded-full flex items-center gap-1 md:gap-2 shadow-lg">
-                  <Banknote className="w-2.5 h-2.5 md:w-3 md:h-3" /> Finance
-                </div>
-              )}
-              {car.services?.exchange && (
-                <div className="bg-white text-black text-[6px] md:text-[8px] font-black uppercase tracking-widest px-2 md:px-4 py-1 md:py-2 rounded-full flex items-center gap-1 md:gap-2 shadow-lg">
-                  <ArrowRight className="w-2.5 h-2.5 md:w-3 md:h-3" /> Exchange
-                </div>
-              )}
-            </div>
+
 
             <button 
               onClick={handleInterestedClick}
@@ -114,7 +99,24 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
           </div>
 
           {/* Elite Content Area */}
-          <div className="p-4 md:p-12 flex-1 flex flex-col bg-white text-black">
+          <div className="p-4 md:p-10 lg:p-12 flex-1 flex flex-col bg-white text-black">
+            {/* Elite Badges */}
+            <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
+              <div className="bg-[#00FF00] text-black text-[7px] md:text-[9px] font-black uppercase tracking-widest px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-sm border border-[#00FF00]/20">
+                <CheckCircle2 className="w-3 h-3 md:w-3.5 md:h-3.5" strokeWidth={4} /> Verified
+              </div>
+              {car.services?.finance && (
+                <div className="bg-[#B31B1B] text-white text-[7px] md:text-[9px] font-black uppercase tracking-widest px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-sm">
+                  <Banknote className="w-3 h-3 md:w-3.5 md:h-3.5" /> Finance
+                </div>
+              )}
+              {car.services?.exchange && (
+                <div className="bg-black/5 text-black text-[7px] md:text-[9px] font-black uppercase tracking-widest px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-sm border border-black/10">
+                  <ArrowRight className="w-3 h-3 md:w-3.5 md:h-3.5" /> Exchange
+                </div>
+              )}
+            </div>
+
             <div className="mb-4 md:mb-8">
               <h3 className="text-[12px] md:text-3xl font-heading font-black uppercase tracking-tighter text-black leading-tight group-hover:text-[#B31B1B] transition-colors duration-500">
                 {car.specs.year} {car.name}
