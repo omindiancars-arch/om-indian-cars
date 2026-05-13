@@ -31,7 +31,10 @@ function InventoryContent() {
   useEffect(() => {
     const make = searchParams.get("make");
     const year = searchParams.get("year");
-    if (make || year) {
+    const search = searchParams.get("search");
+    
+    if (make || year || search) {
+      if (search) setSearchTerm(search);
       setFilters(prev => ({
         ...prev,
         brands: make ? [make] : prev.brands,

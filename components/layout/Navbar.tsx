@@ -5,16 +5,19 @@ import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, Heart, User } from "lucide-react";
 import { cn } from "@/utils/cn";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 
 
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const { user, isAuthenticated, logout } = useAuth();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -132,7 +135,47 @@ export default function Navbar() {
             "hidden md:flex items-center gap-5",
             isScrolled ? "text-white/40" : "text-black/40"
           )}>
-            <Search size={20} className="cursor-pointer hover:text-[#B31B1B] transition-colors" />
+            <div className="relative flex items-center">
+              <AnimatePresence>
+                {showSearch && (
+                  <motion.div
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: 220, opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    className="absolute right-full mr-4 overflow-hidden"
+                  >
+                    <input
+                      type="text"
+                      placeholder="SEARCH CARS..."
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && searchValue.trim()) {
+                          router.push(`/cars?search=${encodeURIComponent(searchValue.trim())}`);
+                          setShowSearch(false);
+                          setSearchValue("");
+                        }
+                      }}
+                      className={cn(
+                        "w-full px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest outline-none border transition-all",
+                        isScrolled 
+                          ? "bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:bg-white/20" 
+                          : "bg-black/5 border-black/10 text-black placeholder:text-black/40 focus:bg-white"
+                      )}
+                      autoFocus
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <Search 
+                size={20} 
+                className={cn(
+                  "cursor-pointer transition-colors",
+                  showSearch ? "text-[#B31B1B]" : "hover:text-[#B31B1B]"
+                )}
+                onClick={() => setShowSearch(!showSearch)}
+              />
+            </div>
             <Heart size={20} className="cursor-pointer hover:text-[#B31B1B] transition-colors" />
             {isAuthenticated ? (
               <div 
