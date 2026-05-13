@@ -143,7 +143,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             <div className="mt-auto flex items-end justify-between">
               <div>
                 <p className="text-sm md:text-4xl font-heading font-black text-[#B31B1B] tracking-tighter whitespace-nowrap flex items-center gap-2">
-                  ₹ {car.price}
+                  ₹ {car.price.replace(/[₹]/g, "").trim()}
                 </p>
               </div>
               <div className="w-8 h-8 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center text-black/20 group-hover:bg-[#B31B1B] group-hover:text-white transition-all duration-500">
