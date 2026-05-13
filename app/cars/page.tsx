@@ -104,7 +104,7 @@ function InventoryContent() {
                 <input 
                   type="text" 
                   placeholder="SEARCH ASSETS..."
-                  className="w-full bg-gray-50 border border-black/5 py-6 pl-16 pr-8 text-[11px] font-black uppercase tracking-widest outline-none focus:border-[#B31B1B] focus:bg-white transition-all rounded-2xl"
+                  className="w-full bg-gray-50 border border-black/5 py-6 pl-16 pr-8 text-[11px] font-black uppercase tracking-widest outline-none focus:border-[#B31B1B] focus:bg-white transition-all rounded-2xl text-black"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
