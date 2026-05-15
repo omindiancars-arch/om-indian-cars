@@ -66,15 +66,18 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                   src={images[currentImageIndex]} 
                   alt={car.name}
                   fill
-                  className="object-cover scale-[1.05] object-center"
+                  className="object-cover scale-[1.1] origin-top-left"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </motion.div>
             </AnimatePresence>
 
-            {/* Branding Overlay to replace watermark */}
-            <div className="absolute bottom-6 right-6 w-16 h-16 z-20 pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity">
-              <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain drop-shadow-2xl" />
+            {/* Professional Branding Badge to mask watermark */}
+            <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+              <div className="bg-white p-3 md:p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-black/5 flex items-center justify-center overflow-hidden">
+                <img src="/omindlogo.png" alt="OM Logo" className="w-16 h-16 md:w-24 md:h-24 object-contain" />
+              </div>
+              <div className="absolute inset-0 bg-white/20 blur-xl -z-10 rounded-full" />
             </div>
             
             <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
