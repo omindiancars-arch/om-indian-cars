@@ -104,7 +104,7 @@ export default function CarDetailPage() {
                   {activeMedia.type === 'video' ? (
                     <video src={activeMedia.url} controls className="w-full h-full object-contain bg-black" />
                   ) : (
-                    <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.2] origin-top-left" />
+                    <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.08] origin-top-left" />
                   )}
                 </motion.div>
               </AnimatePresence>
@@ -117,7 +117,7 @@ export default function CarDetailPage() {
                   onClick={() => setActiveMedia(media)}
                   className={`aspect-square rounded-2xl md:rounded-[2rem] overflow-hidden border-2 transition-all ${activeMedia.url === media.url ? 'border-[#B31B1B]' : 'border-transparent opacity-60 hover:opacity-100'}`}
                 >
-                  <img src={media.url} className="w-full h-full object-cover scale-[1.2] origin-top-left" />
+                  <img src={media.url} className="w-full h-full object-cover scale-[1.08] origin-top-left" />
                 </button>
               ))}
             </div>
