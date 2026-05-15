@@ -104,7 +104,12 @@ export default function CarDetailPage() {
                   {activeMedia.type === 'video' ? (
                     <video src={activeMedia.url} controls className="w-full h-full object-contain bg-black" />
                   ) : (
-                    <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.08] origin-top-left" />
+                    <div className="relative w-full h-full">
+                      <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.05] object-center" />
+                      <div className="absolute bottom-10 right-10 w-24 h-24 z-20 pointer-events-none drop-shadow-2xl">
+                        <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
+                      </div>
+                    </div>
                   )}
                 </motion.div>
               </AnimatePresence>
@@ -117,7 +122,12 @@ export default function CarDetailPage() {
                   onClick={() => setActiveMedia(media)}
                   className={`aspect-square rounded-2xl md:rounded-[2rem] overflow-hidden border-2 transition-all ${activeMedia.url === media.url ? 'border-[#B31B1B]' : 'border-transparent opacity-60 hover:opacity-100'}`}
                 >
-                  <img src={media.url} className="w-full h-full object-cover scale-[1.08] origin-top-left" />
+                  <div className="relative w-full h-full">
+                    <img src={media.url} className="w-full h-full object-cover scale-[1.05] object-center" />
+                    <div className="absolute bottom-2 right-2 w-6 h-6 z-10 pointer-events-none opacity-60">
+                      <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
+                    </div>
+                  </div>
                 </button>
               ))}
             </div>
