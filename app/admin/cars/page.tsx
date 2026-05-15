@@ -382,8 +382,10 @@ export default function AdminCars() {
                   <div className="flex items-center gap-6">
                     <div className="w-24 h-16 bg-black/40 border border-white/20 overflow-hidden rounded-xl shadow-lg relative">
                       <img src={car.image} alt={car.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.1] transition-all duration-500 origin-top-left" />
-                      <div className="absolute bottom-1 right-1 w-5 h-5 z-10 pointer-events-none drop-shadow-md">
-                        <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
+                      <div className="absolute bottom-1 right-1 z-10 pointer-events-none">
+                        <div className="bg-white px-1.5 py-0.5 rounded-full shadow-md border border-black/5 flex items-center justify-center min-w-[30px]">
+                          <img src="/omindlogo.png" alt="OM Logo" className="h-2 w-auto object-contain" />
+                        </div>
                       </div>
                     </div>
                     <div className="flex flex-col">
