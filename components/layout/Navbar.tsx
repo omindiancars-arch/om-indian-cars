@@ -41,7 +41,7 @@ export default function Navbar() {
         </div>
         <div className="w-full">
           <img 
-            src="/WhatsApp Image 2026-01-03 at 7.12.45 PM.jpeg" 
+            src="/banner-stripe.png" 
             alt="OM Indian Cars Brand" 
             className="w-full h-auto object-cover md:object-contain max-h-[120px] md:max-h-[90px] transition-all duration-700"
           />
