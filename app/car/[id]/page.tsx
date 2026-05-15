@@ -105,12 +105,9 @@ export default function CarDetailPage() {
                     <video src={activeMedia.url} controls className="w-full h-full object-contain bg-black" />
                   ) : (
                     <div className="relative w-full h-full">
-                      <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.1] origin-top-left" />
-                      <div className="absolute bottom-6 right-6 md:bottom-12 md:right-12 z-20 pointer-events-none">
-                        <div className="bg-white p-4 md:p-6 rounded-[2rem] shadow-[0_30px_80px_rgba(0,0,0,0.4)] border border-black/5 flex items-center justify-center overflow-hidden">
-                          <img src="/omindlogo.png" alt="OM Logo" className="w-20 h-20 md:w-32 md:h-32 object-contain" />
-                        </div>
-                        <div className="absolute inset-0 bg-white/30 blur-2xl -z-10 rounded-full" />
+                      <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.05] origin-top-left" />
+                      <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-20 pointer-events-none drop-shadow-2xl">
+                        <img src="/omindlogo.png" alt="OM Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
                       </div>
                     </div>
                   )}
@@ -126,11 +123,9 @@ export default function CarDetailPage() {
                   className={`aspect-square rounded-2xl md:rounded-[2rem] overflow-hidden border-2 transition-all ${activeMedia.url === media.url ? 'border-[#B31B1B]' : 'border-transparent opacity-60 hover:opacity-100'}`}
                 >
                   <div className="relative w-full h-full">
-                    <img src={media.url} className="w-full h-full object-cover scale-[1.1] origin-top-left" />
-                    <div className="absolute bottom-1 right-1 w-8 h-8 z-10 pointer-events-none">
-                      <div className="bg-white p-1 rounded-md shadow-lg border border-black/5 flex items-center justify-center">
-                        <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
-                      </div>
+                    <img src={media.url} className="w-full h-full object-cover scale-[1.05] origin-top-left" />
+                    <div className="absolute bottom-1 right-1 w-5 h-5 z-10 pointer-events-none drop-shadow-lg">
+                      <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
                     </div>
                   </div>
                 </button>
