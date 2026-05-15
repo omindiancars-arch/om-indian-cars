@@ -31,7 +31,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-[#B31B1B] overflow-hidden shadow-sm relative">
+      <div className="w-full bg-white overflow-hidden shadow-sm relative border-b border-black/5">
         <div className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-10">
           <img 
             src="/omindlogo.png" 
@@ -39,11 +39,11 @@ export default function Navbar() {
             className="h-10 md:h-16 w-auto object-contain" 
           />
         </div>
-        <div className="w-full">
+        <div className="w-full flex justify-center">
           <img 
-            src="/8015b239-6a58-4c16-8994-6a6a84914c1d.png" 
+            src="/banner-stripe.png" 
             alt="OM Indian Cars Brand" 
-            className="w-full h-auto object-cover md:object-contain max-h-[120px] md:max-h-[90px] transition-all duration-700"
+            className="w-full h-auto object-contain max-h-[180px] md:max-h-[140px] transition-all duration-700"
           />
         </div>
       </div>
