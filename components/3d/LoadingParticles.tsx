@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function LoadingParticles() {
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#B31B1B] backdrop-blur-md">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#CE1126] backdrop-blur-md">
       <div className="relative w-64 h-32 flex items-center justify-center">
         {/* Car Silhouette SVG */}
         <motion.svg

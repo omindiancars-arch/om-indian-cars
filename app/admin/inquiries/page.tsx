@@ -69,7 +69,7 @@ export default function AdminInquiries() {
               </div>
 
               <div className="w-full md:w-auto">
-                <button className="w-full md:w-auto bg-white text-[#B31B1B] px-8 py-4 text-[10px] uppercase tracking-widest font-black rounded-xl hover:scale-105 transition-all shadow-xl">
+                <button className="w-full md:w-auto bg-white text-[#CE1126] px-8 py-4 text-[10px] uppercase tracking-widest font-black rounded-xl hover:scale-105 transition-all shadow-xl">
                   MARK AS PROCESSED
                 </button>
               </div>
