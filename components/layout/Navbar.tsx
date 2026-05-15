@@ -31,7 +31,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-white overflow-hidden shadow-sm">
+      <div className="w-full bg-[#B31B1B] overflow-hidden shadow-sm">
         <div className="w-full">
           <img 
             src="/WhatsApp Image 2026-01-03 at 7.12.45 PM.jpeg" 
@@ -72,7 +72,7 @@ export default function Navbar() {
         "w-full px-6 md:px-10 py-3 md:py-5 flex items-center justify-between transition-all duration-500 backdrop-blur-2xl border-b",
         isScrolled 
           ? "bg-black/80 border-white/5 py-3 shadow-2xl" 
-          : "bg-white border-transparent shadow-sm"
+          : "bg-[#B31B1B] border-transparent shadow-sm"
       )}>
         {/* Logo */}
         <Link href="/" className="flex items-center group">
@@ -88,10 +88,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className={cn(
-          "hidden lg:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] ml-20 mr-auto",
-          isScrolled ? "text-white/80" : "text-black/80"
-        )}>
+        <nav className="hidden lg:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] ml-20 mr-auto text-white/80">
           {[
             { name: "Buy", href: "/cars" },
             { name: "Sell", href: "/sell" },
@@ -132,10 +129,7 @@ export default function Navbar() {
             >+91 92466 20555</a>
           </div>
           
-          <div className={cn(
-            "hidden md:flex items-center gap-5",
-            isScrolled ? "text-white/40" : "text-black/40"
-          )}>
+          <div className="hidden md:flex items-center gap-5 text-white/40">
             <div className="relative flex items-center">
               <AnimatePresence>
                 {showSearch && (
@@ -200,18 +194,14 @@ export default function Navbar() {
               "hidden sm:flex px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shadow-xl active:scale-95",
               isScrolled 
                 ? "bg-white text-[#B31B1B] hover:bg-[#FFD700] hover:text-black" 
-                : "bg-[#B31B1B] text-white hover:bg-black"
+                : "bg-white text-[#B31B1B] hover:bg-black hover:text-white"
             )}
           >
             Explore cars
           </Link>
           
-          {/* Mobile Menu Toggle */}
           <button 
-            className={cn(
-              "lg:hidden p-2 hover:bg-black/5 rounded-xl transition-colors",
-              isScrolled ? "text-white" : "text-black"
-            )}
+            className="lg:hidden p-2 hover:bg-white/10 rounded-xl transition-colors text-white"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}
