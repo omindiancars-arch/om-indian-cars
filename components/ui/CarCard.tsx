@@ -142,7 +142,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             {/* Price & Action */}
             <div className="mt-auto flex items-end justify-between">
               <div>
-                <p className="text-sm md:text-4xl font-heading font-black text-[#B31B1B] tracking-tighter whitespace-nowrap flex items-center gap-2">
+                <p className="text-sm md:text-4xl font-sans font-bold text-[#B31B1B] tracking-tighter whitespace-nowrap flex items-center gap-2">
                   ₹ {car.price.replace(/[₹]/g, "").trim()}
                 </p>
               </div>

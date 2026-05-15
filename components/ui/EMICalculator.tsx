@@ -80,7 +80,7 @@ export default function EMICalculator({ price }: { price: string }) {
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-[60px] -mr-16 -mt-16" />
           
           <p className="text-white/40 text-[10px] uppercase tracking-[0.4em] font-bold mb-4 relative z-10">Estimated Monthly Installment</p>
-          <h4 className="text-4xl md:text-5xl font-heading font-black text-white mb-2 relative z-10 leading-none">
+          <h4 className="text-4xl md:text-5xl font-sans font-bold text-white mb-2 relative z-10 leading-none">
             {emi}
           </h4>
           <p className="text-white/20 text-[8px] uppercase tracking-widest relative z-10">*Subject to bank approval and credit score</p>
@@ -88,11 +88,11 @@ export default function EMICalculator({ price }: { price: string }) {
           <div className="mt-10 pt-8 border-t border-white/10 w-full grid grid-cols-2 gap-4 relative z-10">
             <div>
               <p className="text-white/40 text-[8px] uppercase tracking-widest font-bold mb-1">Loan Amount</p>
-              <p className="text-white text-xs font-black">₹{loanAmount.toLocaleString('en-IN')}</p>
+              <p className="text-white text-xs font-bold">₹{loanAmount.toLocaleString('en-IN')}</p>
             </div>
             <div>
               <p className="text-white/40 text-[8px] uppercase tracking-widest font-bold mb-1">Down Payment</p>
-              <p className="text-white text-xs font-black">₹{(principalAmount * (downPayment / 100)).toLocaleString('en-IN')}</p>
+              <p className="text-white text-xs font-bold">₹{(principalAmount * (downPayment / 100)).toLocaleString('en-IN')}</p>
             </div>
           </div>
         </div>

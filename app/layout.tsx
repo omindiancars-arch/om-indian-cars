@@ -4,6 +4,7 @@ import "./globals.css";
 import { CarProvider } from "../context/CarContext";
 import { SiteProvider } from "../context/SiteContext";
 import { AuthProvider } from "../context/AuthContext";
+import { BlogProvider } from "../context/BlogContext";
 import React from "react";
 
 const inter = Inter({
@@ -50,8 +51,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-foreground font-sans overflow-x-hidden">
         <AuthProvider>
           <CarProvider>
-            <SiteProvider>
-              {children}
+            <BlogProvider>
+              <SiteProvider>
+                {children}
               
               {/* Floating WhatsApp Button */}
               <a 
@@ -69,8 +71,9 @@ export default function RootLayout({
                 </div>
               </a>
             </SiteProvider>
-          </CarProvider>
-        </AuthProvider>
+          </BlogProvider>
+        </CarProvider>
+      </AuthProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Car, MessageSquare, LogOut, Home, Settings } from "lucide-react";
+import { LayoutDashboard, Car, MessageSquare, LogOut, Home, Settings, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { useAuth } from "@/context/AuthContext";
@@ -35,6 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const navItems = [
     { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
     { name: "Cars", href: "/admin/cars", icon: Car },
+    { name: "Blogs", href: "/admin/blogs", icon: BookOpen },
     { name: "Inquiries", href: "/admin/inquiries", icon: MessageSquare },
     { name: "Site Settings", href: "/admin/settings", icon: Settings },
   ];

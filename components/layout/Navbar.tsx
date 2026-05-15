@@ -95,6 +95,7 @@ export default function Navbar() {
           {[
             { name: "Buy", href: "/cars" },
             { name: "Sell", href: "/sell" },
+            { name: "Blog", href: "/blog" },
             { name: "About Us", href: "/about" },
             { name: "Contact Us", href: "/contact", highlight: true },
           ].map((item) => (
@@ -231,6 +232,7 @@ export default function Navbar() {
               {[
                 { name: "Buy", href: "/cars" },
                 { name: "Sell", href: "/sell" },
+                { name: "Blog", href: "/blog" },
                 { name: "Our Legacy", href: "/about" },
                 { name: "Get in Touch", href: "/contact" },
               ].map((item) => (

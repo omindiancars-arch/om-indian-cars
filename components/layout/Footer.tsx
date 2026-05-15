@@ -43,8 +43,8 @@ export default function Footer() {
           <div className="flex flex-col gap-10">
             <h4 className="text-xs font-black uppercase tracking-[0.4em] text-[#B31B1B]">Quick Links</h4>
             <div className="flex flex-col gap-5">
-              {["Buy a Car", "Sell Your Car", "About Us"].map((link) => (
-                <Link key={link} href={link === "Buy a Car" ? "/cars" : link === "Sell Your Car" ? "/sell" : "/about"} className="text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors">
+              {["Buy a Car", "Sell Your Car", "Blog", "About Us"].map((link) => (
+                <Link key={link} href={link === "Buy a Car" ? "/cars" : link === "Sell Your Car" ? "/sell" : link === "Blog" ? "/blog" : "/about"} className="text-[11px] font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors">
                   {link}
                 </Link>
               ))}

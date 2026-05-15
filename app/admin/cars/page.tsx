@@ -390,7 +390,7 @@ export default function AdminCars() {
                   </div>
                 </td>
                 <td className="px-8 py-10">
-                  <span className="text-white font-black tracking-widest text-sm drop-shadow-sm">₹ {car.price.replace(/[₹]/g, "").trim()}</span>
+                  <span className="text-white font-bold tracking-widest text-sm drop-shadow-sm">₹ {car.price.replace(/[₹]/g, "").trim()}</span>
                 </td>
                 <td className="px-8 py-10">
                   <div className="flex gap-3">

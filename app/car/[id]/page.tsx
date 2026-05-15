@@ -82,7 +82,7 @@ export default function CarDetailPage() {
             </div>
           </div>
           <div className="flex flex-col md:items-end">
-            <p className="text-4xl md:text-6xl font-heading font-black text-[#B31B1B] tracking-tighter mb-2 whitespace-nowrap flex items-center gap-4">
+            <p className="text-4xl md:text-6xl font-sans font-bold text-[#B31B1B] tracking-tighter mb-2 whitespace-nowrap flex items-center gap-4">
               ₹ {car.price.replace(/[₹]/g, "").trim()}
             </p>
             <p className="text-[10px] font-black uppercase tracking-widest text-black/30">Car Price</p>
