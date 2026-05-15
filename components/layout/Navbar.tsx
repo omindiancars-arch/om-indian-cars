@@ -31,7 +31,14 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-[#B31B1B] overflow-hidden shadow-sm">
+      <div className="w-full bg-[#B31B1B] overflow-hidden shadow-sm relative">
+        <div className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-10">
+          <img 
+            src="/omindlogo.png" 
+            alt="OM Logo" 
+            className="h-10 md:h-16 w-auto object-contain" 
+          />
+        </div>
         <div className="w-full">
           <img 
             src="/WhatsApp Image 2026-01-03 at 7.12.45 PM.jpeg" 
