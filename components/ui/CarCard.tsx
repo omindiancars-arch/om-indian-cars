@@ -66,7 +66,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                   src={images[currentImageIndex]} 
                   alt={car.name}
                   fill
-                  className="object-cover"
+                  className="object-cover scale-[1.2] origin-top-left"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </motion.div>

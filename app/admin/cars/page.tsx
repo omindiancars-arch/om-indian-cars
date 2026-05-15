@@ -381,7 +381,7 @@ export default function AdminCars() {
                 <td className="px-8 py-10">
                   <div className="flex items-center gap-6">
                     <div className="w-24 h-16 bg-black/40 border border-white/20 overflow-hidden rounded-xl shadow-lg">
-                      <img src={car.image} alt={car.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+                      <img src={car.image} alt={car.name} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-[1.3] transition-all duration-500 origin-top-left" />
                     </div>
                     <div className="flex flex-col">
                       <span className="font-black uppercase tracking-widest text-[12px] text-white group-hover:text-white transition-colors">{car.name}</span>
