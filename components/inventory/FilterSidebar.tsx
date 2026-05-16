@@ -35,10 +35,10 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
   return (
     <aside className="w-full lg:w-64 flex flex-col gap-8">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-heading font-black uppercase tracking-tighter text-[#A10B1C]">Filter Assets</h2>
+        <h2 className="text-xl font-heading font-black uppercase tracking-tighter text-[#CE1126]">Filter Assets</h2>
         <button 
           onClick={clearFilters}
-          className="flex items-center gap-2 text-[9px] uppercase tracking-widest font-black text-black/40 hover:text-[#A10B1C] transition-colors"
+          className="flex items-center gap-2 text-[9px] uppercase tracking-widest font-black text-black/40 hover:text-[#CE1126] transition-colors"
         >
           <RotateCcw size={12} /> Clear All
         </button>
@@ -69,13 +69,13 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
                 />
                 <div className={cn(
                   "w-5 h-5 rounded-full border-2 transition-all flex items-center justify-center",
-                  filters.priceRange?.label === range.label ? "border-[#A10B1C]" : "border-black/10 group-hover:border-black/20"
+                  filters.priceRange?.label === range.label ? "border-[#CE1126]" : "border-black/10 group-hover:border-black/20"
                 )}>
-                  {filters.priceRange?.label === range.label && <div className="w-2 h-2 rounded-full bg-[#A10B1C]" />}
+                  {filters.priceRange?.label === range.label && <div className="w-2 h-2 rounded-full bg-[#CE1126]" />}
                 </div>
                 <span className={cn(
                   "text-[10px] uppercase tracking-widest font-black transition-colors",
-                  filters.priceRange?.label === range.label ? "text-[#A10B1C]" : "text-black/60 group-hover:text-black"
+                  filters.priceRange?.label === range.label ? "text-[#CE1126]" : "text-black/60 group-hover:text-black"
                 )}>{range.label}</span>
               </label>
             ))}
@@ -101,13 +101,13 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
                   />
                   <div className={cn(
                     "w-5 h-5 rounded border-2 transition-all flex items-center justify-center",
-                    filters.brands?.includes(brand) ? "border-[#A10B1C] bg-[#A10B1C]" : "border-black/10 group-hover:border-black/20"
+                    filters.brands?.includes(brand) ? "border-[#CE1126] bg-[#CE1126]" : "border-black/10 group-hover:border-black/20"
                   )}>
                     {filters.brands?.includes(brand) && <X size={12} className="text-white" />}
                   </div>
                   <span className={cn(
                     "text-[10px] uppercase tracking-widest font-black transition-colors",
-                    filters.brands?.includes(brand) ? "text-[#A10B1C]" : "text-black/60 group-hover:text-black"
+                    filters.brands?.includes(brand) ? "text-[#CE1126]" : "text-black/60 group-hover:text-black"
                   )}>{brand}</span>
                 </div>
               </label>
@@ -130,7 +130,7 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
                 className={cn(
                   "py-3 px-4 rounded-xl border text-[9px] uppercase font-black tracking-widest transition-all",
                   filters.years?.includes(year) 
-                    ? "bg-[#A10B1C] border-[#A10B1C] text-white shadow-lg" 
+                    ? "bg-[#CE1126] border-[#CE1126] text-white shadow-lg" 
                     : "bg-black/[0.02] border-black/[0.05] text-black/40 hover:bg-black/[0.04]"
                 )}
               >
@@ -155,7 +155,7 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
                 className={cn(
                   "py-2 px-5 rounded-full border text-[8px] uppercase font-black tracking-[0.2em] transition-all",
                   filters.fuels?.includes(fuel) 
-                    ? "bg-[#A10B1C] border-[#A10B1C] text-white shadow-lg" 
+                    ? "bg-[#CE1126] border-[#CE1126] text-white shadow-lg" 
                     : "bg-black/[0.02] border-black/[0.05] text-black/40 hover:bg-black/[0.04]"
                 )}
               >
@@ -180,7 +180,7 @@ export default function FilterSidebar({ filters, setFilters, clearFilters, avail
                 className={cn(
                   "py-3 px-4 rounded-xl border text-[9px] uppercase font-black tracking-widest transition-all",
                   filters.transmissions?.includes(t) 
-                    ? "bg-[#A10B1C] border-[#A10B1C] text-white shadow-lg" 
+                    ? "bg-[#CE1126] border-[#CE1126] text-white shadow-lg" 
                     : "bg-black/[0.02] border-black/[0.05] text-black/40 hover:bg-black/[0.04]"
                 )}
               >
@@ -204,12 +204,12 @@ function FilterGroup({ title, children, isExpanded, onToggle, activeCount }: any
         <div className="flex items-center gap-3">
           <span className={cn(
             "text-[10px] uppercase tracking-[0.3em] font-black transition-colors",
-            isExpanded ? "text-[#A10B1C]" : "text-black/60 group-hover:text-black"
+            isExpanded ? "text-[#CE1126]" : "text-black/60 group-hover:text-black"
           )}>
             {title}
           </span>
           {activeCount > 0 && (
-            <span className="w-5 h-5 rounded-full bg-[#A10B1C] text-white text-[9px] flex items-center justify-center font-bold">
+            <span className="w-5 h-5 rounded-full bg-[#CE1126] text-white text-[9px] flex items-center justify-center font-bold">
               {activeCount}
             </span>
           )}

@@ -47,7 +47,7 @@ export default function EliteSearch() {
 
   const Dropdown = ({ label, value, options, onSelect, type }: any) => (
     <div className="flex-1 w-full relative group">
-      <label className="absolute -top-3 left-6 px-3 bg-white text-[9px] font-black uppercase tracking-[0.2em] text-[#A10B1C] z-10 border border-black/5 rounded-full">
+      <label className="absolute -top-3 left-6 px-3 bg-white text-[9px] font-black uppercase tracking-[0.2em] text-[#CE1126] z-10 border border-black/5 rounded-full">
         {label}
       </label>
       <div 
@@ -57,7 +57,7 @@ export default function EliteSearch() {
         <span className={value ? "text-black" : "text-black/60"}>
           {value || `Any ${label}`}
         </span>
-        <ChevronDown size={18} className={`text-[#A10B1C] transition-transform duration-300 ${activeDropdown === type ? "rotate-180" : ""}`} />
+        <ChevronDown size={18} className={`text-[#CE1126] transition-transform duration-300 ${activeDropdown === type ? "rotate-180" : ""}`} />
       </div>
 
       <AnimatePresence>
@@ -70,7 +70,7 @@ export default function EliteSearch() {
           >
             <div 
               onClick={() => { onSelect(""); setActiveDropdown(null); }}
-              className="p-4 hover:bg-[#A10B1C]/5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors cursor-pointer"
+              className="p-4 hover:bg-[#CE1126]/5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors cursor-pointer"
             >
               Any {label}
             </div>
@@ -78,7 +78,7 @@ export default function EliteSearch() {
               <div 
                 key={opt}
                 onClick={() => { onSelect(opt); setActiveDropdown(null); }}
-                className={`p-4 hover:bg-[#A10B1C]/5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors cursor-pointer ${value === opt ? 'bg-[#A10B1C]/5 text-[#A10B1C]' : 'text-black/60'}`}
+                className={`p-4 hover:bg-[#CE1126]/5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors cursor-pointer ${value === opt ? 'bg-[#CE1126]/5 text-[#CE1126]' : 'text-black/60'}`}
               >
                 {opt}
               </div>
@@ -112,7 +112,7 @@ export default function EliteSearch() {
         {/* Search Button */}
         <button 
           onClick={handleSearch}
-          className="w-full md:w-24 h-16 md:h-20 rounded-2xl md:rounded-full bg-[#A10B1C] text-white flex items-center justify-center shadow-xl hover:bg-black hover:scale-105 active:scale-95 transition-all shrink-0"
+          className="w-full md:w-24 h-16 md:h-20 rounded-2xl md:rounded-full bg-[#CE1126] text-white flex items-center justify-center shadow-xl hover:bg-black hover:scale-105 active:scale-95 transition-all shrink-0"
         >
           <Search size={28} strokeWidth={3} />
         </button>

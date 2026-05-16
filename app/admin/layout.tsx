@@ -26,7 +26,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-[#A10B1C] flex items-center justify-center">
+      <div className="min-h-screen bg-[#CE1126] flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
       </div>
     );
@@ -41,9 +41,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#A10B1C] text-white">
+    <div className="flex min-h-screen bg-[#CE1126] text-white">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/10 flex flex-col bg-[#A10B1C]">
+      <aside className="w-64 border-r border-white/10 flex flex-col bg-[#CE1126]">
         <div className="p-8">
           <Link href="/" className="flex items-center gap-3 group">
             <img
@@ -68,14 +68,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 className={cn(
                   "flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-black relative group",
                   isActive
-                    ? "bg-white text-[#A10B1C] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+                    ? "bg-white text-[#CE1126] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                     : "text-white/60 hover:text-white hover:bg-white/10"
                 )}
               >
                 {isActive && (
                   <motion.div 
                     layoutId="activeNav" 
-                    className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-[#A10B1C] rounded-full" 
+                    className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-[#CE1126] rounded-full" 
                   />
                 )}
                 <item.icon size={18} strokeWidth={isActive ? 3 : 2} className={cn("transition-transform group-hover:scale-110", isActive && "scale-110")} />
@@ -105,7 +105,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col overflow-hidden">
-        <header className="h-24 border-b border-white/10 flex items-center justify-between px-10 bg-[#A10B1C]/80 backdrop-blur-xl z-40 sticky top-0">
+        <header className="h-24 border-b border-white/10 flex items-center justify-between px-10 bg-[#CE1126]/80 backdrop-blur-xl z-40 sticky top-0">
           <h1 className="font-heading text-2xl uppercase tracking-[0.4em] font-black text-white drop-shadow-sm">
             {navItems.find(item => item.href === pathname)?.name || "Admin"}
           </h1>
@@ -121,7 +121,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
             <button 
               onClick={logout}
-              className="w-12 h-12 rounded-2xl bg-white/10 hover:bg-[#A10B1C] text-white flex items-center justify-center transition-all group"
+              className="w-12 h-12 rounded-2xl bg-white/10 hover:bg-[#CE1126] text-white flex items-center justify-center transition-all group"
               title="Logout"
             >
               <LogOut size={20} className="group-hover:translate-x-1 transition-transform" />
