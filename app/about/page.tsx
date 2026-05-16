@@ -12,17 +12,17 @@ export default function AboutPage() {
 
       {/* HERO SECTION */}
       <section className="relative pt-[24rem] md:pt-[22rem] pb-24 px-6 md:px-12 max-w-[1800px] mx-auto overflow-hidden">
-        <div className="absolute top-0 right-0 w-[50%] h-full bg-[#CE1126]/5 -z-10 blur-[120px] rounded-full" />
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-[#A10B1C]/5 -z-10 blur-[120px] rounded-full" />
         
         <div className="flex flex-col md:flex-row gap-20 items-center">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-[2px] bg-[#CE1126]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#CE1126]">Our Legacy</span>
+              <div className="w-12 h-[2px] bg-[#A10B1C]" />
+              <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#A10B1C]">Our Legacy</span>
             </div>
             <h1 className="text-6xl md:text-8xl font-heading font-black uppercase tracking-tighter text-black leading-[0.85] mb-10">
               Cars with <br />
-              <span className="text-[#CE1126]">Trust</span>
+              <span className="text-[#A10B1C]">Trust</span>
             </h1>
             <p className="text-lg text-black/60 max-w-xl leading-relaxed mb-12">
               At OM Indian Cars, we bring you certified pre-owned vehicles with unbeatable value, trusted service, and smooth documentation. Serving customers across Vizag with honesty and reliability.
@@ -51,7 +51,7 @@ export default function AboutPage() {
               </div>
             </div>
             {/* Floating Badge */}
-            <div className="absolute -bottom-10 -left-10 bg-[#CE1126] text-white p-10 rounded-[3rem] shadow-2xl hidden md:block">
+            <div className="absolute -bottom-10 -left-10 bg-[#A10B1C] text-white p-10 rounded-[3rem] shadow-2xl hidden md:block">
               <Award size={40} className="mb-4" />
               <p className="text-xs font-black uppercase tracking-widest">Vizag's Most Trusted <br /> Dealership</p>
             </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
               }
             ].map((value, i) => (
               <div key={i} className="p-12 bg-white rounded-[3.5rem] shadow-xl hover:shadow-2xl transition-all group">
-                <div className="w-16 h-16 rounded-2xl bg-[#CE1126]/5 flex items-center justify-center text-[#CE1126] mb-8 group-hover:bg-[#CE1126] group-hover:text-white transition-all">
+                <div className="w-16 h-16 rounded-2xl bg-[#A10B1C]/5 flex items-center justify-center text-[#A10B1C] mb-8 group-hover:bg-[#A10B1C] group-hover:text-white transition-all">
                   <value.icon size={32} />
                 </div>
                 <h3 className="text-xl font-heading font-black uppercase tracking-tight text-black mb-4">{value.title}</h3>
@@ -110,7 +110,7 @@ export default function AboutPage() {
                   { step: "04", title: "The Delivery", desc: "A cinematic handover experience as you drive away in your new pride and joy." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-8">
-                    <span className="text-2xl font-heading font-black text-[#CE1126]/20">{item.step}</span>
+                    <span className="text-2xl font-heading font-black text-[#A10B1C]/20">{item.step}</span>
                     <div>
                       <h4 className="text-lg font-black uppercase tracking-widest text-black mb-2">{item.title}</h4>
                       <p className="text-sm text-black/50 leading-relaxed">{item.desc}</p>
@@ -122,8 +122,8 @@ export default function AboutPage() {
             
             <div className="flex-1 order-1 md:order-2">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-12 h-[2px] bg-[#CE1126]" />
-                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#CE1126]">How We Work</span>
+                <div className="w-12 h-[2px] bg-[#A10B1C]" />
+                <span className="text-[10px] font-black uppercase tracking-[0.6em] text-[#A10B1C]">How We Work</span>
               </div>
               <h2 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter text-black leading-none mb-10">
                 The Path to <br />
@@ -132,7 +132,7 @@ export default function AboutPage() {
               <p className="text-black/60 leading-relaxed mb-12">
                 We've streamlined the luxury car buying process to be as smooth as the vehicles we sell. From the first test drive to the final documentation, we handle everything.
               </p>
-              <button className="px-12 py-6 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-[#CE1126] transition-all flex items-center gap-4">
+              <button className="px-12 py-6 bg-black text-white rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-[#A10B1C] transition-all flex items-center gap-4">
                 Explore Collection <ArrowRight size={16} />
               </button>
             </div>
@@ -142,12 +142,12 @@ export default function AboutPage() {
 
       {/* CTA SECTION */}
       <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto bg-[#CE1126] rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <div className="max-w-7xl mx-auto bg-[#A10B1C] rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
           <h2 className="text-4xl md:text-7xl font-heading font-black uppercase tracking-tighter mb-8 relative z-10">Ready to find <br /> your next asset?</h2>
           <p className="text-white/60 text-sm uppercase tracking-[0.4em] font-black mb-12 relative z-10">Your dream car is waiting in our showroom</p>
           <div className="flex flex-col md:flex-row justify-center gap-6 relative z-10">
-            <button className="px-12 py-6 bg-white text-[#CE1126] rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-black hover:text-white transition-all shadow-xl">
+            <button className="px-12 py-6 bg-white text-[#A10B1C] rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-black hover:text-white transition-all shadow-xl">
               View Inventory
             </button>
             <button className="px-12 py-6 bg-black/20 border border-white/20 text-white rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-white hover:text-black transition-all">

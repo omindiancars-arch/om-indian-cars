@@ -47,7 +47,7 @@ function LoginContent() {
     <main className="min-h-screen bg-white flex items-center justify-center p-6 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#CE1126]/20 blur-[120px] rounded-full" />
+        <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#A10B1C]/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-black/5 blur-[120px] rounded-full" />
       </div>
 
@@ -112,7 +112,7 @@ function LoginContent() {
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                       placeholder="Enter your name"
-                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#CE1126] outline-none transition-colors text-black rounded-xl"
+                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#A10B1C] outline-none transition-colors text-black rounded-xl"
                     />
                   </div>
                 </motion.div>
@@ -129,7 +129,7 @@ function LoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="name@example.com"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#CE1126] outline-none transition-colors text-black rounded-xl"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#A10B1C] outline-none transition-colors text-black rounded-xl"
                 />
               </div>
             </div>
@@ -144,7 +144,7 @@ function LoginContent() {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   placeholder="••••••••"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#CE1126] outline-none transition-colors text-black rounded-xl"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#A10B1C] outline-none transition-colors text-black rounded-xl"
                 />
                 <button 
                   type="button"
@@ -159,7 +159,7 @@ function LoginContent() {
             <button 
               disabled={isLoading}
               type="submit"
-              className="w-full bg-[#CE1126] text-white py-6 rounded-xl font-heading font-black uppercase tracking-widest text-xs hover:bg-black transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50 shadow-xl"
+              className="w-full bg-[#A10B1C] text-white py-6 rounded-xl font-heading font-black uppercase tracking-widest text-xs hover:bg-black transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50 shadow-xl"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -188,7 +188,7 @@ function LoginContent() {
 export default function LoginPage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-[#CE1126]/20 border-t-[#CE1126] rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-[#A10B1C]/20 border-t-[#A10B1C] rounded-full animate-spin" />
     </div>}>
       <LoginContent />
     </Suspense>

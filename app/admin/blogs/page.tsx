@@ -102,7 +102,7 @@ export default function AdminBlogs() {
         </div>
         <button 
           onClick={() => setIsAdding(true)}
-          className="flex items-center gap-3 bg-white text-[#CE1126] px-10 py-5 rounded-2xl font-heading font-black uppercase tracking-[0.3em] text-[11px] hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+          className="flex items-center gap-3 bg-white text-[#A10B1C] px-10 py-5 rounded-2xl font-heading font-black uppercase tracking-[0.3em] text-[11px] hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]"
         >
           <Plus size={18} strokeWidth={4} /> Create Story
         </button>
@@ -143,7 +143,7 @@ export default function AdminBlogs() {
                   <div className="flex justify-end gap-4">
                     <button 
                       onClick={() => handleEdit(blog)}
-                      className="p-4 bg-white/5 hover:bg-white text-white hover:text-[#CE1126] rounded-xl transition-all shadow-lg"
+                      className="p-4 bg-white/5 hover:bg-white text-white hover:text-[#A10B1C] rounded-xl transition-all shadow-lg"
                     >
                       <Edit2 size={18} strokeWidth={3} />
                     </button>
@@ -181,13 +181,13 @@ export default function AdminBlogs() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl bg-white border border-[#CE1126]/10 p-12 rounded-[3rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
+              className="relative w-full max-w-5xl bg-white border border-[#A10B1C]/10 p-12 rounded-[3rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
             >
               <div className="flex justify-between items-center mb-10 shrink-0">
-                <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tighter font-black text-[#CE1126]">
+                <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tighter font-black text-[#A10B1C]">
                   {editingId ? "Refine Story" : "New Journal Entry"}
                 </h2>
-                <button onClick={handleReset} className="text-[#CE1126]/20 hover:text-[#CE1126] transition-colors">
+                <button onClick={handleReset} className="text-[#A10B1C]/20 hover:text-[#A10B1C] transition-colors">
                   <X size={40} />
                 </button>
               </div>
@@ -195,11 +195,11 @@ export default function AdminBlogs() {
               <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto pr-8 custom-scrollbar space-y-16">
                 {/* Media Section */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#CE1126] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#CE1126]/10 flex items-center justify-center text-[#CE1126]">01</span> Cover Media
-                    <div className="h-[1px] flex-1 bg-[#CE1126]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#A10B1C] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#A10B1C]/10 flex items-center justify-center text-[#A10B1C]">01</span> Cover Media
+                    <div className="h-[1px] flex-1 bg-[#A10B1C]/10" />
                   </h3>
-                  <div className="relative aspect-video max-w-2xl mx-auto bg-[#CE1126]/5 border-2 border-dashed border-[#CE1126]/10 rounded-3xl flex flex-col items-center justify-center group hover:bg-[#CE1126]/10 transition-all cursor-pointer overflow-hidden">
+                  <div className="relative aspect-video max-w-2xl mx-auto bg-[#A10B1C]/5 border-2 border-dashed border-[#A10B1C]/10 rounded-3xl flex flex-col items-center justify-center group hover:bg-[#A10B1C]/10 transition-all cursor-pointer overflow-hidden">
                     {formData.image ? (
                       <>
                         <img src={formData.image} className="absolute inset-0 w-full h-full object-cover" />
@@ -209,14 +209,14 @@ export default function AdminBlogs() {
                       </>
                     ) : (
                       <>
-                        <Upload className="text-[#CE1126]/20 mb-4" size={32} />
-                        <p className="text-[10px] text-[#CE1126]/20 font-black uppercase tracking-widest">Upload Cover Image</p>
+                        <Upload className="text-[#A10B1C]/20 mb-4" size={32} />
+                        <p className="text-[10px] text-[#A10B1C]/20 font-black uppercase tracking-widest">Upload Cover Image</p>
                       </>
                     )}
                     <input type="file" accept="image/*" onChange={handleImageUpload} className="absolute inset-0 opacity-0 cursor-pointer" />
                     {isUploading && (
                       <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex items-center justify-center">
-                        <Loader2 className="text-[#CE1126] animate-spin" size={32} />
+                        <Loader2 className="text-[#A10B1C] animate-spin" size={32} />
                       </div>
                     )}
                   </div>
@@ -224,39 +224,39 @@ export default function AdminBlogs() {
 
                 {/* Content Section */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#CE1126] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#CE1126]/10 flex items-center justify-center text-[#CE1126]">02</span> Story Content
-                    <div className="h-[1px] flex-1 bg-[#CE1126]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#A10B1C] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#A10B1C]/10 flex items-center justify-center text-[#A10B1C]">02</span> Story Content
+                    <div className="h-[1px] flex-1 bg-[#A10B1C]/10" />
                   </h3>
                   <div className="space-y-8">
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Title</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Title</label>
                       <input 
                         required
                         type="text" 
                         value={formData.title}
                         onChange={(e) => setFormData({...formData, title: e.target.value})}
                         placeholder="THE FUTURE OF LUXURY AUTOMOTIVE..."
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#CE1126] font-black focus:border-[#CE1126] outline-none transition-all"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#A10B1C] font-black focus:border-[#A10B1C] outline-none transition-all"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Excerpt (Brief Summary)</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Excerpt (Brief Summary)</label>
                       <textarea 
                         value={formData.excerpt}
                         onChange={(e) => setFormData({...formData, excerpt: e.target.value})}
                         rows={2}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#CE1126] outline-none transition-all"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#A10B1C] outline-none transition-all"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Full Article Body</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Full Article Body</label>
                       <textarea 
                         required
                         value={formData.content}
                         onChange={(e) => setFormData({...formData, content: e.target.value})}
                         rows={12}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#CE1126] outline-none transition-all"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#A10B1C] outline-none transition-all"
                       />
                     </div>
                   </div>
@@ -264,45 +264,45 @@ export default function AdminBlogs() {
 
                 {/* Metadata Section */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#CE1126] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#CE1126]/10 flex items-center justify-center text-[#CE1126]">03</span> Publication Meta
-                    <div className="h-[1px] flex-1 bg-[#CE1126]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#A10B1C] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#A10B1C]/10 flex items-center justify-center text-[#A10B1C]">03</span> Publication Meta
+                    <div className="h-[1px] flex-1 bg-[#A10B1C]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Author</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Author</label>
                       <input 
                         type="text" 
                         value={formData.author}
                         onChange={(e) => setFormData({...formData, author: e.target.value})}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#CE1126] font-black outline-none"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#A10B1C] font-black outline-none"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Category</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Category</label>
                       <input 
                         type="text" 
                         value={formData.category}
                         onChange={(e) => setFormData({...formData, category: e.target.value})}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#CE1126] font-black outline-none"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#A10B1C] font-black outline-none"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Date</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Date</label>
                       <input 
                         type="date" 
                         value={formData.date}
                         onChange={(e) => setFormData({...formData, date: e.target.value})}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#CE1126] font-black outline-none"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#A10B1C] font-black outline-none"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#CE1126] font-black">Read Time</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#A10B1C] font-black">Read Time</label>
                       <input 
                         type="text" 
                         value={formData.readTime}
                         onChange={(e) => setFormData({...formData, readTime: e.target.value})}
-                        className="w-full bg-[#CE1126]/5 border border-[#CE1126]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#CE1126] font-black outline-none"
+                        className="w-full bg-[#A10B1C]/5 border border-[#A10B1C]/10 p-4 rounded-xl text-[10px] uppercase tracking-widest text-[#A10B1C] font-black outline-none"
                       />
                     </div>
                   </div>
@@ -311,7 +311,7 @@ export default function AdminBlogs() {
                 <div className="flex gap-4 pt-8">
                   <button 
                     type="submit"
-                    className="flex-1 bg-[#CE1126] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
+                    className="flex-1 bg-[#A10B1C] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
                   >
                     {editingId ? "Save Changes" : "Publish Story"}
                   </button>

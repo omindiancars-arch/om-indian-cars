@@ -82,7 +82,7 @@ function InventoryContent() {
       <div className="pt-[24rem] md:pt-[22rem] pb-24 px-6 md:px-12 max-w-[1800px] mx-auto">
         <Link 
           href="/"
-          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#CE1126] hover:text-black transition-all mb-12 group w-fit"
+          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#A10B1C] hover:text-black transition-all mb-12 group w-fit"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Home
@@ -93,7 +93,7 @@ function InventoryContent() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-12">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-[2px] bg-[#CE1126]" />
+                <div className="w-10 h-[2px] bg-[#A10B1C]" />
                 <span className="text-[10px] font-black uppercase tracking-[0.6em] text-black/40">Elite Collection</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-heading font-black uppercase tracking-tighter text-black leading-none">
@@ -103,11 +103,11 @@ function InventoryContent() {
             
             <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
               <div className="relative w-full md:w-[400px] group">
-                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-[#CE1126] transition-colors" size={18} />
+                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-black/20 group-focus-within:text-[#A10B1C] transition-colors" size={18} />
                 <input 
                   type="text" 
                   placeholder="SEARCH ASSETS..."
-                  className="w-full bg-gray-50 border border-black/5 py-6 pl-16 pr-8 text-[11px] font-black uppercase tracking-widest outline-none focus:border-[#CE1126] focus:bg-white transition-all rounded-2xl text-black"
+                  className="w-full bg-gray-50 border border-black/5 py-6 pl-16 pr-8 text-[11px] font-black uppercase tracking-widest outline-none focus:border-[#A10B1C] focus:bg-white transition-all rounded-2xl text-black"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -168,7 +168,7 @@ function InventoryContent() {
                 </div>
                 <h3 className="text-2xl font-heading font-black uppercase tracking-tighter text-black mb-4">No Assets Found</h3>
                 <p className="text-[10px] font-black uppercase tracking-widest text-black/30 mb-10">Adjust your filters to explore our collection</p>
-                <button onClick={clearFilters} className="px-12 py-6 bg-[#CE1126] text-white rounded-2xl font-black uppercase tracking-widest text-[10px]">
+                <button onClick={clearFilters} className="px-12 py-6 bg-[#A10B1C] text-white rounded-2xl font-black uppercase tracking-widest text-[10px]">
                   Reset Collection
                 </button>
               </div>
@@ -220,7 +220,7 @@ export default function InventoryPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-[#CE1126] animate-pulse">Initializing Collection...</div>
+        <div className="text-[10px] font-black uppercase tracking-[0.5em] text-[#A10B1C] animate-pulse">Initializing Collection...</div>
       </div>
     }>
       <InventoryContent />

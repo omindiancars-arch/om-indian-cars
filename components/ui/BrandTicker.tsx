@@ -8,7 +8,7 @@ export default function BrandTicker() {
       <img 
         src="/banner-stripe.png" 
         alt="OM Indian Cars Strip" 
-        className="h-20 md:h-24 w-auto object-contain max-w-full"
+        className="h-20 md:h-24 w-auto object-contain max-w-full brightness-[0.78] saturate-[1.2] contrast-[1.1]"
       />
     </div>
   );

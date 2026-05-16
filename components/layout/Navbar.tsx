@@ -33,14 +33,14 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-[#CE1126] shadow-sm relative border-b border-white/10">
+      <div className="w-full bg-[#A10B1C] shadow-sm relative border-b border-white/10">
         <div className="max-w-7xl mx-auto flex items-center justify-center px-4 py-3">
           <BrandTicker />
         </div>
       </div>
 
       {/* SERVICE TICKER - Scrolling below the stripe */}
-      <div className="w-full bg-[#CE1126] py-2 overflow-hidden border-y border-white/10 shadow-lg">
+      <div className="w-full bg-[#A10B1C] py-2 overflow-hidden border-y border-white/10 shadow-lg">
         <motion.div 
           className="flex items-center gap-12 whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
@@ -70,7 +70,7 @@ export default function Navbar() {
         "w-full px-6 md:px-10 py-3 md:py-5 flex items-center justify-between transition-all duration-500 backdrop-blur-2xl border-b",
         isScrolled 
           ? "bg-black/80 border-white/5 py-3 shadow-2xl" 
-          : "bg-[#CE1126] border-transparent shadow-sm"
+          : "bg-[#A10B1C] border-transparent shadow-sm"
       )}>
         {/* Logo */}
         <Link href="/" className="flex items-center group">
@@ -101,8 +101,8 @@ export default function Navbar() {
               className={cn(
                 "transition-all relative group py-2 px-4 rounded-lg",
                 item.highlight 
-                  ? "text-white bg-[#CE1126] animate-[pulse_1.5s_infinite] font-black shadow-lg" 
-                  : "hover:text-[#CE1126]"
+                  ? "text-white bg-[#A10B1C] animate-[pulse_1.5s_infinite] font-black shadow-lg" 
+                  : "hover:text-[#A10B1C]"
               )}
             >
               {item.name}
@@ -115,7 +115,7 @@ export default function Navbar() {
           <div className="hidden xl:flex flex-col items-end mr-4">
             <span className={cn(
               "text-[9px] font-black uppercase tracking-widest",
-              isScrolled ? "text-[#FFD700]" : "text-[#CE1126]"
+              isScrolled ? "text-[#FFD700]" : "text-[#A10B1C]"
             )}>Contact Number</span>
             <a 
               href="tel:+919246620555" 
@@ -123,7 +123,7 @@ export default function Navbar() {
                 "text-[12px] font-black transition-colors tracking-tighter px-3 py-1 rounded-lg",
                 isScrolled 
                   ? "text-[#FFD700] bg-white/10 animate-pulse" 
-                  : "text-white bg-[#CE1126] animate-[pulse_1.5s_infinite] shadow-lg"
+                  : "text-white bg-[#A10B1C] animate-[pulse_1.5s_infinite] shadow-lg"
               )}
             >+91 92466 20555</a>
           </div>
@@ -165,24 +165,24 @@ export default function Navbar() {
                 size={20} 
                 className={cn(
                   "cursor-pointer transition-colors",
-                  showSearch ? "text-[#CE1126]" : "hover:text-[#CE1126]"
+                  showSearch ? "text-[#A10B1C]" : "hover:text-[#A10B1C]"
                 )}
                 onClick={() => setShowSearch(!showSearch)}
               />
             </div>
-            <Heart size={20} className="cursor-pointer hover:text-[#CE1126] transition-colors" />
+            <Heart size={20} className="cursor-pointer hover:text-[#A10B1C] transition-colors" />
             {isAuthenticated ? (
               <div 
                 onClick={() => logout()}
-                className="cursor-pointer hover:text-[#CE1126] transition-colors flex items-center gap-2"
+                className="cursor-pointer hover:text-[#A10B1C] transition-colors flex items-center gap-2"
               >
-                <div className="w-8 h-8 rounded-full bg-[#CE1126] text-white flex items-center justify-center text-[10px] font-black">
+                <div className="w-8 h-8 rounded-full bg-[#A10B1C] text-white flex items-center justify-center text-[10px] font-black">
                   {user?.name.charAt(0).toUpperCase()}
                 </div>
               </div>
             ) : (
               <Link href="/login">
-                <User size={20} className="cursor-pointer hover:text-[#CE1126] transition-colors" />
+                <User size={20} className="cursor-pointer hover:text-[#A10B1C] transition-colors" />
               </Link>
             )}
           </div>
@@ -192,8 +192,8 @@ export default function Navbar() {
             className={cn(
               "hidden sm:flex px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shadow-xl active:scale-95",
               isScrolled 
-                ? "bg-white text-[#CE1126] hover:bg-[#FFD700] hover:text-black" 
-                : "bg-white text-[#CE1126] hover:bg-black hover:text-white"
+                ? "bg-white text-[#A10B1C] hover:bg-[#FFD700] hover:text-black" 
+                : "bg-white text-[#A10B1C] hover:bg-black hover:text-white"
             )}
           >
             Explore cars
@@ -247,7 +247,7 @@ export default function Navbar() {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="text-xl font-black text-[#CE1126] text-left uppercase tracking-wider"
+                  className="text-xl font-black text-[#A10B1C] text-left uppercase tracking-wider"
                 >
                   Logout ({user?.name})
                 </button>
@@ -266,7 +266,7 @@ export default function Navbar() {
 
             <Link 
               href="/cars"
-              className="w-full py-6 bg-white text-[#CE1126] text-center rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-xl"
+              className="w-full py-6 bg-white text-[#A10B1C] text-center rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-xl"
               onClick={() => setIsOpen(false)}
             >
               Browse Cars

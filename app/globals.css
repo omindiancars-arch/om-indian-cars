@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #CE1126; /* Racing Red Background */
+  --color-background: #A10B1C; /* Racing Red Background */
   --color-foreground: #ffffff; /* White Lettering */
   
   --color-primary-saffron: #ffffff; /* Using White as primary on Red */
   --color-primary-white: #ffffff;
   --color-primary-green: #138808;
   
-  --color-surface: #d32f2f;
-  --color-surface-hover: #e53935;
+  --color-surface: #8B121F;
+  --color-surface-hover: #750E1A;
 
   --font-sans: var(--font-inter), sans-serif;
   --font-heading: var(--font-inter), sans-serif;
@@ -19,7 +19,7 @@
 }
 
 :root {
-  --background: #CE1126 !important;
+  --background: #A10B1C !important;
   --foreground: #ffffff !important;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #CE1126;
+  background: #A10B1C;
 }
 
 ::-webkit-scrollbar-thumb {

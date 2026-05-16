@@ -57,7 +57,7 @@ export default function CarDetailPage() {
       <div className="pt-64 md:pt-72 pb-12 px-6 max-w-7xl mx-auto w-full">
         <button 
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#CE1126] hover:text-black transition-all mb-12 group"
+          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#A10B1C] hover:text-black transition-all mb-12 group"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Collection
@@ -67,14 +67,14 @@ export default function CarDetailPage() {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-black/40">Home / Collection /</span>
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#CE1126]">{car.name}</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#A10B1C]">{car.name}</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-heading font-black uppercase tracking-tighter text-black leading-none mb-4">
               {car.specs.year} {car.name}
             </h1>
             <div className="flex items-center gap-6">
               <div className="flex items-center gap-2 text-black/40 uppercase tracking-widest text-[10px] font-black">
-                <MapPin size={14} className="text-[#CE1126]" /> {car.specs.location || "Visakhapatnam"}
+                <MapPin size={14} className="text-[#A10B1C]" /> {car.specs.location || "Visakhapatnam"}
               </div>
               <div className="flex items-center gap-2 text-[#00AA00] uppercase tracking-widest text-[10px] font-black">
                 <CheckCircle2 size={14} /> Verified Listing
@@ -82,7 +82,7 @@ export default function CarDetailPage() {
             </div>
           </div>
           <div className="flex flex-col md:items-end">
-            <p className="text-4xl md:text-6xl font-sans font-bold text-[#CE1126] tracking-tighter mb-2 whitespace-nowrap flex items-center gap-4">
+            <p className="text-4xl md:text-6xl font-sans font-bold text-[#A10B1C] tracking-tighter mb-2 whitespace-nowrap flex items-center gap-4">
               ₹ {car.price.replace(/[₹]/g, "").trim()}
             </p>
             <p className="text-[10px] font-black uppercase tracking-widest text-black/30">Car Price</p>
@@ -106,7 +106,7 @@ export default function CarDetailPage() {
                   ) : (
                     <div className="relative w-full h-full">
                       <img src={activeMedia.url} alt={car.name} className="w-full h-full object-cover scale-[1.12] origin-top-left" />
-                      <div className="absolute bottom-2 right-2 md:bottom-4 md:right-4 z-20 pointer-events-none drop-shadow-[0_0_15px_rgba(255,255,255,1)]">
+                      <div className="absolute bottom-4 right-4 z-20 pointer-events-none opacity-50">
                         <img src="/omindlogo.png" alt="OM Logo" className="w-12 h-12 md:w-16 md:h-16 object-contain" />
                       </div>
                     </div>
@@ -120,11 +120,11 @@ export default function CarDetailPage() {
                 <button 
                   key={idx}
                   onClick={() => setActiveMedia(media)}
-                  className={`aspect-square rounded-2xl md:rounded-[2rem] overflow-hidden border-2 transition-all ${activeMedia.url === media.url ? 'border-[#CE1126]' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                  className={`aspect-square rounded-2xl md:rounded-[2rem] overflow-hidden border-2 transition-all ${activeMedia.url === media.url ? 'border-[#A10B1C]' : 'border-transparent opacity-60 hover:opacity-100'}`}
                 >
                   <div className="relative w-full h-full">
                     <img src={media.url} className="w-full h-full object-cover scale-[1.12] origin-top-left" />
-                    <div className="absolute bottom-0.5 right-0.5 w-4 h-4 z-10 pointer-events-none drop-shadow-[0_0_5px_rgba(255,255,255,1)]">
+                    <div className="absolute bottom-1 right-1 w-4 h-4 z-10 pointer-events-none opacity-40">
                       <img src="/omindlogo.png" alt="OM Logo" className="w-full h-full object-contain" />
                     </div>
                   </div>
@@ -153,15 +153,15 @@ export default function CarDetailPage() {
               </div>
               <button 
                 onClick={() => setShowInquiryModal(true)}
-                className="w-full py-6 bg-[#CE1126] text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
+                className="w-full py-6 bg-[#A10B1C] text-white rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
               >
                 Inquire for Best Price
               </button>
               <div className="mt-6 flex items-center justify-center gap-8">
-                <button className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-black/40 hover:text-[#CE1126]">
+                <button className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-black/40 hover:text-[#A10B1C]">
                   <Heart size={14} /> Add to Fav
                 </button>
-                <button className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-black/40 hover:text-[#CE1126]">
+                <button className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-black/40 hover:text-[#A10B1C]">
                   <Share2 size={14} /> Share Asset
                 </button>
               </div>
@@ -179,8 +179,8 @@ export default function CarDetailPage() {
             { icon: ShieldCheck, label: "Owner", val: car.specs.owner },
             { icon: MapPin, label: "RTO", val: car.specs.registrationPlace || "AP31" }
           ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center p-8 bg-gray-50 border border-black/5 rounded-[2.5rem] group hover:bg-[#CE1126] transition-all duration-500">
-              <item.icon size={20} className="text-[#CE1126] mb-4 group-hover:text-white transition-colors" />
+            <div key={i} className="flex flex-col items-center p-8 bg-gray-50 border border-black/5 rounded-[2.5rem] group hover:bg-[#A10B1C] transition-all duration-500">
+              <item.icon size={20} className="text-[#A10B1C] mb-4 group-hover:text-white transition-colors" />
               <span className="text-[8px] font-black uppercase tracking-[0.2em] text-black/30 group-hover:text-white/60 mb-1">{item.label}</span>
               <span className="text-[11px] font-black uppercase tracking-widest text-black group-hover:text-white">{item.val}</span>
             </div>
@@ -235,7 +235,7 @@ export default function CarDetailPage() {
                     .filter(([_, value]) => value === true)
                     .map(([key, _]) => (
                       <div key={key} className="flex items-center gap-4 py-2">
-                        <div className="w-2 h-2 rounded-full bg-[#CE1126]" />
+                        <div className="w-2 h-2 rounded-full bg-[#A10B1C]" />
                         <span className="text-[10px] font-black uppercase tracking-widest text-black leading-none">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </span>
@@ -262,7 +262,7 @@ export default function CarDetailPage() {
                 { title: "Best Value Guarantee", desc: "Most competitive fixed prices in the market.", show: true }
               ].filter(item => item.show).map((item, i) => (
                 <div key={i} className="flex gap-6 p-8 bg-gray-50 rounded-[2.5rem] border border-black/5">
-                  <div className="w-12 h-12 bg-[#CE1126] rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg">
+                  <div className="w-12 h-12 bg-[#A10B1C] rounded-2xl flex items-center justify-center text-white shrink-0 shadow-lg">
                     <ShieldCheck size={24} />
                   </div>
                   <div>
@@ -301,7 +301,7 @@ export default function CarDetailPage() {
                   required
                   type="text" 
                   placeholder="Enter Name"
-                  className="w-full bg-gray-50 border border-black/5 p-6 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#CE1126] transition-all"
+                  className="w-full bg-gray-50 border border-black/5 p-6 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#A10B1C] transition-all"
                   value={customerData.name}
                   onChange={(e) => setCustomerData({...customerData, name: e.target.value})}
                 />
@@ -309,13 +309,13 @@ export default function CarDetailPage() {
                   required
                   type="tel" 
                   placeholder="Enter Phone"
-                  className="w-full bg-gray-50 border border-black/5 p-6 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#CE1126] transition-all"
+                  className="w-full bg-gray-50 border border-black/5 p-6 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#A10B1C] transition-all"
                   value={customerData.phone}
                   onChange={(e) => setCustomerData({...customerData, phone: e.target.value})}
                 />
                 <button 
                   type="submit"
-                  className="w-full bg-[#CE1126] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
+                  className="w-full bg-[#A10B1C] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
                 >
                   Confirm Callback
                 </button>
