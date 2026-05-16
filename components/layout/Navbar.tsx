@@ -34,7 +34,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="w-full bg-[#A10B1C] shadow-sm relative border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-center px-4 py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-start px-4 py-3">
           <BrandTicker />
         </div>
       </div>
