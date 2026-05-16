@@ -33,15 +33,10 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-[#CE1126] overflow-hidden shadow-sm relative">
-        <div className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 z-10">
-          <img 
-            src="/omindlogo.png" 
-            alt="OM Logo" 
-            className="h-10 md:h-16 w-auto object-contain" 
-          />
+      <div className="w-full bg-[#CE1126] shadow-sm relative border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex items-center justify-center px-4 py-2">
+          <BrandTicker />
         </div>
-        <BrandTicker />
       </div>
 
       {/* SERVICE TICKER - Scrolling below the stripe */}
@@ -79,13 +74,13 @@ export default function Navbar() {
       )}>
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="relative">
+          <div className="relative shrink-0">
             <img
               src="/omindlogo.png"
               alt="OM Indian Cars"
               className={cn(
                 "object-contain transition-all duration-500", 
-                isScrolled ? "h-10 md:h-12" : "h-14 md:h-20"
+                isScrolled ? "h-10 md:h-12" : "h-14 md:h-18"
               )}
             />
           </div>
@@ -95,9 +90,9 @@ export default function Navbar() {
           {[
             { name: "Buy", href: "/cars" },
             { name: "Sell", href: "/sell" },
-            { name: "Blog", href: "/blog" },
+            { name: "Finance", href: "/finance" },
+            { name: "Insurance", href: "/insurance" },
             { name: "About Us", href: "/about" },
-            { name: "Contact Us", href: "/contact", highlight: true },
           ].map((item) => (
             <Link 
               key={item.name} 
@@ -225,9 +220,9 @@ export default function Navbar() {
               {[
                 { name: "Buy", href: "/cars" },
                 { name: "Sell", href: "/sell" },
-                { name: "Blog", href: "/blog" },
-                { name: "Our Legacy", href: "/about" },
-                { name: "Get in Touch", href: "/contact" },
+                { name: "Finance", href: "/finance" },
+                { name: "Insurance", href: "/insurance" },
+                { name: "About Us", href: "/about" },
               ].map((item) => (
                 <Link 
                   key={item.name} 

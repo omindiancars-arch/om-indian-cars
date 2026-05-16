@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cinzel_Decorative, Great_Vibes } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { CarProvider } from "../context/CarContext";
 import { SiteProvider } from "../context/SiteContext";
@@ -10,23 +10,6 @@ import GlobalPreloader from "@/components/ui/GlobalPreloader";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
-
-const cinzel = Cinzel_Decorative({
-  weight: ["400", "700", "900"],
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-});
-
-const calligraphy = Great_Vibes({
-  weight: ["400"],
-  variable: "--font-calligraphy",
   subsets: ["latin"],
 });
 
@@ -47,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${calligraphy.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-white text-foreground font-sans overflow-x-hidden">
         <GlobalPreloader />
