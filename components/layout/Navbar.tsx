@@ -102,7 +102,7 @@ export default function Navbar() {
                 "transition-all relative group py-2 px-4 rounded-lg",
                 item.highlight 
                   ? "text-white bg-[#A10B1C] animate-[pulse_1.5s_infinite] font-black shadow-lg" 
-                  : "hover:text-[#A10B1C]"
+                  : "text-white/70 hover:text-white hover:bg-white/10"
               )}
             >
               {item.name}
