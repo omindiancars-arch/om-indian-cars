@@ -34,8 +34,15 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="w-full bg-[#A10B1C] shadow-sm relative border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-start px-4 py-3">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
           <BrandTicker />
+          <div className="relative shrink-0">
+            <img 
+              src="/omindlogo.png" 
+              alt="OM Indian Cars" 
+              className="h-8 md:h-12 w-auto object-contain brightness-[1.2]" 
+            />
+          </div>
         </div>
       </div>
 
