@@ -92,6 +92,7 @@ export default function Navbar() {
             { name: "Sell", href: "/sell" },
             { name: "Finance", href: "/finance" },
             { name: "Insurance", href: "/insurance" },
+            { name: "Blog", href: "/blog" },
             { name: "About Us", href: "/about" },
           ].map((item) => (
             <Link 
@@ -222,6 +223,7 @@ export default function Navbar() {
                 { name: "Sell", href: "/sell" },
                 { name: "Finance", href: "/finance" },
                 { name: "Insurance", href: "/insurance" },
+                { name: "Blog", href: "/blog" },
                 { name: "About Us", href: "/about" },
               ].map((item) => (
                 <Link 
