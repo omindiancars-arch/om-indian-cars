@@ -72,19 +72,7 @@ export default function Navbar() {
           ? "bg-black/80 border-white/5 py-3 shadow-2xl" 
           : "bg-[#A10B1C] border-transparent shadow-sm"
       )}>
-        {/* Logo */}
-        <Link href="/" className="flex items-center group">
-          <div className="relative shrink-0">
-            <img
-              src="/omindlogo.png"
-              alt="OM Indian Cars"
-              className={cn(
-                "object-contain transition-all duration-500", 
-                isScrolled ? "h-10 md:h-12" : "h-14 md:h-18"
-              )}
-            />
-          </div>
-        </Link>
+        {/* Logo removed as requested */}
 
         <nav className="hidden lg:flex items-center gap-12 text-[10px] font-black uppercase tracking-[0.3em] ml-20 mr-auto text-white/80">
           {[
