@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { ShieldCheck, Tags, Banknote, Truck, ArrowRight, Star, Heart, CheckCircle2, Search, ChevronDown, Car as CarIcon, Gauge, Milestone, Phone } from "lucide-react";
 
@@ -9,36 +9,15 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroScene from "@/components/3d/HeroScene";
 import CarCard from "@/components/ui/CarCard";
-import LoadingParticles from "@/components/3d/LoadingParticles";
 
 import { useCars } from "@/context/CarContext";
 import { useSite } from "@/context/SiteContext";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
   const { cars } = useCars();
 
   const { siteContent, isLoaded } = useSite();
 
-  useEffect(() => {
-    // Failsafe: Force stop loading after 5 seconds
-    const failsafe = setTimeout(() => {
-      if (loading) setLoading(false);
-    }, 5000);
-
-    // Normal flow: Stop loading when data is ready
-    if (isLoaded && loading) {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 1000);
-      return () => {
-        clearTimeout(timer);
-        clearTimeout(failsafe);
-      };
-    }
-
-    return () => clearTimeout(failsafe);
-  }, [isLoaded, loading]);
 
   // Use reliable fallbacks
   const heroImg = siteContent.heroImage || "/hero-bg.png";
@@ -46,10 +25,6 @@ export default function Home() {
 
   return (
     <main className="relative flex-1 bg-[#CE1126] overflow-hidden text-white">
-      <AnimatePresence>
-        {loading && <LoadingParticles key="loader" />}
-      </AnimatePresence>
-
       <Navbar />
 
       {/* 1. ELITE HERO SECTION (SPLIT SCREEN) */}

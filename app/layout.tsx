@@ -6,6 +6,7 @@ import { SiteProvider } from "../context/SiteContext";
 import { AuthProvider } from "../context/AuthContext";
 import { BlogProvider } from "../context/BlogContext";
 import React from "react";
+import GlobalPreloader from "@/components/ui/GlobalPreloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,6 +50,7 @@ export default function RootLayout({
       className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${calligraphy.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-white text-foreground font-sans overflow-x-hidden">
+        <GlobalPreloader />
         <AuthProvider>
           <CarProvider>
             <BlogProvider>
