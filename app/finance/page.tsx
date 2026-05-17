@@ -11,7 +11,7 @@ export default function FinancePage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 bg-[#CE1126] text-white overflow-hidden">
+      <section className="relative pt-60 md:pt-64 pb-24 bg-[#CE1126] text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.h1 
@@ -63,7 +63,7 @@ export default function FinancePage() {
                   <div key={i} className="flex gap-4 p-6 rounded-2xl bg-white border border-neutral-100">
                     <div className="shrink-0 mt-1">{item.icon}</div>
                     <div>
-                      <h4 className="font-black uppercase tracking-wider text-xs mb-2">{item.title}</h4>
+                      <h4 className="font-black uppercase tracking-wider text-xs mb-2 text-neutral-900">{item.title}</h4>
                       <p className="text-neutral-500 text-xs leading-relaxed">{item.desc}</p>
                     </div>
                   </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X, Search, Heart, User } from "lucide-react";
+import { Menu, X, Search, Heart, User, ChevronDown } from "lucide-react";
 import { cn } from "@/utils/cn";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
@@ -85,23 +85,50 @@ export default function Navbar() {
           {[
             { name: "Buy", href: "/cars" },
             { name: "Sell", href: "/sell" },
-            { name: "Finance", href: "/finance" },
-            { name: "Insurance", href: "/insurance" },
+            { 
+              name: "Services", 
+              subItems: [
+                { name: "Finance", href: "/finance" },
+                { name: "Insurance", href: "/insurance" },
+                { name: "RTO", href: "/rto" },
+                { name: "Exchange", href: "/exchange" }
+              ]
+            },
             { name: "Blog", href: "/blog" },
             { name: "About Us", href: "/about" },
           ].map((item) => (
+            item.subItems ? (
+              <div key={item.name} className="relative group">
+                <button className="flex items-center gap-1 text-white/70 hover:text-white transition-all py-2 px-4 rounded-lg uppercase tracking-[0.3em]">
+                  {item.name}
+                  <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />
+                </button>
+                <div className="absolute top-full left-0 mt-2 w-48 bg-black/95 backdrop-blur-xl border border-white/10 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-2xl overflow-hidden py-2">
+                  {item.subItems.map(subItem => (
+                    <Link
+                      key={subItem.name}
+                      href={subItem.href}
+                      className="block px-6 py-3 text-white/70 hover:text-[#FFD700] hover:bg-white/10 transition-colors uppercase tracking-[0.3em]"
+                    >
+                      {subItem.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
             <Link 
               key={item.name} 
-              href={item.href}
+              href={item.href!}
               className={cn(
                 "transition-all relative group py-2 px-4 rounded-lg",
-                item.highlight 
+                (item as any).highlight 
                   ? "text-white bg-[#CE1126] animate-[pulse_1.5s_infinite] font-black shadow-lg" 
                   : "text-white/70 hover:text-white hover:bg-white/10"
               )}
             >
               {item.name}
             </Link>
+            )
           ))}
         </nav>
 
@@ -218,6 +245,8 @@ export default function Navbar() {
                 { name: "Sell", href: "/sell" },
                 { name: "Finance", href: "/finance" },
                 { name: "Insurance", href: "/insurance" },
+                { name: "RTO", href: "/rto" },
+                { name: "Exchange", href: "/exchange" },
                 { name: "Blog", href: "/blog" },
                 { name: "About Us", href: "/about" },
               ].map((item) => (

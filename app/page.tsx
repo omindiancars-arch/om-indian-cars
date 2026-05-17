@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ShieldCheck, Tags, Banknote, Truck, ArrowRight, Star, Heart, CheckCircle2, Search, ChevronDown, Car as CarIcon, Gauge, Milestone, Phone } from "lucide-react";
 
@@ -23,6 +23,17 @@ export default function Home() {
   const heroImg = siteContent.heroImage || "/hero-bg.png";
   const heroVid = siteContent.heroVideo || "/VID_20260505_052351_976.mp4";
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideImages = cars.length > 0 ? cars.map(c => c.image).filter(Boolean) : [heroImg];
+
+  useEffect(() => {
+    if (slideImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideImages.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [slideImages.length]);
+
   return (
     <main className="relative flex-1 bg-[#CE1126] overflow-hidden text-white">
       <Navbar />
@@ -32,15 +43,36 @@ export default function Home() {
         {/* Left Half: Photo */}
         <div className="relative md:flex-[0.6] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-[#CE1126]">
           <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-all duration-700" />
-          <img
-            src={heroImg}
-            alt="Elite Showroom"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover scale-100 md:scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
-            onLoad={() => console.log("Hero Image Loaded")}
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = "/hero-bg.png";
-            }}
-          />
+          <AnimatePresence>
+            <motion.img
+              key={currentSlide}
+              src={slideImages[currentSlide] || heroImg}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              alt="Elite Showroom Slide"
+              className="absolute inset-0 w-full h-full object-cover scale-100 md:scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "/hero-bg.png";
+              }}
+            />
+          </AnimatePresence>
+
+          {/* Brand Lettering Overlay */}
+          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none p-8">
+            <motion.img 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              src="/brand-lettering.png" 
+              alt="OM Indian Cars" 
+              className="w-full max-w-[80%] h-auto object-contain drop-shadow-2xl"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+          </div>
           <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12">
             {/* Title removed as requested */}
           </div>
