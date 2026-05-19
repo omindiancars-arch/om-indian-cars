@@ -82,10 +82,10 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             {/* Gallery Navigation */}
             {images.length > 1 && (
               <>
-                <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md shadow-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all z-20 hover:bg-[#CE1126]">
+                <button onClick={prevImage} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md shadow-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all z-20 hover:bg-[#C50403]">
                   <ArrowRight size={16} className="rotate-180" />
                 </button>
-                <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md shadow-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all z-20 hover:bg-[#CE1126]">
+                <button onClick={nextImage} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur-md shadow-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all z-20 hover:bg-[#C50403]">
                   <ArrowRight size={16} />
                 </button>
               </>
@@ -96,7 +96,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             <button 
               onClick={handleInterestedClick}
               className={`absolute top-3 md:top-6 right-3 md:right-6 w-8 h-8 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-all shadow-xl z-20 ${
-                isInterested ? "bg-[#CE1126] text-white border-[#CE1126]" : "bg-black/50 backdrop-blur-md border-white/10 text-white/40 hover:text-white"
+                isInterested ? "bg-[#C50403] text-white border-[#C50403]" : "bg-black/50 backdrop-blur-md border-white/10 text-white/40 hover:text-white"
               }`}
             >
               <Heart className="w-4 h-4 md:w-5 md:h-5" fill={isInterested ? "currentColor" : "none"} />
@@ -111,7 +111,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                 <CheckCircle2 className="w-3 h-3 md:w-3.5 md:h-3.5" strokeWidth={4} /> Verified
               </div>
               {car.services?.finance && (
-                <div className="bg-[#CE1126] text-white text-[7px] md:text-[9px] font-black uppercase tracking-widest px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-sm">
+                <div className="bg-[#C50403] text-white text-[7px] md:text-[9px] font-black uppercase tracking-widest px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-1.5 md:gap-2 shadow-sm">
                   <Banknote className="w-3 h-3 md:w-3.5 md:h-3.5" /> Finance
                 </div>
               )}
@@ -123,7 +123,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             </div>
 
             <div className="mb-4 md:mb-8">
-              <h3 className="text-[12px] md:text-3xl font-heading font-black uppercase tracking-tighter text-black leading-tight group-hover:text-[#CE1126] transition-colors duration-500">
+              <h3 className="text-[12px] md:text-3xl font-heading font-black uppercase tracking-tighter text-black leading-tight group-hover:text-[#C50403] transition-colors duration-500">
                 {car.specs.year} {car.name}
               </h3>
               <p className="text-[7px] md:text-[9px] text-black/30 font-black uppercase tracking-[0.4em] mt-1 md:mt-2">{car.specs.variant || "PREMIUM ASSET"}</p>
@@ -137,7 +137,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                 { icon: Gauge, val: car.specs.transmission?.charAt(0) || "A", unit: "MODE" }
               ].map((spec, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <spec.icon className="w-3 h-3 md:w-4 md:h-4 text-[#CE1126] mb-1 md:mb-2 opacity-60" />
+                  <spec.icon className="w-3 h-3 md:w-4 md:h-4 text-[#C50403] mb-1 md:mb-2 opacity-60" />
                   <span className="text-[9px] md:text-xs font-black text-black tracking-tighter">{spec.val}</span>
                   <span className="text-[6px] md:text-[7px] text-black/30 font-black tracking-widest mt-0.5">{spec.unit}</span>
                 </div>
@@ -147,11 +147,11 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
             {/* Price & Action */}
             <div className="mt-auto flex items-end justify-between">
               <div>
-                <p className="text-sm md:text-4xl font-sans font-bold text-[#CE1126] tracking-tighter whitespace-nowrap flex items-center gap-2">
+                <p className="text-sm md:text-4xl font-sans font-bold text-[#C50403] tracking-tighter whitespace-nowrap flex items-center gap-2">
                   ₹ {car.price.replace(/[₹]/g, "").trim()}
                 </p>
               </div>
-              <div className="w-8 h-8 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center text-black/20 group-hover:bg-[#CE1126] group-hover:text-white transition-all duration-500">
+              <div className="w-8 h-8 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center text-black/20 group-hover:bg-[#C50403] group-hover:text-white transition-all duration-500">
                 <ArrowRight className="w-4 h-4 md:w-6 md:h-6" />
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="absolute inset-0 z-30 bg-[#CE1126]/95 backdrop-blur-md flex flex-col items-center justify-center text-white p-8 text-center"
+                className="absolute inset-0 z-30 bg-[#C50403]/95 backdrop-blur-md flex flex-col items-center justify-center text-white p-8 text-center"
               >
                 <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-6">
                   <Heart size={40} fill="white" />
@@ -207,7 +207,7 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                       placeholder="Enter Name"
                       value={customerData.name}
                       onChange={(e) => setCustomerData({...customerData, name: e.target.value})}
-                      className="w-full bg-gray-50 border border-black/5 p-5 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#CE1126] transition-all"
+                      className="w-full bg-gray-50 border border-black/5 p-5 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#C50403] transition-all"
                     />
                   </div>
                   <div className="text-left space-y-2">
@@ -218,12 +218,12 @@ export default function CarCard({ car, variant = 'default' }: { car: Car, varian
                       placeholder="Enter Phone"
                       value={customerData.phone}
                       onChange={(e) => setCustomerData({...customerData, phone: e.target.value})}
-                      className="w-full bg-gray-50 border border-black/5 p-5 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#CE1126] transition-all"
+                      className="w-full bg-gray-50 border border-black/5 p-5 rounded-2xl text-black text-xs font-bold uppercase outline-none focus:border-[#C50403] transition-all"
                     />
                   </div>
                   <button 
                     type="submit"
-                    className="w-full bg-[#CE1126] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
+                    className="w-full bg-[#C50403] text-white py-6 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl active:scale-95"
                   >
                     Confirm Callback
                   </button>

@@ -20,7 +20,7 @@ export default function BlogPage() {
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-[10px] font-black uppercase tracking-[0.5em] text-[#CE1126] mb-6 block"
+            className="text-[10px] font-black uppercase tracking-[0.5em] text-[#C50403] mb-6 block"
           >
             Insights & Lifestyle
           </motion.span>
@@ -30,7 +30,7 @@ export default function BlogPage() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter text-black mb-8"
           >
-            The OM <br className="md:hidden" /><span className="text-[#CE1126]">Journal</span>
+            The OM <br className="md:hidden" /><span className="text-[#C50403]">Journal</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -89,11 +89,11 @@ function BlogCard({ blog, index }: { blog: Blog, index: number }) {
         
         <div className="space-y-4">
           <div className="flex items-center gap-6 text-[8px] font-black uppercase tracking-widest text-black/40">
-            <span className="flex items-center gap-2"><Calendar size={12} className="text-[#CE1126]" /> {new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-            <span className="flex items-center gap-2"><Clock size={12} className="text-[#CE1126]" /> {blog.readTime || "5 MIN READ"}</span>
+            <span className="flex items-center gap-2"><Calendar size={12} className="text-[#C50403]" /> {new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            <span className="flex items-center gap-2"><Clock size={12} className="text-[#C50403]" /> {blog.readTime || "5 MIN READ"}</span>
           </div>
           
-          <h3 className="text-2xl font-heading font-black uppercase tracking-tighter text-black group-hover:text-[#CE1126] transition-colors line-clamp-2">
+          <h3 className="text-2xl font-heading font-black uppercase tracking-tighter text-black group-hover:text-[#C50403] transition-colors line-clamp-2">
             {blog.title}
           </h3>
           
@@ -101,7 +101,7 @@ function BlogCard({ blog, index }: { blog: Blog, index: number }) {
             {blog.excerpt || blog.content.substring(0, 150) + "..."}
           </p>
           
-          <div className="pt-4 flex items-center gap-2 text-[#CE1126] text-[9px] font-black uppercase tracking-[0.3em] group-hover:gap-4 transition-all">
+          <div className="pt-4 flex items-center gap-2 text-[#C50403] text-[9px] font-black uppercase tracking-[0.3em] group-hover:gap-4 transition-all">
             Read Article <ArrowRight size={14} />
           </div>
         </div>

@@ -35,13 +35,13 @@ export default function Home() {
   }, [slideImages.length]);
 
   return (
-    <main className="relative flex-1 bg-[#CE1126] overflow-hidden text-white">
+    <main className="relative flex-1 bg-[#C50403] overflow-hidden text-white">
       <Navbar />
 
       {/* 1. ELITE HERO SECTION (SPLIT SCREEN) */}
-      <section className="relative min-h-[85vh] flex flex-col md:flex-row overflow-hidden pt-[20rem] md:pt-[20rem] gap-10 bg-[#CE1126] px-10">
+      <section className="relative min-h-[85vh] flex flex-col md:flex-row overflow-hidden pt-[20rem] md:pt-[20rem] gap-10 bg-[#C50403] px-10">
         {/* Left Half: Photo */}
-        <div className="relative md:flex-[0.6] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-[#CE1126]">
+        <div className="relative md:flex-[0.6] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-[#C50403]">
           <div className="absolute inset-0 bg-black/10 z-10 group-hover:bg-transparent transition-all duration-700" />
           <AnimatePresence>
             <motion.img
@@ -52,7 +52,7 @@ export default function Home() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
               alt="Elite Showroom Slide"
-              className="absolute inset-0 w-full h-full object-cover scale-100 md:scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
+              className="absolute inset-0 w-full h-full object-cover scale-[1.12] origin-top-left group-hover:scale-[1.15] transition-transform duration-[2s] ease-out"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "/hero-bg.png";
               }}
@@ -115,7 +115,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <Link href="/cars" className="px-16 py-7 bg-white text-[#CE1126] rounded-full font-heading font-black uppercase tracking-widest text-xs shadow-2xl hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95 inline-block">
+            <Link href="/cars" className="px-16 py-7 bg-white text-[#C50403] rounded-full font-heading font-black uppercase tracking-widest text-xs shadow-2xl hover:bg-black hover:text-white transition-all hover:scale-105 active:scale-95 inline-block">
               Browse Cars
             </Link>
           </motion.div>
@@ -123,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* 4. ELITE COLLECTION GRID */}
-      <section className="py-32 bg-[#CE1126] relative">
+      <section className="py-32 bg-[#C50403] relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-10">
             <div className="max-w-2xl">
@@ -137,7 +137,7 @@ export default function Home() {
               </h2>
               <p className="text-white/60 text-[10px] font-black uppercase tracking-widest max-w-sm">Every vehicle in our collection undergoes a rigorous 150-point technical audit for absolute peace of mind.</p>
             </div>
-            <Link href="/cars" className="px-10 py-5 border-2 border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white hover:bg-white hover:text-[#CE1126] transition-all flex items-center gap-4">
+            <Link href="/cars" className="px-10 py-5 border-2 border-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white hover:bg-white hover:text-[#C50403] transition-all flex items-center gap-4">
               Explore All <ArrowRight size={16} />
             </Link>
           </div>
@@ -169,7 +169,7 @@ export default function Home() {
               btn: "Get a Valuation",
               href: "/sell",
               phone: "+91 92466 20555",
-              color: "bg-white text-[#CE1126]"
+              color: "bg-white text-[#C50403]"
             },
             {
               title: "Buy Your Dream Car",
@@ -182,7 +182,7 @@ export default function Home() {
           ].map((banner, i) => (
             <div key={i} className="group relative h-[450px] rounded-[4rem] overflow-hidden shadow-2xl border border-white/5">
               <img src={banner.img} className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110" alt={banner.title} />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#CE1126] via-[#CE1126]/40 to-transparent p-12 md:p-16 flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#C50403] via-[#C50403]/40 to-transparent p-12 md:p-16 flex flex-col justify-end">
                 <h3 className="text-4xl font-heading font-black text-white uppercase tracking-tighter mb-4">{banner.title}</h3>
                 <p className="text-white/80 text-xs uppercase tracking-widest font-black mb-6 max-w-xs leading-relaxed">{banner.desc}</p>
 
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* 6. TRUST & TESTIMONIALS */}
-      <section className="py-32 bg-[#CE1126]">
+      <section className="py-32 bg-[#C50403]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter text-white mb-20 leading-none">
             Voices of <br />
@@ -216,13 +216,13 @@ export default function Home() {
               { name: "Suresh Babu", text: "Fast financing and smooth delivery. They really handle everything for you.", car: "Range Rover Sport" }
             ].map((test, i) => (
               <div key={i} className="p-12 bg-white/5 border border-white/10 rounded-[3.5rem] text-left group hover:bg-white transition-all duration-500">
-                <div className="flex gap-1 text-[#FFD700] mb-8 group-hover:text-[#CE1126]">
+                <div className="flex gap-1 text-[#FFD700] mb-8 group-hover:text-[#C50403]">
                   {[...Array(5)].map((_, j) => <Star key={j} size={14} fill="currentColor" />)}
                 </div>
                 <p className="text-xl font-medium italic text-white/60 group-hover:text-black transition-colors mb-10 leading-relaxed">"{test.text}"</p>
                 <div>
                   <h4 className="text-xs font-black uppercase tracking-widest text-white group-hover:text-black transition-colors">{test.name}</h4>
-                  <p className="text-[9px] text-[#FFD700] font-black uppercase tracking-widest mt-1 group-hover:text-[#CE1126] transition-colors">Owner of {test.car}</p>
+                  <p className="text-[9px] text-[#FFD700] font-black uppercase tracking-widest mt-1 group-hover:text-[#C50403] transition-colors">Owner of {test.car}</p>
                 </div>
               </div>
             ))}

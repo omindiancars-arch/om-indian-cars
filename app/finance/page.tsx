@@ -11,7 +11,7 @@ export default function FinancePage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-60 md:pt-64 pb-24 bg-[#CE1126] text-white overflow-hidden">
+      <section className="relative pt-60 md:pt-64 pb-24 bg-[#C50403] text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.h1 
@@ -37,28 +37,28 @@ export default function FinancePage() {
         <div className="max-w-4xl mx-auto">
           <div className="bg-neutral-50 rounded-[3rem] p-12 md:p-20 shadow-xl border border-neutral-100">
             <div className="flex items-center gap-6 mb-12">
-              <div className="w-16 h-16 rounded-2xl bg-[#CE1126] flex items-center justify-center text-white shadow-lg">
+              <div className="w-16 h-16 rounded-2xl bg-[#C50403] flex items-center justify-center text-white shadow-lg">
                 <Banknote size={32} />
               </div>
               <div>
                 <h2 className="text-3xl font-black uppercase tracking-tight text-neutral-900">Finance Options</h2>
-                <div className="h-1 w-12 bg-[#CE1126] mt-2" />
+                <div className="h-1 w-12 bg-[#C50403] mt-2" />
               </div>
             </div>
 
             <div className="space-y-12">
-              <div className="bg-white p-10 rounded-[2rem] border border-[#CE1126]/10 shadow-sm">
-                <p className="text-2xl md:text-4xl font-black text-[#CE1126] leading-tight uppercase tracking-tight">
+              <div className="bg-white p-10 rounded-[2rem] border border-[#C50403]/10 shadow-sm">
+                <p className="text-2xl md:text-4xl font-black text-[#C50403] leading-tight uppercase tracking-tight">
                   We provide 70 to 100 percent finance based on the cibil score.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {[
-                  { title: "Instant Approval", desc: "Get your loan processed within hours with minimal documentation.", icon: <CheckCircle2 className="text-[#CE1126]" /> },
-                  { title: "Flexible Tenure", desc: "Choose a repayment plan that fits your budget, up to 7 years.", icon: <TrendingUp className="text-[#CE1126]" /> },
-                  { title: "Low Interest Rates", desc: "Benefit from our tie-ups with leading banks for competitive rates.", icon: <Banknote className="text-[#CE1126]" /> },
-                  { title: "Complete Transparency", desc: "No hidden charges or processing fee surprises.", icon: <ShieldCheck className="text-[#CE1126]" /> },
+                  { title: "Instant Approval", desc: "Get your loan processed within hours with minimal documentation.", icon: <CheckCircle2 className="text-[#C50403]" /> },
+                  { title: "Flexible Tenure", desc: "Choose a repayment plan that fits your budget, up to 7 years.", icon: <TrendingUp className="text-[#C50403]" /> },
+                  { title: "Low Interest Rates", desc: "Benefit from our tie-ups with leading banks for competitive rates.", icon: <Banknote className="text-[#C50403]" /> },
+                  { title: "Complete Transparency", desc: "No hidden charges or processing fee surprises.", icon: <ShieldCheck className="text-[#C50403]" /> },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-6 rounded-2xl bg-white border border-neutral-100">
                     <div className="shrink-0 mt-1">{item.icon}</div>

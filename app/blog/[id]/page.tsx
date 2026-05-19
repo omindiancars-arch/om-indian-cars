@@ -43,7 +43,7 @@ export default function BlogDetailPage() {
       <div className="pt-64 pb-20 px-6 max-w-5xl mx-auto w-full text-center">
         <button 
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#CE1126] hover:text-black transition-all mb-12 mx-auto group"
+          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-[#C50403] hover:text-black transition-all mb-12 mx-auto group"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Journal
@@ -53,7 +53,7 @@ export default function BlogDetailPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#CE1126] mb-6 block">
+          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#C50403] mb-6 block">
             {blog.category || "LUXURY LIFESTYLE"}
           </span>
           <h1 className="text-4xl md:text-7xl font-heading font-black uppercase tracking-tighter text-black leading-[1.1] mb-10">
@@ -62,13 +62,13 @@ export default function BlogDetailPage() {
           
           <div className="flex flex-wrap items-center justify-center gap-8 text-[9px] font-black uppercase tracking-widest text-black/40">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#CE1126] text-white flex items-center justify-center text-[10px]">
+              <div className="w-8 h-8 rounded-full bg-[#C50403] text-white flex items-center justify-center text-[10px]">
                 {blog.author?.charAt(0).toUpperCase() || "O"}
               </div>
               <span>By {blog.author || "OM Editor"}</span>
             </div>
-            <div className="flex items-center gap-2"><Calendar size={14} className="text-[#CE1126]" /> {new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
-            <div className="flex items-center gap-2"><Clock size={14} className="text-[#CE1126]" /> {blog.readTime || "5 MIN READ"}</div>
+            <div className="flex items-center gap-2"><Calendar size={14} className="text-[#C50403]" /> {new Date(blog.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</div>
+            <div className="flex items-center gap-2"><Clock size={14} className="text-[#C50403]" /> {blog.readTime || "5 MIN READ"}</div>
           </div>
         </motion.div>
       </div>
@@ -94,13 +94,13 @@ export default function BlogDetailPage() {
           {/* Share Sidebar */}
           <aside className="md:w-12 shrink-0 flex md:flex-col gap-6 md:pt-4 border-b md:border-b-0 pb-10 md:pb-0 mb-10 md:mb-0">
             <span className="text-[8px] font-black uppercase tracking-widest text-black/20 md:[writing-mode:vertical-lr] mb-4">Share Story</span>
-            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#CE1126] hover:text-white hover:border-[#CE1126] transition-all">
+            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#C50403] hover:text-white hover:border-[#C50403] transition-all">
               <Facebook size={18} />
             </button>
-            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#CE1126] hover:text-white hover:border-[#CE1126] transition-all">
+            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#C50403] hover:text-white hover:border-[#C50403] transition-all">
               <Twitter size={18} />
             </button>
-            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#CE1126] hover:text-white hover:border-[#CE1126] transition-all">
+            <button className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black/40 hover:bg-[#C50403] hover:text-white hover:border-[#C50403] transition-all">
               <Linkedin size={18} />
             </button>
           </aside>

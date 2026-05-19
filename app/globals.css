@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #CE1126; /* Racing Red Background */
+  --color-background: #C50403; /* Racing Red Background */
   --color-foreground: #ffffff; /* White Lettering */
   
   --color-primary-saffron: #ffffff; /* Using White as primary on Red */
@@ -19,7 +19,7 @@
 }
 
 :root {
-  --background: #CE1126 !important;
+  --background: #C50403 !important;
   --foreground: #ffffff !important;
 }
 
@@ -48,7 +48,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #CE1126;
+  background: #C50403;
 }
 
 ::-webkit-scrollbar-thumb {

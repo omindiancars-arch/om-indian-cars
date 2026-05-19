@@ -36,14 +36,14 @@ export default function SellPage() {
       <div className="pt-[24rem] md:pt-[20rem] pb-32 px-6 md:px-12 max-w-7xl mx-auto">
         <Link 
           href="/"
-          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black/40 hover:text-[#CE1126] transition-all mb-12 group w-fit"
+          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black/40 hover:text-[#C50403] transition-all mb-12 group w-fit"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Home
         </Link>
         <header className="mb-24 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-[#CE1126]" />
+            <div className="w-10 h-[2px] bg-[#C50403]" />
             <span className="text-[10px] font-black uppercase tracking-[0.6em] text-black/40">Evaluation Terminal</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter text-black leading-none mb-8">
@@ -60,7 +60,7 @@ export default function SellPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="bg-gray-50 rounded-[4rem] p-16 md:p-32 flex flex-col items-center justify-center text-center border border-black/5 shadow-2xl"
           >
-            <div className="w-24 h-24 bg-[#CE1126] rounded-full flex items-center justify-center text-white mb-8 shadow-2xl">
+            <div className="w-24 h-24 bg-[#C50403] rounded-full flex items-center justify-center text-white mb-8 shadow-2xl">
               <CheckCircle2 size={40} />
             </div>
             <h3 className="text-3xl font-heading font-black uppercase tracking-tighter text-black mb-4">Request Logged</h3>
@@ -86,7 +86,7 @@ export default function SellPage() {
                         required
                         type="text" 
                         placeholder="ENTER NAME"
-                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#CE1126] transition-all"
+                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                       />
@@ -97,7 +97,7 @@ export default function SellPage() {
                         required
                         type="tel" 
                         placeholder="ENTER NUMBER"
-                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#CE1126] transition-all"
+                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
                         value={formData.phone}
                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                       />
@@ -117,7 +117,7 @@ export default function SellPage() {
                         required
                         type="text" 
                         placeholder="E.G. AUDI Q7"
-                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#CE1126] transition-all"
+                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
                         value={formData.carModel}
                         onChange={(e) => setFormData({...formData, carModel: e.target.value})}
                       />
@@ -128,7 +128,7 @@ export default function SellPage() {
                         required
                         type="number" 
                         placeholder="2024"
-                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#CE1126] transition-all"
+                        className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
                         value={formData.year}
                         onChange={(e) => setFormData({...formData, year: e.target.value})}
                       />
@@ -138,7 +138,7 @@ export default function SellPage() {
 
                 <button 
                   type="submit"
-                  className="w-full py-8 bg-[#CE1126] text-white rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] hover:bg-black transition-all shadow-xl shadow-red-900/20 flex items-center justify-center gap-4 group"
+                  className="w-full py-8 bg-[#C50403] text-white rounded-2xl font-black uppercase tracking-[0.4em] text-[11px] hover:bg-black transition-all shadow-xl shadow-red-900/20 flex items-center justify-center gap-4 group"
                 >
                   Send Enquiry <ChevronRight size={18} className="group-hover:translate-x-2 transition-transform" />
                 </button>
@@ -153,7 +153,7 @@ export default function SellPage() {
                 { icon: MapPin, title: "Our Showroom", desc: "49-58-1, Akkayyapalem Main Rd, beside Port Stadium, Northeast Layout, Visakhapatnam, AP 530013" }
               ].map((benefit, i) => (
                 <div key={i} className="p-10 bg-white border border-black/5 rounded-[3rem] shadow-sm hover:shadow-xl transition-all duration-500 group">
-                  <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-[#CE1126] mb-6 group-hover:bg-[#CE1126] group-hover:text-white transition-all">
+                  <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-[#C50403] mb-6 group-hover:bg-[#C50403] group-hover:text-white transition-all">
                     <benefit.icon size={28} />
                   </div>
                   <h4 className="text-[11px] font-black uppercase tracking-widest text-black mb-3">{benefit.title}</h4>
@@ -171,11 +171,11 @@ export default function SellPage() {
                     "Every asset we acquire is treated with absolute professional dignity. At OM Indian Cars, we don't just buy cars; we transition legacies."
                   </p>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-[1px] bg-[#CE1126]" />
-                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#CE1126]">Management Office</span>
+                    <div className="w-8 h-[1px] bg-[#C50403]" />
+                    <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#C50403]">Management Office</span>
                   </div>
                 </div>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#CE1126]/10 blur-[50px] -mr-16 -mt-16 group-hover:bg-[#CE1126]/20 transition-all" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#C50403]/10 blur-[50px] -mr-16 -mt-16 group-hover:bg-[#C50403]/20 transition-all" />
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@ export default function AdminDashboard() {
             transition={{ delay: i * 0.1 }}
             className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col gap-6 relative group overflow-hidden shadow-2xl backdrop-blur-sm"
           >
-            <div className={`p-4 rounded-2xl bg-white text-[#CE1126] shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform`}>
+            <div className={`p-4 rounded-2xl bg-white text-[#C50403] shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform`}>
               <stat.icon size={28} strokeWidth={3} />
             </div>
             <div>
@@ -52,7 +52,7 @@ export default function AdminDashboard() {
               inquiries.slice(0, 5).map((inquiry) => (
                 <div key={inquiry.id} className="flex items-center justify-between py-6 border-b border-white/5 last:border-0 group">
                   <div className="flex items-center gap-6">
-                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white border border-white/10 group-hover:bg-white group-hover:text-[#CE1126] transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white border border-white/10 group-hover:bg-white group-hover:text-[#C50403] transition-all">
                       <MessageSquare size={18} />
                     </div>
                     <div>
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
                     <p className="text-[10px] text-white font-black tracking-widest">{car.price}</p>
                   </div>
                 </div>
-                <span className="px-3 py-1 bg-white/10 text-white text-[8px] uppercase tracking-[0.3em] font-black border border-white/20 rounded-full group-hover:bg-white group-hover:text-[#CE1126] transition-all">Verified</span>
+                <span className="px-3 py-1 bg-white/10 text-white text-[8px] uppercase tracking-[0.3em] font-black border border-white/20 rounded-full group-hover:bg-white group-hover:text-[#C50403] transition-all">Verified</span>
               </div>
             ))}
           </div>
