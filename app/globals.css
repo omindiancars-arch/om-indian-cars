@@ -104,3 +104,30 @@ svg:hover:not(.no-lightning) {
   animation: lightning-blink 0.5s infinite;
   filter: drop-shadow(0 0 15px #FFD700) brightness(1.5);
 }
+
+/* Google Translate Overrides */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-logo-link {
+  display: none !important;
+}
+.goog-te-gadget {
+  color: transparent !important;
+  font-size: 0px !important;
+}
+.goog-te-gadget .goog-te-combo {
+  color: #000 !important;
+  background-color: #fff !important;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  cursor: pointer;
+}

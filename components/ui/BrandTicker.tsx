@@ -10,8 +10,10 @@ export default function BrandTicker() {
         alt="OM Indian Cars Strip" 
         className="h-20 md:h-24 w-auto object-contain max-w-full"
         style={{
-          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+          maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+          WebkitMaskComposite: 'source-in',
+          maskComposite: 'intersect'
         }}
       />
     </div>

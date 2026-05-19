@@ -11,6 +11,7 @@ import { useAuth } from "@/context/AuthContext";
 
 
 import BrandTicker from "@/components/ui/BrandTicker";
+import GoogleTranslate from "@/components/ui/GoogleTranslate";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -150,6 +151,10 @@ export default function Navbar() {
             >+91 92466 20555</a>
           </div>
           
+          <div className="hidden lg:block mr-2">
+            <GoogleTranslate />
+          </div>
+          
           <div className="hidden md:flex items-center gap-5 text-white/40">
             <div className="relative flex items-center">
               <AnimatePresence>
@@ -221,12 +226,15 @@ export default function Navbar() {
             Explore cars
           </Link>
           
-          <button 
-            className="lg:hidden p-2 hover:bg-white/10 rounded-xl transition-colors text-white"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="flex items-center lg:hidden gap-1">
+            <GoogleTranslate />
+            <button 
+              className="p-2 hover:bg-white/10 rounded-xl transition-colors text-white"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -261,6 +269,13 @@ export default function Navbar() {
               ))}
             </div>
             
+            <div className="h-[1px] w-full bg-white/5 my-2" />
+            
+            <div className="flex flex-col gap-4">
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30">Language</span>
+              <GoogleTranslate />
+            </div>
+
             <div className="h-[1px] w-full bg-white/5 my-2" />
             
             <div className="flex flex-col gap-4">
