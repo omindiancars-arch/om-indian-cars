@@ -26,7 +26,7 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.1 }}
-            className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col gap-6 relative group overflow-hidden shadow-2xl backdrop-blur-sm"
+            className="p-6 md:p-10 bg-white/5 border border-white/10 rounded-[2rem] md:rounded-[2.5rem] flex flex-col gap-6 relative group overflow-hidden shadow-2xl backdrop-blur-sm"
           >
             <div className={`p-4 rounded-2xl bg-white text-[#C50403] shadow-[0_0_20px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform`}>
               <stat.icon size={28} strokeWidth={3} />
@@ -42,8 +42,8 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Recent Inquiries */}
-        <section className="bg-white/5 border border-white/10 p-10 rounded-[3rem] shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-center mb-10">
+        <section className="bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl backdrop-blur-sm">
+          <div className="flex justify-between items-center mb-6 md:mb-10">
             <h2 className="font-heading text-xl uppercase tracking-[0.4em] font-black text-white">Lead Stream</h2>
             <Link href="/admin/inquiries" className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black hover:text-white transition-colors">View All</Link>
           </div>
@@ -71,8 +71,8 @@ export default function AdminDashboard() {
         </section>
 
         {/* Inventory Overview */}
-        <section className="bg-white/5 border border-white/10 p-10 rounded-[3rem] shadow-2xl backdrop-blur-sm">
-          <div className="flex justify-between items-center mb-10">
+        <section className="bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-2xl backdrop-blur-sm">
+          <div className="flex justify-between items-center mb-6 md:mb-10">
             <h2 className="font-heading text-xl uppercase tracking-[0.4em] font-black text-white">Active Collection</h2>
             <Link href="/admin/cars" className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-black hover:text-white transition-colors">Manage All</Link>
           </div>

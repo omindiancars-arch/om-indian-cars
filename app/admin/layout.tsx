@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, Car, MessageSquare, LogOut, Home, Settings, BookOpen } from "lucide-react";
+import { LayoutDashboard, Car, MessageSquare, LogOut, Home, Settings, BookOpen, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 import { useAuth } from "@/context/AuthContext";
@@ -13,6 +13,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
   const { logout, user, isLoading } = useAuth();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isLoading && !user && pathname !== "/admin/login") {
@@ -42,9 +43,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div className="flex min-h-screen bg-[#C50403] text-white">
+      {/* Mobile Backdrop */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 md:hidden" 
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/10 flex flex-col bg-[#C50403]">
-        <div className="p-8">
+      <aside className={cn(
+        "fixed inset-y-0 left-0 z-50 w-64 border-r border-white/10 flex flex-col bg-[#C50403] transform transition-transform duration-300 md:relative md:translate-x-0",
+        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+      )}>
+        <div className="p-8 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <img
               src="/omindlogo.png"
@@ -56,6 +68,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <span className="text-[8px] uppercase tracking-[0.4em] text-white/40 font-bold">Portal</span>
             </div>
           </Link>
+          <button 
+            className="md:hidden text-white/60 hover:text-white"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <X size={24} />
+          </button>
         </div>
 
         <nav className="flex-1 px-4 space-y-2">
@@ -65,6 +83,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={cn(
                   "flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-black relative group",
                   isActive
@@ -104,13 +123,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden">
-        <header className="h-24 border-b border-white/10 flex items-center justify-between px-10 bg-[#C50403]/80 backdrop-blur-xl z-40 sticky top-0">
-          <h1 className="font-heading text-2xl uppercase tracking-[0.4em] font-black text-white drop-shadow-sm">
-            {navItems.find(item => item.href === pathname)?.name || "Admin"}
-          </h1>
-          <div className="flex items-center gap-6">
-            <div className="flex flex-col items-end mr-2">
+      <main className="flex-1 flex flex-col overflow-hidden w-full md:w-auto">
+        <header className="h-20 md:h-24 border-b border-white/10 flex items-center justify-between px-4 md:px-10 bg-[#C50403]/80 backdrop-blur-xl z-30 sticky top-0">
+          <div className="flex items-center gap-4">
+            <button 
+              className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
+            <h1 className="font-heading text-lg md:text-2xl uppercase tracking-[0.4em] font-black text-white drop-shadow-sm truncate max-w-[150px] md:max-w-none">
+              {navItems.find(item => item.href === pathname)?.name || "Admin"}
+            </h1>
+          </div>
+          <div className="flex items-center gap-4 md:gap-6">
+            <div className="hidden sm:flex flex-col items-end mr-2">
               <span className="text-[10px] font-black uppercase tracking-widest text-white">{user?.name || 'Administrator'}</span>
               <span className="text-[8px] text-white/40 uppercase tracking-widest font-bold">{user?.role || 'Portal'} Active</span>
             </div>
@@ -128,7 +155,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </button>
           </div>
         </header>
-        <div className="flex-1 overflow-y-auto p-10 bg-[rgba(0,0,0,0.1)]">
+        <div className="flex-1 overflow-y-auto p-4 md:p-10 bg-[rgba(0,0,0,0.1)]">
           {children}
         </div>
       </main>

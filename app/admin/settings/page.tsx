@@ -142,42 +142,55 @@ export default function AdminSettings() {
                   </div>
 
                   <div className="space-y-6">
-                    <label className="text-[10px] uppercase tracking-[0.4em] text-white font-black">Cinematic Hero Backdrop</label>
-                    <div className="relative group">
-                      <input 
-                        type="file" 
-                        accept="video/*"
-                        onChange={async (e) => {
-                          const file = e.target.files?.[0];
-                          if (file) {
-                            // 50MB Size Limit Check
-                            if (file.size > 50 * 1024 * 1024) {
-                              alert("Video is too large (Max 50MB). Please use a shorter or compressed clip.");
-                              return;
+                    <label className="text-[10px] uppercase tracking-[0.4em] text-white font-black">Cinematic Hero Backdrops</label>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {siteContent.heroVideos?.map((vid, idx) => (
+                        <div key={idx} className="relative group w-full h-40 bg-white/5 rounded-[2rem] overflow-hidden border border-white/10">
+                          <video src={vid} className="w-full h-full object-cover opacity-60" muted loop autoPlay />
+                          <button 
+                            onClick={(e) => {
+                              e.preventDefault();
+                              const newVideos = siteContent.heroVideos.filter((_, i) => i !== idx);
+                              updateSiteContent({ heroVideos: newVideos });
+                            }}
+                            className="absolute top-2 right-2 w-8 h-8 rounded-full bg-red-500/80 text-white flex items-center justify-center hover:bg-red-500 opacity-0 group-hover:opacity-100 transition-all z-20"
+                            title="Delete Video"
+                          >
+                            <Trash2 size={14} />
+                          </button>
+                        </div>
+                      ))}
+                      
+                      <div className="relative group w-full h-40 bg-white/5 border border-white/10 rounded-[2rem] flex flex-col items-center justify-center gap-4 group-hover:bg-white/10 group-hover:border-white/30 transition-all border-dashed overflow-hidden">
+                        <input 
+                          type="file" 
+                          accept="video/*"
+                          onChange={async (e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              if (file.size > 50 * 1024 * 1024) {
+                                alert("Video is too large (Max 50MB). Please use a shorter or compressed clip.");
+                                return;
+                              }
+                              try {
+                                const { uploadFile } = await import("@/lib/supabase");
+                                const url = await uploadFile(file, `hero/video-${Date.now()}`);
+                                updateSiteContent({ heroVideos: [...(siteContent.heroVideos || []), url] });
+                              } catch (err) {
+                                console.error("Upload failed:", err);
+                                alert("Upload failed. Check your Supabase storage quotas.");
+                              }
                             }
-                            try {
-                              const { uploadFile } = await import("@/lib/supabase");
-                              const url = await uploadFile(file, `hero/video-${Date.now()}`);
-                              updateSiteContent({ heroVideo: url });
-                            } catch (err) {
-                              console.error("Upload failed:", err);
-                              alert("Upload failed. Check your Supabase storage quotas.");
-                            }
-                          }
-                        }}
-                        className="absolute inset-0 opacity-0 cursor-pointer z-10"
-                      />
-                      <div className="w-full h-64 bg-white/5 border border-white/10 rounded-[2.5rem] flex flex-col items-center justify-center gap-6 group-hover:bg-white/10 group-hover:border-white/30 transition-all border-dashed overflow-hidden">
-                        {siteContent.heroVideo ? (
-                          <video src={siteContent.heroVideo} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" muted loop autoPlay />
-                        ) : (
-                          <div className="w-20 h-20 rounded-full bg-white text-[#C50403] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
-                            <Plus size={32} strokeWidth={3} />
-                          </div>
-                        )}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                          <p className="text-white font-black uppercase tracking-[0.3em] text-xs mb-2">Update Cinematic Backdrop</p>
-                          <p className="text-white/40 text-[9px] uppercase tracking-widest font-bold">Cloud Streaming Enabled</p>
+                          }}
+                          className="absolute inset-0 opacity-0 cursor-pointer z-10"
+                        />
+                        <div className="w-12 h-12 rounded-full bg-white text-[#C50403] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
+                          <Plus size={20} strokeWidth={3} />
+                        </div>
+                        <div className="flex flex-col items-center text-center px-4 pointer-events-none">
+                          <p className="text-white font-black uppercase tracking-[0.2em] text-[10px] mb-1">Add Video</p>
+                          <p className="text-white/40 text-[8px] uppercase tracking-widest font-bold">Cloud Upload (Max 50MB)</p>
                         </div>
                       </div>
                     </div>

@@ -23,7 +23,7 @@ export interface SiteContent {
   contactAddress: string;
   contactPhone: string;
   contactEmail: string;
-  heroVideo: string;
+  heroVideos: string[];
   heroImage: string;
 }
 
@@ -52,7 +52,7 @@ const INITIAL_SITE_CONTENT: SiteContent = {
   contactAddress: "Akkayyapalem, Visakhapatnam",
   contactPhone: "+91 92466 20555",
   contactEmail: "concierge@omindiancars.com",
-  heroVideo: "/VID_20260505_052351_976.mp4",
+  heroVideos: ["/VID_20260505_052351_976.mp4"],
   heroImage: "/hero-bg.png"
 };
 
@@ -92,7 +92,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
             contact_address: INITIAL_SITE_CONTENT.contactAddress,
             contact_phone: INITIAL_SITE_CONTENT.contactPhone,
             contact_email: INITIAL_SITE_CONTENT.contactEmail,
-            hero_video: INITIAL_SITE_CONTENT.heroVideo,
+            hero_video: JSON.stringify(INITIAL_SITE_CONTENT.heroVideos),
             hero_image: INITIAL_SITE_CONTENT.heroImage
           }]);
         }
@@ -106,7 +106,9 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
             contactAddress: settingsData.contact_address || INITIAL_SITE_CONTENT.contactAddress,
             contactPhone: settingsData.contact_phone || INITIAL_SITE_CONTENT.contactPhone,
             contactEmail: settingsData.contact_email || INITIAL_SITE_CONTENT.contactEmail,
-            heroVideo: settingsData.hero_video || INITIAL_SITE_CONTENT.heroVideo,
+            heroVideos: settingsData.hero_video ? (
+              settingsData.hero_video.startsWith('[') ? JSON.parse(settingsData.hero_video) : [settingsData.hero_video]
+            ) : INITIAL_SITE_CONTENT.heroVideos,
             heroImage: settingsData.hero_image || INITIAL_SITE_CONTENT.heroImage
           });
         } else {
@@ -170,7 +172,9 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
                 contactAddress: newData.contact_address || INITIAL_SITE_CONTENT.contactAddress,
                 contactPhone: newData.contact_phone || INITIAL_SITE_CONTENT.contactPhone,
                 contactEmail: newData.contact_email || INITIAL_SITE_CONTENT.contactEmail,
-                heroVideo: newData.hero_video || INITIAL_SITE_CONTENT.heroVideo,
+                heroVideos: newData.hero_video ? (
+                  newData.hero_video.startsWith('[') ? JSON.parse(newData.hero_video) : [newData.hero_video]
+                ) : INITIAL_SITE_CONTENT.heroVideos,
                 heroImage: newData.hero_image || INITIAL_SITE_CONTENT.heroImage
               });
             }
@@ -278,7 +282,7 @@ export function SiteProvider({ children }: { children: React.ReactNode }) {
       if (content.contactAddress !== undefined) updatePayload.contact_address = content.contactAddress;
       if (content.contactPhone !== undefined) updatePayload.contact_phone = content.contactPhone;
       if (content.contactEmail !== undefined) updatePayload.contact_email = content.contactEmail;
-      if (content.heroVideo !== undefined) updatePayload.hero_video = content.heroVideo;
+      if (content.heroVideos !== undefined) updatePayload.hero_video = JSON.stringify(content.heroVideos);
       if (content.heroImage !== undefined) updatePayload.hero_image = content.heroImage;
 
       console.log("SiteContext: Syncing to Supabase...", updatePayload);

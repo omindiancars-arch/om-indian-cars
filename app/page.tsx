@@ -21,9 +21,14 @@ export default function Home() {
 
   // Use reliable fallbacks
   const heroImg = siteContent.heroImage || "/hero-bg.png";
-  const heroVid = siteContent.heroVideo || "/VID_20260505_052351_976.mp4";
-
+  
+  // Playlist of videos that will play continuously
+  const heroVideos = siteContent.heroVideos?.length > 0 
+    ? siteContent.heroVideos 
+    : ["/VID_20260505_052351_976.mp4"];
+  
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const slideImages = cars.length > 0 ? cars.map(c => c.image).filter(Boolean) : [heroImg];
 
   useEffect(() => {
@@ -82,14 +87,14 @@ export default function Home() {
         <div className="relative md:flex-[0.4] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700" />
           <video
-            key={heroVid}
+            key={heroVideos[currentVideoIndex]}
             autoPlay
-            loop
             muted
             playsInline
+            onEnded={() => setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length)}
             className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
           >
-            <source src={heroVid} type="video/mp4" />
+            <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
           </video>
           <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12">
             <motion.div
