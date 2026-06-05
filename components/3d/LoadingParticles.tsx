@@ -175,7 +175,7 @@ export default function LoadingParticles() {
       {/* Decorative Text in background - Hidden on very small screens for better alignment */}
       <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 overflow-hidden pointer-events-none hidden sm:block">
         <h2 className="text-[12vw] md:text-[15vw] font-black text-white/[0.03] leading-none uppercase -mb-2 md:-mb-4 select-none">
-          PRECISION
+          PREOWNED CARS
         </h2>
       </div>
     </div>

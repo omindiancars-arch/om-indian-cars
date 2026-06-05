@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ShieldCheck, Tags, Banknote, Truck, ArrowRight, Star, Heart, CheckCircle2, Search, ChevronDown, Car as CarIcon, Gauge, Milestone, Phone } from "lucide-react";
+import { ShieldCheck, Tags, Banknote, Truck, ArrowRight, Star, Heart, CheckCircle2, Search, ChevronDown, Car as CarIcon, Gauge, Milestone, Phone, Volume2, VolumeX, FastForward, SkipForward } from "lucide-react";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -29,7 +29,31 @@ export default function Home() {
   
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
   const slideImages = cars.length > 0 ? cars.map(c => c.image).filter(Boolean) : [heroImg];
+
+  // Keep refs array in sync
+  useEffect(() => {
+    videoRefs.current = videoRefs.current.slice(0, heroVideos.length);
+  }, [heroVideos]);
+
+  // Handle Video Transition Programmatically
+  useEffect(() => {
+    if (heroVideos.length > 0) {
+      videoRefs.current.forEach((vid, idx) => {
+        if (vid) {
+          if (idx === currentVideoIndex) {
+            vid.currentTime = 0;
+            vid.play().catch(err => console.log("Video auto-play blocked or failed:", err));
+          } else {
+            vid.pause();
+          }
+        }
+      });
+    }
+  }, [currentVideoIndex, heroVideos]);
 
   useEffect(() => {
     if (slideImages.length <= 1) return;
@@ -86,17 +110,29 @@ export default function Home() {
         {/* Right Half: Video */}
         <div className="relative md:flex-[0.4] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20">
           <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700" />
-          <video
-            key={heroVideos[currentVideoIndex]}
-            autoPlay
-            muted
-            playsInline
-            onEnded={() => setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length)}
-            className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-[2s] ease-out"
-          >
-            <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
-          </video>
-          <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12">
+          {heroVideos.map((videoUrl, idx) => (
+            <video
+              key={videoUrl + idx}
+              ref={el => { videoRefs.current[idx] = el; }}
+              src={videoUrl}
+              muted={isMuted}
+              playsInline
+              preload="auto"
+              onEnded={() => {
+                if (idx === currentVideoIndex) {
+                  if (heroVideos.length > 1) {
+                    setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+                  } else if (videoRefs.current[idx]) {
+                    videoRefs.current[idx]?.play(); // Fallback loop if only 1 video
+                  }
+                }
+              }}
+              className={`absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-[2s] ease-out bg-black/50 ${
+                idx === currentVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
+            />
+          ))}
+          <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -110,6 +146,36 @@ export default function Home() {
                 />
               </div>
             </motion.div>
+          </div>
+          
+          {/* Custom Video Controls Overlay */}
+          <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3">
+            <button 
+              onClick={() => {
+                const activeVid = videoRefs.current[currentVideoIndex];
+                if(activeVid) activeVid.currentTime += 10;
+              }} 
+              title="Forward 10s"
+              className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md flex items-center justify-center text-white border border-white/10 transition-all hover:scale-105"
+            >
+              <FastForward size={16} />
+            </button>
+            {heroVideos.length > 1 && (
+              <button 
+                onClick={() => setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length)} 
+                title="Next Video"
+                className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md flex items-center justify-center text-white border border-white/10 transition-all hover:scale-105"
+              >
+                <SkipForward size={16} />
+              </button>
+            )}
+            <button 
+              onClick={() => setIsMuted(!isMuted)} 
+              title={isMuted ? "Unmute" : "Mute"}
+              className="w-10 h-10 rounded-full bg-white text-[#C50403] hover:scale-105 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all ml-2"
+            >
+              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+            </button>
           </div>
         </div>
 
