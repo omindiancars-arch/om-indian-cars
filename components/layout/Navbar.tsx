@@ -10,7 +10,6 @@ import { useAuth } from "@/context/AuthContext";
 
 
 
-import BrandTicker from "@/components/ui/BrandTicker";
 import GoogleTranslate from "@/components/ui/GoogleTranslate";
 
 export default function Navbar() {
@@ -34,14 +33,20 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full bg-[#C50403] shadow-sm relative border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-          <BrandTicker />
-          <div className="relative shrink-0">
+      <div className="w-full bg-[#C50403] shadow-sm relative border-b border-white/10 h-16 sm:h-20 md:h-28 overflow-hidden">
+        <div className="max-w-7xl mx-auto w-full h-full relative flex items-center justify-between px-2 sm:px-4">
+          <div className="z-20 flex items-center h-full shrink-0 mr-1 sm:mr-2">
             <img 
               src="/omindlogo.png" 
+              alt="OM Indian Cars Logo" 
+              className="h-10 sm:h-12 md:h-16 w-auto object-contain drop-shadow-xl" 
+            />
+          </div>
+          <div className="flex-1 h-full flex items-center justify-center overflow-visible">
+            <img 
+              src="/brand-lettering.png" 
               alt="OM Indian Cars" 
-              className="h-14 md:h-20 w-auto object-contain" 
+              className="w-[110%] sm:w-[95%] md:w-[80%] lg:w-[60%] max-w-[1000px] h-auto object-contain translate-y-3 sm:translate-y-4 md:translate-y-6" 
             />
           </div>
         </div>
