@@ -36,7 +36,7 @@ export default function LoadingParticles() {
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black overflow-hidden p-4">
       {/* Background Ambience */}
-      <div className="absolute inset-0 bg-[#C50403]/10" />
+      <div className="absolute inset-0 bg-[#C4141A]/10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
       
       {/* Sound Element */}
@@ -49,7 +49,7 @@ export default function LoadingParticles() {
       <div className="relative w-full max-w-[500px] flex flex-col items-center justify-center">
         {/* Animated Glow */}
         <motion.div
-          className="absolute w-[180%] h-[180%] bg-[#C50403]/15 blur-[80px] md:blur-[120px] rounded-full"
+          className="absolute w-[180%] h-[180%] bg-[#C4141A]/15 blur-[80px] md:blur-[120px] rounded-full"
           animate={{ 
             scale: [1, 1.1, 1],
             opacity: [0.3, 0.6, 0.3]
@@ -70,9 +70,9 @@ export default function LoadingParticles() {
           >
             <defs>
               <linearGradient id="premiumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#C50403" />
+                <stop offset="0%" stopColor="#C4141A" />
                 <stop offset="50%" stopColor="#FFFFFF" />
-                <stop offset="100%" stopColor="#C50403" />
+                <stop offset="100%" stopColor="#C4141A" />
               </linearGradient>
               <filter id="glow">
                 <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
@@ -121,7 +121,7 @@ export default function LoadingParticles() {
                 key={i}
                 x1={400 + i * 20} y1={80 + i * 10}
                 x2={430 + i * 20} y2={80 + i * 10}
-                stroke="#C50403"
+                stroke="#C4141A"
                 strokeWidth="1"
                 initial={{ x: 0, opacity: 0 }}
                 animate={{ x: -600, opacity: [0, 1, 0] }}
@@ -146,7 +146,7 @@ export default function LoadingParticles() {
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="w-2 h-2 bg-[#C50403] rounded-full"
+                className="w-2 h-2 bg-[#C4141A] rounded-full"
                 animate={{ scale: [1, 1.5, 1], opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.2 }}
               />
@@ -163,7 +163,7 @@ export default function LoadingParticles() {
               V8 ENGINE IGNITION
             </motion.p>
             <motion.div 
-              className="h-[1px] w-12 bg-[#C50403]/50"
+              className="h-[1px] w-12 bg-[#C4141A]/50"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ delay: 1, duration: 0.5 }}

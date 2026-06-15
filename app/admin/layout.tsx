@@ -27,7 +27,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (isLoading || !user) {
     return (
-      <div className="min-h-screen bg-[#C50403] flex items-center justify-center">
+      <div className="min-h-screen bg-[#C4141A] flex items-center justify-center">
         <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
       </div>
     );
@@ -42,7 +42,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
 
   return (
-    <div className="flex min-h-screen bg-[#C50403] text-white">
+    <div className="flex min-h-screen bg-[#C4141A] text-white">
       {/* Mobile Backdrop */}
       {isMobileMenuOpen && (
         <div 
@@ -53,7 +53,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Sidebar */}
       <aside className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 border-r border-white/10 flex flex-col bg-[#C50403] transform transition-transform duration-300 md:relative md:translate-x-0",
+        "fixed inset-y-0 left-0 z-50 w-64 border-r border-white/10 flex flex-col bg-[#C4141A] transform transition-transform duration-300 md:relative md:translate-x-0",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="p-8 flex items-center justify-between">
@@ -87,14 +87,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 className={cn(
                   "flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-black relative group",
                   isActive
-                    ? "bg-white text-[#C50403] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
+                    ? "bg-white text-[#C4141A] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                     : "text-white/60 hover:text-white hover:bg-white/10"
                 )}
               >
                 {isActive && (
                   <motion.div 
                     layoutId="activeNav" 
-                    className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-[#C50403] rounded-full" 
+                    className="absolute left-0 top-1/4 bottom-1/4 w-1 bg-[#C4141A] rounded-full" 
                   />
                 )}
                 <item.icon size={18} strokeWidth={isActive ? 3 : 2} className={cn("transition-transform group-hover:scale-110", isActive && "scale-110")} />
@@ -124,7 +124,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col overflow-hidden w-full md:w-auto">
-        <header className="h-20 md:h-24 border-b border-white/10 flex items-center justify-between px-4 md:px-10 bg-[#C50403]/80 backdrop-blur-xl z-30 sticky top-0">
+        <header className="h-20 md:h-24 border-b border-white/10 flex items-center justify-between px-4 md:px-10 bg-[#C4141A]/80 backdrop-blur-xl z-30 sticky top-0">
           <div className="flex items-center gap-4">
             <button 
               className="md:hidden p-2 text-white/70 hover:text-white transition-colors"
@@ -148,7 +148,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             </div>
             <button 
               onClick={logout}
-              className="w-12 h-12 rounded-2xl bg-white/10 hover:bg-[#C50403] text-white flex items-center justify-center transition-all group"
+              className="w-12 h-12 rounded-2xl bg-white/10 hover:bg-[#C4141A] text-white flex items-center justify-center transition-all group"
               title="Logout"
             >
               <LogOut size={20} className="group-hover:translate-x-1 transition-transform" />

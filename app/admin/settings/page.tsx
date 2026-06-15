@@ -129,7 +129,7 @@ export default function AdminSettings() {
                         {siteContent.heroImage ? (
                           <img src={siteContent.heroImage} className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity" alt="Preview" />
                         ) : (
-                          <div className="w-20 h-20 rounded-full bg-white text-[#C50403] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
+                          <div className="w-20 h-20 rounded-full bg-white text-[#C4141A] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
                             <Plus size={32} strokeWidth={3} />
                           </div>
                         )}
@@ -185,7 +185,7 @@ export default function AdminSettings() {
                           }}
                           className="absolute inset-0 opacity-0 cursor-pointer z-10"
                         />
-                        <div className="w-12 h-12 rounded-full bg-white text-[#C50403] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-full bg-white text-[#C4141A] flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] group-hover:scale-110 transition-transform">
                           <Plus size={20} strokeWidth={3} />
                         </div>
                         <div className="flex flex-col items-center text-center px-4 pointer-events-none">
@@ -236,7 +236,7 @@ export default function AdminSettings() {
                 setEditingSpecId(null);
                 setIsAddingSpec(true);
               }}
-              className="flex items-center gap-3 bg-white text-[#C50403] px-8 py-4 rounded-xl font-heading font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-2xl"
+              className="flex items-center gap-3 bg-white text-[#C4141A] px-8 py-4 rounded-xl font-heading font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-2xl"
             >
               <Plus size={16} strokeWidth={3} /> Inject Spec
             </button>
@@ -264,7 +264,7 @@ export default function AdminSettings() {
                             setEditingSpecId(spec.id);
                             setIsAddingSpec(true);
                           }}
-                          className="p-3 bg-white/5 hover:bg-white text-white/40 hover:text-[#C50403] rounded-lg transition-all"
+                          className="p-3 bg-white/5 hover:bg-white text-white/40 hover:text-[#C4141A] rounded-lg transition-all"
                         >
                           <Edit2 size={16} />
                         </button>
@@ -299,7 +299,7 @@ export default function AdminSettings() {
                 setEditingTestId(null);
                 setIsAddingTest(true);
               }}
-              className="flex items-center gap-3 bg-white text-[#C50403] px-8 py-4 rounded-xl font-heading font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-2xl"
+              className="flex items-center gap-3 bg-white text-[#C4141A] px-8 py-4 rounded-xl font-heading font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-all shadow-2xl"
             >
               <Plus size={16} strokeWidth={3} /> Post Review
             </button>
@@ -329,7 +329,7 @@ export default function AdminSettings() {
                             setEditingTestId(test.id);
                             setIsAddingTest(true);
                           }}
-                          className="p-3 bg-white/5 hover:bg-white text-white/40 hover:text-[#C50403] rounded-lg transition-all"
+                          className="p-3 bg-white/5 hover:bg-white text-white/40 hover:text-[#C4141A] rounded-lg transition-all"
                         >
                           <Edit2 size={16} />
                         </button>
@@ -382,7 +382,7 @@ export default function AdminSettings() {
                   <label className="text-[10px] uppercase tracking-widest text-black/40 font-black">Metric Value</label>
                   <input required type="text" value={specForm.val} onChange={(e) => setSpecForm({...specForm, val: e.target.value})} placeholder="E.G. V8 TWIN TURBO" className="w-full bg-black/5 border border-black/10 p-5 rounded-xl text-xs uppercase tracking-widest focus:border-black/40 outline-none transition-all" />
                 </div>
-                <button type="submit" className="w-full bg-[#C50403] text-white py-6 rounded-xl font-heading font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-3">
+                <button type="submit" className="w-full bg-[#C4141A] text-white py-6 rounded-xl font-heading font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-3">
                   <Check size={20} /> AUTHORIZE METRIC
                 </button>
               </form>
@@ -425,7 +425,7 @@ export default function AdminSettings() {
                   <label className="text-[10px] uppercase tracking-widest text-black/40 font-black">Review Testimony</label>
                   <textarea required rows={4} value={testForm.text} onChange={(e) => setTestForm({...testForm, text: e.target.value})} placeholder="WRITE THE TESTIMONY HERE..." className="w-full bg-black/5 border border-black/10 p-5 rounded-xl text-xs uppercase tracking-widest focus:border-black/40 outline-none transition-all resize-none" />
                 </div>
-                <button type="submit" className="w-full bg-[#C50403] text-white py-6 rounded-xl font-heading font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-3">
+                <button type="submit" className="w-full bg-[#C4141A] text-white py-6 rounded-xl font-heading font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-3">
                   <Check size={20} /> PUBLISH VOICE
                 </button>
               </form>

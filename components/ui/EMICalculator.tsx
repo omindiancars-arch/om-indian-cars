@@ -18,17 +18,17 @@ export default function EMICalculator({ price }: { price: string }) {
   }, [loanAmount, tenure, interestRate]);
 
   return (
-    <div className="bg-[#C50403]/5 border border-[#C50403]/10 rounded-[2.5rem] p-8 md:p-12">
+    <div className="bg-[#C4141A]/5 border border-[#C4141A]/10 rounded-[2.5rem] p-8 md:p-12">
       <div className="mb-10">
-        <h3 className="text-2xl font-heading font-bold uppercase tracking-tighter text-[#C50403] mb-2">Finance Estimate</h3>
-        <p className="text-[10px] uppercase tracking-widest text-[#C50403]/40 font-bold">Customize your luxury payment plan</p>
+        <h3 className="text-2xl font-heading font-bold uppercase tracking-tighter text-[#C4141A] mb-2">Finance Estimate</h3>
+        <p className="text-[10px] uppercase tracking-widest text-[#C4141A]/40 font-bold">Customize your luxury payment plan</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Sliders */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C50403]">
+            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C4141A]">
               <span>Down Payment ({downPayment}%)</span>
               <span>₹{(principalAmount * (downPayment / 100)).toLocaleString('en-IN')}</span>
             </div>
@@ -38,12 +38,12 @@ export default function EMICalculator({ price }: { price: string }) {
               max="80" 
               value={downPayment} 
               onChange={(e) => setDownPayment(parseInt(e.target.value))}
-              className="w-full h-1.5 bg-[#C50403]/10 rounded-lg appearance-none cursor-pointer accent-[#C50403]"
+              className="w-full h-1.5 bg-[#C4141A]/10 rounded-lg appearance-none cursor-pointer accent-[#C4141A]"
             />
           </div>
 
           <div className="space-y-4">
-            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C50403]">
+            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C4141A]">
               <span>Tenure ({tenure / 12} Years)</span>
               <span>{tenure} Months</span>
             </div>
@@ -54,12 +54,12 @@ export default function EMICalculator({ price }: { price: string }) {
               step="12"
               value={tenure} 
               onChange={(e) => setTenure(parseInt(e.target.value))}
-              className="w-full h-1.5 bg-[#C50403]/10 rounded-lg appearance-none cursor-pointer accent-[#C50403]"
+              className="w-full h-1.5 bg-[#C4141A]/10 rounded-lg appearance-none cursor-pointer accent-[#C4141A]"
             />
           </div>
 
           <div className="space-y-4">
-            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C50403]">
+            <div className="flex justify-between items-center text-[10px] uppercase tracking-widest font-black text-[#C4141A]">
               <span>Interest Rate</span>
               <span>{interestRate}%</span>
             </div>
@@ -70,13 +70,13 @@ export default function EMICalculator({ price }: { price: string }) {
               step="0.1"
               value={interestRate} 
               onChange={(e) => setInterestRate(parseFloat(e.target.value))}
-              className="w-full h-1.5 bg-[#C50403]/10 rounded-lg appearance-none cursor-pointer accent-[#C50403]"
+              className="w-full h-1.5 bg-[#C4141A]/10 rounded-lg appearance-none cursor-pointer accent-[#C4141A]"
             />
           </div>
         </div>
 
         {/* Result Card */}
-        <div className="bg-[#C50403] rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden">
+        <div className="bg-[#C4141A] rounded-[2rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-[60px] -mr-16 -mt-16" />
           
           <p className="text-white/40 text-[10px] uppercase tracking-[0.4em] font-bold mb-4 relative z-10">Estimated Monthly Installment</p>

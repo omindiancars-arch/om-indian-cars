@@ -32,7 +32,7 @@ function AdminLoginContent() {
     <main className="min-h-screen bg-black flex items-center justify-center p-6 relative overflow-hidden">
       {/* High-Security Background Effect */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C50403]/30 via-transparent to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C4141A]/30 via-transparent to-transparent" />
         <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
       </div>
 
@@ -44,7 +44,7 @@ function AdminLoginContent() {
         >
           <div className="text-center mb-10">
             <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-[#C50403] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(206,17,38,0.4)]">
+              <div className="w-16 h-16 bg-[#C4141A] rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(206,17,38,0.4)]">
                 <ShieldAlert className="text-white" size={32} />
               </div>
             </div>
@@ -67,7 +67,7 @@ function AdminLoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="admin@omindiancars.com"
-                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#C50403] outline-none transition-colors text-white"
+                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-white"
                 />
               </div>
             </div>
@@ -82,7 +82,7 @@ function AdminLoginContent() {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   placeholder="••••••••"
-                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#C50403] outline-none transition-colors text-white"
+                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-white"
                 />
                 <button 
                   type="button"
@@ -97,7 +97,7 @@ function AdminLoginContent() {
             <button 
               disabled={isLoading}
               type="submit"
-              className="w-full bg-[#C50403] text-white py-5 font-heading font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50"
+              className="w-full bg-[#C4141A] text-white py-5 font-heading font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3 group relative overflow-hidden disabled:opacity-50"
             >
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -126,7 +126,7 @@ function AdminLoginContent() {
 export default function AdminLoginPage() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-black flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-[#C50403]/20 border-t-[#C50403] rounded-full animate-spin" />
+      <div className="w-8 h-8 border-4 border-[#C4141A]/20 border-t-[#C4141A] rounded-full animate-spin" />
     </div>}>
       <AdminLoginContent />
     </Suspense>

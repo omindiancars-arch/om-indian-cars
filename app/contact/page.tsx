@@ -37,7 +37,7 @@ export default function ContactPage() {
       <div className="pt-[24rem] md:pt-[20rem] pb-32 px-6 md:px-12 max-w-7xl mx-auto">
         <Link 
           href="/"
-          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black/40 hover:text-[#C50403] transition-all mb-12 group w-fit"
+          className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-black/40 hover:text-[#C4141A] transition-all mb-12 group w-fit"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Home
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
         <header className="mb-24">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-[#C50403]" />
+            <div className="w-10 h-[2px] bg-[#C4141A]" />
             <span className="text-[10px] font-black uppercase tracking-[0.6em] text-black/40">Concierge Desk</span>
           </div>
           <h1 className="text-5xl md:text-8xl font-heading font-black uppercase tracking-tighter text-black leading-none mb-8">
@@ -79,8 +79,8 @@ export default function ContactPage() {
               }
             ].map((item, i) => (
               <div key={i} className="flex gap-8 group">
-                <div className="w-16 h-16 rounded-[2rem] bg-gray-50 border border-black/5 flex items-center justify-center shrink-0 group-hover:bg-[#C50403] group-hover:text-white transition-all duration-500">
-                  <item.icon size={24} className="text-[#C50403] group-hover:text-white transition-colors" />
+                <div className="w-16 h-16 rounded-[2rem] bg-gray-50 border border-black/5 flex items-center justify-center shrink-0 group-hover:bg-[#C4141A] group-hover:text-white transition-all duration-500">
+                  <item.icon size={24} className="text-[#C4141A] group-hover:text-white transition-colors" />
                 </div>
                 <div>
                   <h3 className="text-[10px] font-black uppercase tracking-widest text-black/30 mb-2">{item.title}</h3>
@@ -88,7 +88,7 @@ export default function ContactPage() {
                     href={item.href} 
                     target={item.href.startsWith('http') ? "_blank" : undefined}
                     rel={item.href.startsWith('http') ? "noopener noreferrer" : undefined}
-                    className="text-sm font-black uppercase tracking-widest text-black leading-relaxed whitespace-pre-line hover:text-[#C50403] transition-colors"
+                    className="text-sm font-black uppercase tracking-widest text-black leading-relaxed whitespace-pre-line hover:text-[#C4141A] transition-colors"
                   >
                     {item.val}
                   </a>
@@ -118,7 +118,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="h-full bg-gray-50 rounded-[4rem] p-16 flex flex-col items-center justify-center text-center border border-black/5"
               >
-                <div className="w-24 h-24 bg-[#C50403] rounded-full flex items-center justify-center text-white mb-8 shadow-2xl">
+                <div className="w-24 h-24 bg-[#C4141A] rounded-full flex items-center justify-center text-white mb-8 shadow-2xl">
                   <CheckCircle2 size={40} />
                 </div>
                 <h3 className="text-3xl font-heading font-black uppercase tracking-tighter text-black mb-4">Message Logged</h3>
@@ -136,7 +136,7 @@ export default function ContactPage() {
                       required
                       type="text" 
                       placeholder="ENTER NAME"
-                      className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
+                      className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C4141A] transition-all"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
@@ -147,7 +147,7 @@ export default function ContactPage() {
                       required
                       type="tel" 
                       placeholder="ENTER PHONE"
-                      className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all"
+                      className="w-full bg-white border border-black/5 p-6 rounded-2xl text-black text-xs font-black uppercase outline-none focus:border-[#C4141A] transition-all"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
@@ -159,14 +159,14 @@ export default function ContactPage() {
                     required
                     rows={6}
                     placeholder="HOW CAN WE ASSIST YOU?"
-                    className="w-full bg-white border border-black/5 p-8 rounded-[2.5rem] text-black text-xs font-black uppercase outline-none focus:border-[#C50403] transition-all resize-none"
+                    className="w-full bg-white border border-black/5 p-8 rounded-[2.5rem] text-black text-xs font-black uppercase outline-none focus:border-[#C4141A] transition-all resize-none"
                     value={formData.message}
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   />
                 </div>
                 <button 
                   type="submit"
-                  className="w-full py-8 bg-[#C50403] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-black transition-all shadow-xl shadow-red-900/20 active:scale-[0.98]"
+                  className="w-full py-8 bg-[#C4141A] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-black transition-all shadow-xl shadow-red-900/20 active:scale-[0.98]"
                 >
                   Send Inquiry <Send size={18} className="inline ml-4" />
                 </button>

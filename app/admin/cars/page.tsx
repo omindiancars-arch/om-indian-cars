@@ -358,7 +358,7 @@ export default function AdminCars() {
         </div>
         <button 
           onClick={() => setIsAdding(true)}
-          className="flex items-center gap-3 bg-white text-[#C50403] px-10 py-5 rounded-2xl font-heading font-black uppercase tracking-[0.3em] text-[11px] hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]"
+          className="flex items-center gap-3 bg-white text-[#C4141A] px-10 py-5 rounded-2xl font-heading font-black uppercase tracking-[0.3em] text-[11px] hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)]"
         >
           <Plus size={18} strokeWidth={4} /> Post New Car
         </button>
@@ -405,7 +405,7 @@ export default function AdminCars() {
                   <div className="flex justify-end gap-4">
                     <button 
                       onClick={() => handleEdit(car)}
-                      className="p-4 bg-white/5 hover:bg-white text-white hover:text-[#C50403] rounded-xl transition-all hover:scale-110 hover:rotate-3 shadow-lg active:scale-95"
+                      className="p-4 bg-white/5 hover:bg-white text-white hover:text-[#C4141A] rounded-xl transition-all hover:scale-110 hover:rotate-3 shadow-lg active:scale-95"
                     >
                       <Edit2 size={18} strokeWidth={3} />
                     </button>
@@ -443,13 +443,13 @@ export default function AdminCars() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-5xl bg-white border border-[#C50403]/10 p-12 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] flex flex-col max-h-[90vh] overflow-hidden"
+              className="relative w-full max-w-5xl bg-white border border-[#C4141A]/10 p-12 rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] flex flex-col max-h-[90vh] overflow-hidden"
             >
               <div className="flex justify-between items-center mb-10 shrink-0">
-                <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tighter font-black text-[#C50403]">
+                <h2 className="font-heading text-4xl md:text-5xl uppercase tracking-tighter font-black text-[#C4141A]">
                   {editingId ? "Refine Asset" : "Post New Car"}
                 </h2>
-                <button onClick={handleReset} className="text-[#C50403]/20 hover:text-[#C50403] transition-colors">
+                <button onClick={handleReset} className="text-[#C4141A]/20 hover:text-[#C4141A] transition-colors">
                   <X size={40} />
                 </button>
               </div>
@@ -457,14 +457,14 @@ export default function AdminCars() {
               <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto pr-8 custom-scrollbar space-y-20">
                 {/* Image Upload Section */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">01</span> Media Gallery
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">01</span> Media Gallery
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-4">
-                      <label className="text-[9px] uppercase tracking-[0.4em] text-[#C50403] font-black">Display Photo *</label>
-                      <div className="relative aspect-video bg-[#C50403]/5 border-2 border-dashed border-[#C50403]/10 rounded-2xl flex flex-col items-center justify-center group hover:bg-[#C50403]/10 hover:border-[#C50403]/30 transition-all cursor-pointer overflow-hidden">
+                      <label className="text-[9px] uppercase tracking-[0.4em] text-[#C4141A] font-black">Display Photo *</label>
+                      <div className="relative aspect-video bg-[#C4141A]/5 border-2 border-dashed border-[#C4141A]/10 rounded-2xl flex flex-col items-center justify-center group hover:bg-[#C4141A]/10 hover:border-[#C4141A]/30 transition-all cursor-pointer overflow-hidden">
                         {formData.image ? (
                           <>
                             <img src={formData.image} className="absolute inset-0 w-full h-full object-cover" />
@@ -474,8 +474,8 @@ export default function AdminCars() {
                           </>
                         ) : (
                           <>
-                            <Upload className="text-[#C50403]/20 mb-4" size={32} />
-                            <p className="text-[10px] text-[#C50403]/20 font-black uppercase tracking-widest">Click to upload</p>
+                            <Upload className="text-[#C4141A]/20 mb-4" size={32} />
+                            <p className="text-[10px] text-[#C4141A]/20 font-black uppercase tracking-widest">Click to upload</p>
                           </>
                         )}
                         <input 
@@ -487,20 +487,20 @@ export default function AdminCars() {
                         />
                         {isUploading && (
                           <div className="absolute inset-0 bg-white/60 backdrop-blur-sm flex items-center justify-center z-10">
-                            <Loader2 className="text-[#C50403] animate-spin" size={32} />
+                            <Loader2 className="text-[#C4141A] animate-spin" size={32} />
                           </div>
                         )}
                       </div>
                     </div>
 
                     <div className="space-y-4 md:col-span-2">
-                      <label className="text-[9px] uppercase tracking-[0.4em] text-[#C50403] font-black">
+                      <label className="text-[9px] uppercase tracking-[0.4em] text-[#C4141A] font-black">
                         Media Library ({formData.images.length + formData.videos.length})
                       </label>
                       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         {/* Images */}
                         {formData.images.map((img, i) => (
-                          <div key={`img-${i}`} className="relative aspect-square bg-[#C50403]/5 border border-[#C50403]/10 rounded-2xl overflow-hidden group shadow-lg">
+                          <div key={`img-${i}`} className="relative aspect-square bg-[#C4141A]/5 border border-[#C4141A]/10 rounded-2xl overflow-hidden group shadow-lg">
                             <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-cover" />
                             <button 
                               type="button"
@@ -515,7 +515,7 @@ export default function AdminCars() {
 
                         {/* Videos */}
                         {formData.videos.map((vid, i) => (
-                          <div key={`vid-${i}`} className="relative aspect-square bg-black border border-[#C50403]/20 rounded-2xl overflow-hidden group shadow-xl">
+                          <div key={`vid-${i}`} className="relative aspect-square bg-black border border-[#C4141A]/20 rounded-2xl overflow-hidden group shadow-xl">
                             <video src={vid} className="w-full h-full object-cover opacity-60" />
                             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                               <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
@@ -535,15 +535,15 @@ export default function AdminCars() {
                         
                         {/* Add Button */}
                         {(formData.images.length + formData.videos.length) < 40 && (
-                          <label className={`relative aspect-square bg-[#C50403]/5 border-2 border-dashed border-[#C50403]/10 rounded-2xl flex flex-col items-center justify-center hover:bg-[#C50403]/10 hover:border-[#C50403]/30 transition-all cursor-pointer group ${isUploading ? 'pointer-events-none' : ''}`}>
-                            <div className="w-12 h-12 rounded-full bg-[#C50403]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                          <label className={`relative aspect-square bg-[#C4141A]/5 border-2 border-dashed border-[#C4141A]/10 rounded-2xl flex flex-col items-center justify-center hover:bg-[#C4141A]/10 hover:border-[#C4141A]/30 transition-all cursor-pointer group ${isUploading ? 'pointer-events-none' : ''}`}>
+                            <div className="w-12 h-12 rounded-full bg-[#C4141A]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                               {isUploading ? (
-                                <Loader2 className="text-[#C50403] animate-spin" size={20} />
+                                <Loader2 className="text-[#C4141A] animate-spin" size={20} />
                               ) : (
-                                <Upload className="text-[#C50403]" size={20} />
+                                <Upload className="text-[#C4141A]" size={20} />
                               )}
                             </div>
-                            <p className="text-[8px] text-[#C50403]/40 font-black uppercase tracking-widest text-center">
+                            <p className="text-[8px] text-[#C4141A]/40 font-black uppercase tracking-widest text-center">
                               {isUploading ? "Uploading..." : "Add Photos or Videos"}
                             </p>
                             <input 
@@ -563,152 +563,152 @@ export default function AdminCars() {
 
                 {/* Key Specifications */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403]/40 mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">02</span> Core Specifications
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A]/40 mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">02</span> Core Specifications
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     <div className="space-y-3 md:col-span-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Asset Display Name (USED IN CUSTOMER VIEW)</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Asset Display Name (USED IN CUSTOMER VIEW)</label>
                       <div className="relative group">
                         <input 
                           type="text" 
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
                           placeholder={`${formData.make} ${formData.model} ${formData.variant}`.trim() || "E.G. SKODA RAPID"}
-                          className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] font-black focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                          className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] font-black focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                         />
                         <button 
                           type="button"
                           onClick={() => setFormData({...formData, name: `${formData.make} ${formData.model} ${formData.variant}`.trim()})}
-                          className="absolute right-4 top-1/2 -translate-y-1/2 text-[8px] font-black uppercase tracking-widest text-[#C50403]/40 hover:text-[#C50403] transition-colors"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-[8px] font-black uppercase tracking-widest text-[#C4141A]/40 hover:text-[#C4141A] transition-colors"
                         >
                           Reset to Specs
                         </button>
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Brand / Make *</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Brand / Make *</label>
                       <input 
                         type="text" 
                         required
                         value={formData.make}
                         onChange={(e) => setFormData({...formData, make: e.target.value})}
                         placeholder="E.G. BMW"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Model *</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Model *</label>
                       <input 
                         type="text" 
                         required
                         value={formData.model}
                         onChange={(e) => setFormData({...formData, model: e.target.value})}
                         placeholder="E.G. X5"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Variant</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Variant</label>
                       <input 
                         type="text" 
                         value={formData.variant}
                         onChange={(e) => setFormData({...formData, variant: e.target.value})}
                         placeholder="E.G. X5 M SPORT"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Market Value *</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Market Value *</label>
                       <input 
                         type="text" 
                         required
                         value={formData.price}
                         onChange={(e) => setFormData({...formData, price: e.target.value})}
                         placeholder="E.G. ₹ 85,00,000"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Make Month</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Make Month</label>
                       <select 
                         value={formData.makeMonth}
                         onChange={(e) => setFormData({...formData, makeMonth: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
                         {["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"].map(month => (
-                          <option key={month} value={month} className="bg-white text-[#C50403]">{month}</option>
+                          <option key={month} value={month} className="bg-white text-[#C4141A]">{month}</option>
                         ))}
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Manufacturing Year</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Manufacturing Year</label>
                       <select 
                         value={formData.year}
                         onChange={(e) => setFormData({...formData, year: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
                         {Array.from({length: 20}, (_, i) => 2024 - i).map(year => (
-                          <option key={year} value={year} className="bg-white text-[#C50403]">{year}</option>
+                          <option key={year} value={year} className="bg-white text-[#C4141A]">{year}</option>
                         ))}
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Energy Type</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Energy Type</label>
                       <select 
                         value={formData.fuel}
                         onChange={(e) => setFormData({...formData, fuel: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Petrol" className="bg-white text-[#C50403]">Petrol</option>
-                        <option value="Diesel" className="bg-white text-[#C50403]">Diesel</option>
-                        <option value="Electric" className="bg-white text-[#C50403]">Electric</option>
-                        <option value="Hybrid" className="bg-white text-[#C50403]">Hybrid</option>
+                        <option value="Petrol" className="bg-white text-[#C4141A]">Petrol</option>
+                        <option value="Diesel" className="bg-white text-[#C4141A]">Diesel</option>
+                        <option value="Electric" className="bg-white text-[#C4141A]">Electric</option>
+                        <option value="Hybrid" className="bg-white text-[#C4141A]">Hybrid</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Transmission</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Transmission</label>
                       <select 
                         value={formData.transmission}
                         onChange={(e) => setFormData({...formData, transmission: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Automatic" className="bg-white text-[#C50403]">Automatic</option>
-                        <option value="Manual" className="bg-white text-[#C50403]">Manual</option>
+                        <option value="Automatic" className="bg-white text-[#C4141A]">Automatic</option>
+                        <option value="Manual" className="bg-white text-[#C4141A]">Manual</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Ownership History</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Ownership History</label>
                       <select 
                         value={formData.owner}
                         onChange={(e) => setFormData({...formData, owner: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="1st Owner" className="bg-white text-[#C50403]">1st Owner</option>
-                        <option value="2nd Owner" className="bg-white text-[#C50403]">2nd Owner</option>
-                        <option value="3rd Owner" className="bg-white text-[#C50403]">3rd Owner</option>
+                        <option value="1st Owner" className="bg-white text-[#C4141A]">1st Owner</option>
+                        <option value="2nd Owner" className="bg-white text-[#C4141A]">2nd Owner</option>
+                        <option value="3rd Owner" className="bg-white text-[#C4141A]">3rd Owner</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Exterior Hue</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Exterior Hue</label>
                       <input 
                         type="text" 
                         value={formData.color}
                         onChange={(e) => setFormData({...formData, color: e.target.value})}
                         placeholder="E.G. PHANTOM BLACK"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Distance Logged *</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Distance Logged *</label>
                       <input 
                         type="text" 
                         required
                         value={formData.kmsDriven}
                         onChange={(e) => setFormData({...formData, kmsDriven: e.target.value})}
                         placeholder="E.G. 12,000 KM"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                   </div>
@@ -716,51 +716,51 @@ export default function AdminCars() {
 
                 {/* Administrative Data */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">03</span> Legal & Admin
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">03</span> Legal & Admin
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Insurance Status</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Insurance Status</label>
                       <select 
                         value={formData.insuranceType}
                         onChange={(e) => setFormData({...formData, insuranceType: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Comprehensive" className="bg-white text-[#C50403]">Comprehensive</option>
-                        <option value="Third Party" className="bg-white text-[#C50403]">Third Party</option>
-                        <option value="Zero Dep" className="bg-white text-[#C50403]">Zero Dep</option>
+                        <option value="Comprehensive" className="bg-white text-[#C4141A]">Comprehensive</option>
+                        <option value="Third Party" className="bg-white text-[#C4141A]">Third Party</option>
+                        <option value="Zero Dep" className="bg-white text-[#C4141A]">Zero Dep</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Registration Authority</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Registration Authority</label>
                       <input 
                         type="text" 
                         value={formData.registrationPlace}
                         onChange={(e) => setFormData({...formData, registrationPlace: e.target.value})}
                         placeholder="E.G. AP 31"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Identity Plate</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Identity Plate</label>
                       <input 
                         type="text" 
                         value={formData.numberPlate}
                         onChange={(e) => setFormData({...formData, numberPlate: e.target.value})}
                         placeholder="E.G. AP 31 XX 0000"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Engine Displacement</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Engine Displacement</label>
                       <input 
                         type="text" 
                         value={formData.engineCapacity}
                         onChange={(e) => setFormData({...formData, engineCapacity: e.target.value})}
                         placeholder="E.G. 1998 CC"
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all placeholder:text-[#C4141A]/30"
                       />
                     </div>
                   </div>
@@ -768,9 +768,9 @@ export default function AdminCars() {
 
                 {/* Features & Comfort */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">04</span> Features & Comfort
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">04</span> Features & Comfort
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
                     {[
@@ -797,75 +797,75 @@ export default function AdminCars() {
                             onChange={(e) => setFormData({...formData, [feat.id]: e.target.checked})}
                             className="peer sr-only"
                           />
-                           <div className="w-7 h-7 border-2 border-[#C50403]/20 bg-[#C50403]/5 peer-checked:bg-[#C50403] peer-checked:border-[#C50403] rounded-lg transition-all" />
+                           <div className="w-7 h-7 border-2 border-[#C4141A]/20 bg-[#C4141A]/5 peer-checked:bg-[#C4141A] peer-checked:border-[#C4141A] rounded-lg transition-all" />
                           <Check className="absolute inset-0 text-white opacity-0 peer-checked:opacity-100 transition-opacity p-1.5" size={28} strokeWidth={4} />
                         </div>
-                        <span className="text-[10px] uppercase tracking-widest font-black text-[#C50403] group-hover:text-[#C50403] transition-colors">{feat.label}</span>
+                        <span className="text-[10px] uppercase tracking-widest font-black text-[#C4141A] group-hover:text-[#C4141A] transition-colors">{feat.label}</span>
                       </label>
                     ))}
                   </div>
 
                   {/* Dropdown Features */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 pt-12 border-t border-[#C50403]/5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 pt-12 border-t border-[#C4141A]/5">
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Air Conditioning</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Air Conditioning</label>
                       <select 
                         value={formData.airConditioning}
                         onChange={(e) => setFormData({...formData, airConditioning: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Manual" className="bg-white text-[#C50403]">Manual</option>
-                        <option value="Automatic" className="bg-white text-[#C50403]">Automatic</option>
-                        <option value="Dual Zone" className="bg-white text-[#C50403]">Dual Zone</option>
-                        <option value="None" className="bg-white text-[#C50403]">None</option>
+                        <option value="Manual" className="bg-white text-[#C4141A]">Manual</option>
+                        <option value="Automatic" className="bg-white text-[#C4141A]">Automatic</option>
+                        <option value="Dual Zone" className="bg-white text-[#C4141A]">Dual Zone</option>
+                        <option value="None" className="bg-white text-[#C4141A]">None</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Power Windows</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Power Windows</label>
                       <select 
                         value={formData.powerWindows}
                         onChange={(e) => setFormData({...formData, powerWindows: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Front Only" className="bg-white text-[#C50403]">Front Only</option>
-                        <option value="Front & Rear" className="bg-white text-[#C50403]">Front & Rear</option>
-                        <option value="None" className="bg-white text-[#C50403]">None</option>
+                        <option value="Front Only" className="bg-white text-[#C4141A]">Front Only</option>
+                        <option value="Front & Rear" className="bg-white text-[#C4141A]">Front & Rear</option>
+                        <option value="None" className="bg-white text-[#C4141A]">None</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Adjustable Mirror</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Adjustable Mirror</label>
                       <select 
                         value={formData.adjustableMirror}
                         onChange={(e) => setFormData({...formData, adjustableMirror: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Manual" className="bg-white text-[#C50403]">Manual</option>
-                        <option value="Electric" className="bg-white text-[#C50403]">Electric</option>
-                        <option value="Auto-Folding" className="bg-white text-[#C50403]">Auto-Folding</option>
+                        <option value="Manual" className="bg-white text-[#C4141A]">Manual</option>
+                        <option value="Electric" className="bg-white text-[#C4141A]">Electric</option>
+                        <option value="Auto-Folding" className="bg-white text-[#C4141A]">Auto-Folding</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Lock System</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Lock System</label>
                       <select 
                         value={formData.lockSystem}
                         onChange={(e) => setFormData({...formData, lockSystem: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Manual" className="bg-white text-[#C50403]">Manual</option>
-                        <option value="Central" className="bg-white text-[#C50403]">Central</option>
-                        <option value="Remote Central" className="bg-white text-[#C50403]">Remote Central</option>
-                        <option value="Keyless Entry" className="bg-white text-[#C50403]">Keyless Entry</option>
+                        <option value="Manual" className="bg-white text-[#C4141A]">Manual</option>
+                        <option value="Central" className="bg-white text-[#C4141A]">Central</option>
+                        <option value="Remote Central" className="bg-white text-[#C4141A]">Remote Central</option>
+                        <option value="Keyless Entry" className="bg-white text-[#C4141A]">Keyless Entry</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Airbags</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Airbags</label>
                       <select 
                         value={formData.numberOfAirbags}
                         onChange={(e) => setFormData({...formData, numberOfAirbags: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
                         {[0, 1, 2, 4, 6, 8, 10].map(n => (
-                          <option key={n} value={n.toString()} className="bg-white text-[#C50403]">{n} Airbags</option>
+                          <option key={n} value={n.toString()} className="bg-white text-[#C4141A]">{n} Airbags</option>
                         ))}
                       </select>
                     </div>
@@ -874,78 +874,78 @@ export default function AdminCars() {
 
                 {/* Asset Condition */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">05</span> Asset Condition
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">05</span> Asset Condition
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Battery Health</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Battery Health</label>
                       <select 
                         value={formData.battery}
                         onChange={(e) => setFormData({...formData, battery: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="New" className="bg-white text-[#C50403]">New</option>
-                        <option value="Excellent" className="bg-white text-[#C50403]">Excellent</option>
-                        <option value="Good" className="bg-white text-[#C50403]">Good</option>
+                        <option value="New" className="bg-white text-[#C4141A]">New</option>
+                        <option value="Excellent" className="bg-white text-[#C4141A]">Excellent</option>
+                        <option value="Good" className="bg-white text-[#C4141A]">Good</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Tyre Tread</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Tyre Tread</label>
                       <select 
                         value={formData.tyre}
                         onChange={(e) => setFormData({...formData, tyre: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="New" className="bg-white text-[#C50403]">New</option>
-                        <option value="80% +" className="bg-white text-[#C50403]">80% +</option>
-                        <option value="50% +" className="bg-white text-[#C50403]">50% +</option>
+                        <option value="New" className="bg-white text-[#C4141A]">New</option>
+                        <option value="80% +" className="bg-white text-[#C4141A]">80% +</option>
+                        <option value="50% +" className="bg-white text-[#C4141A]">50% +</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Service History</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Service History</label>
                       <select 
                         value={formData.serviceHistory}
                         onChange={(e) => setFormData({...formData, serviceHistory: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Available" className="bg-white text-[#C50403]">Available</option>
-                        <option value="Not Available" className="bg-white text-[#C50403]">Not Available</option>
-                        <option value="Partial" className="bg-white text-[#C50403]">Partial</option>
+                        <option value="Available" className="bg-white text-[#C4141A]">Available</option>
+                        <option value="Not Available" className="bg-white text-[#C4141A]">Not Available</option>
+                        <option value="Partial" className="bg-white text-[#C4141A]">Partial</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Vehicle Certified</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Vehicle Certified</label>
                       <select 
                         value={formData.vehicleCertified}
                         onChange={(e) => setFormData({...formData, vehicleCertified: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="Yes" className="bg-white text-[#C50403]">Yes</option>
-                        <option value="No" className="bg-white text-[#C50403]">No</option>
+                        <option value="Yes" className="bg-white text-[#C4141A]">Yes</option>
+                        <option value="No" className="bg-white text-[#C4141A]">No</option>
                       </select>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Accidental History</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Accidental History</label>
                       <select 
                         value={formData.accidental}
                         onChange={(e) => setFormData({...formData, accidental: e.target.value})}
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all appearance-none"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-5 rounded-xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all appearance-none"
                       >
-                        <option value="No" className="bg-white text-[#C50403]">No</option>
-                        <option value="Yes" className="bg-white text-[#C50403]">Yes</option>
-                        <option value="Minor Scratches" className="bg-white text-[#C50403]">Minor Scratches</option>
+                        <option value="No" className="bg-white text-[#C4141A]">No</option>
+                        <option value="Yes" className="bg-white text-[#C4141A]">Yes</option>
+                        <option value="Minor Scratches" className="bg-white text-[#C4141A]">Minor Scratches</option>
                       </select>
                     </div>
                     <div className="space-y-3 md:col-span-2">
-                      <label className="text-[9px] uppercase tracking-widest text-[#C50403] font-black">Executive Description</label>
+                      <label className="text-[9px] uppercase tracking-widest text-[#C4141A] font-black">Executive Description</label>
                       <textarea 
                         rows={5}
                         value={formData.description}
                         onChange={(e) => setFormData({...formData, description: e.target.value})}
                         placeholder="ENTER COMPREHENSIVE ASSET NARRATIVE..."
-                        className="w-full bg-[#C50403]/5 border border-[#C50403]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#C50403] focus:border-[#C50403]/40 outline-none transition-all resize-none placeholder:text-[#C50403]/30"
+                        className="w-full bg-[#C4141A]/5 border border-[#C4141A]/10 p-6 rounded-2xl text-xs uppercase tracking-widest text-[#C4141A] focus:border-[#C4141A]/40 outline-none transition-all resize-none placeholder:text-[#C4141A]/30"
                       />
                     </div>
                   </div>
@@ -953,12 +953,12 @@ export default function AdminCars() {
 
                 {/* Available Services */}
                 <section>
-                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C50403] mb-10 flex items-center gap-6">
-                    <span className="w-8 h-8 rounded-full bg-[#C50403]/10 flex items-center justify-center text-[#C50403]">06</span> Available Services
-                    <div className="h-[1px] flex-1 bg-[#C50403]/10" />
+                  <h3 className="text-[10px] uppercase tracking-[0.5em] font-black text-[#C4141A] mb-10 flex items-center gap-6">
+                    <span className="w-8 h-8 rounded-full bg-[#C4141A]/10 flex items-center justify-center text-[#C4141A]">06</span> Available Services
+                    <div className="h-[1px] flex-1 bg-[#C4141A]/10" />
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <label className="flex items-center gap-6 p-8 bg-[#C50403]/5 border border-[#C50403]/10 rounded-2xl cursor-pointer group hover:bg-[#C50403]/10 transition-all">
+                    <label className="flex items-center gap-6 p-8 bg-[#C4141A]/5 border border-[#C4141A]/10 rounded-2xl cursor-pointer group hover:bg-[#C4141A]/10 transition-all">
                       <div className="relative">
                         <input 
                           type="checkbox" 
@@ -966,16 +966,16 @@ export default function AdminCars() {
                           onChange={(e) => setFormData({...formData, finance: e.target.checked})}
                           className="peer sr-only"
                         />
-                        <div className="w-8 h-8 border-2 border-[#C50403]/20 bg-[#C50403]/5 peer-checked:bg-[#C50403] peer-checked:border-[#C50403] rounded-xl transition-all" />
+                        <div className="w-8 h-8 border-2 border-[#C4141A]/20 bg-[#C4141A]/5 peer-checked:bg-[#C4141A] peer-checked:border-[#C4141A] rounded-xl transition-all" />
                         <Check className="absolute inset-0 text-white opacity-0 peer-checked:opacity-100 transition-opacity p-2" size={32} strokeWidth={4} />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs uppercase tracking-widest font-black text-[#C50403]">Finance Available</span>
-                        <span className="text-[9px] uppercase tracking-wider text-[#C50403]/40 mt-1">ENABLE LOW INTEREST EMI OPTIONS</span>
+                        <span className="text-xs uppercase tracking-widest font-black text-[#C4141A]">Finance Available</span>
+                        <span className="text-[9px] uppercase tracking-wider text-[#C4141A]/40 mt-1">ENABLE LOW INTEREST EMI OPTIONS</span>
                       </div>
                     </label>
 
-                    <label className="flex items-center gap-6 p-8 bg-[#C50403]/5 border border-[#C50403]/10 rounded-2xl cursor-pointer group hover:bg-[#C50403]/10 transition-all">
+                    <label className="flex items-center gap-6 p-8 bg-[#C4141A]/5 border border-[#C4141A]/10 rounded-2xl cursor-pointer group hover:bg-[#C4141A]/10 transition-all">
                       <div className="relative">
                         <input 
                           type="checkbox" 
@@ -983,16 +983,16 @@ export default function AdminCars() {
                           onChange={(e) => setFormData({...formData, exchange: e.target.checked})}
                           className="peer sr-only"
                         />
-                        <div className="w-8 h-8 border-2 border-[#C50403]/20 bg-[#C50403]/5 peer-checked:bg-[#C50403] peer-checked:border-[#C50403] rounded-xl transition-all" />
+                        <div className="w-8 h-8 border-2 border-[#C4141A]/20 bg-[#C4141A]/5 peer-checked:bg-[#C4141A] peer-checked:border-[#C4141A] rounded-xl transition-all" />
                         <Check className="absolute inset-0 text-white opacity-0 peer-checked:opacity-100 transition-opacity p-2" size={32} strokeWidth={4} />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs uppercase tracking-widest font-black text-[#C50403]">Exchange Available</span>
-                        <span className="text-[9px] uppercase tracking-wider text-[#C50403]/40 mt-1">ENABLE VEHICLE SWAP OPTIONS</span>
+                        <span className="text-xs uppercase tracking-widest font-black text-[#C4141A]">Exchange Available</span>
+                        <span className="text-[9px] uppercase tracking-wider text-[#C4141A]/40 mt-1">ENABLE VEHICLE SWAP OPTIONS</span>
                       </div>
                     </label>
 
-                    <label className="flex items-center gap-6 p-8 bg-[#C50403]/5 border border-[#C50403]/10 rounded-2xl cursor-pointer group hover:bg-[#C50403]/10 transition-all">
+                    <label className="flex items-center gap-6 p-8 bg-[#C4141A]/5 border border-[#C4141A]/10 rounded-2xl cursor-pointer group hover:bg-[#C4141A]/10 transition-all">
                       <div className="relative">
                         <input 
                           type="checkbox" 
@@ -1000,12 +1000,12 @@ export default function AdminCars() {
                           onChange={(e) => setFormData({...formData, showOnHome: e.target.checked})}
                           className="peer sr-only"
                         />
-                        <div className="w-8 h-8 border-2 border-[#C50403]/20 bg-[#C50403]/5 peer-checked:bg-[#C50403] peer-checked:border-[#C50403] rounded-xl transition-all" />
+                        <div className="w-8 h-8 border-2 border-[#C4141A]/20 bg-[#C4141A]/5 peer-checked:bg-[#C4141A] peer-checked:border-[#C4141A] rounded-xl transition-all" />
                         <Check className="absolute inset-0 text-white opacity-0 peer-checked:opacity-100 transition-opacity p-2" size={32} strokeWidth={4} />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs uppercase tracking-widest font-black text-[#C50403]">Show on Homepage</span>
-                        <span className="text-[9px] uppercase tracking-wider text-[#C50403]/40 mt-1">FEATURE THIS ASSET ON LANDING PAGE</span>
+                        <span className="text-xs uppercase tracking-widest font-black text-[#C4141A]">Show on Homepage</span>
+                        <span className="text-[9px] uppercase tracking-wider text-[#C4141A]/40 mt-1">FEATURE THIS ASSET ON LANDING PAGE</span>
                       </div>
                     </label>
                   </div>
@@ -1014,7 +1014,7 @@ export default function AdminCars() {
                 <div className="pt-10 shrink-0 pb-10">
                   <button 
                     type="submit"
-                    className="w-full bg-[#C50403] text-white py-8 rounded-2xl font-heading font-black uppercase tracking-[0.4em] text-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-6 shadow-[0_20px_50px_rgba(206,17,38,0.3)]"
+                    className="w-full bg-[#C4141A] text-white py-8 rounded-2xl font-heading font-black uppercase tracking-[0.4em] text-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-6 shadow-[0_20px_50px_rgba(206,17,38,0.3)]"
                   >
                     {editingId ? "Update Asset" : "Post New Car"} <Check size={28} strokeWidth={4} />
                   </button>

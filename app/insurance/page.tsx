@@ -11,7 +11,7 @@ export default function InsurancePage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative pt-60 md:pt-64 pb-24 bg-[#C50403] text-white overflow-hidden">
+      <section className="relative pt-60 md:pt-64 pb-24 bg-[#C4141A] text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/10" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <motion.h1 
@@ -39,8 +39,8 @@ export default function InsurancePage() {
             <div>
               <h2 className="text-4xl font-black uppercase tracking-tight text-neutral-900 mb-6">Tailored Insurance Solutions</h2>
               
-              <div className="bg-[#C50403]/5 p-8 rounded-3xl border border-[#C50403]/10 mb-10">
-                <p className="text-xl md:text-2xl font-black text-[#C50403] uppercase leading-tight tracking-tight">
+              <div className="bg-[#C4141A]/5 p-8 rounded-3xl border border-[#C4141A]/10 mb-10">
+                <p className="text-xl md:text-2xl font-black text-[#C4141A] uppercase leading-tight tracking-tight">
                   We provide all kind of insurances based in your requirement.
                 </p>
               </div>
@@ -51,10 +51,10 @@ export default function InsurancePage() {
               
               <div className="space-y-6">
                 {[
-                  { title: "Instant Policy Issuance", icon: <FileCheck className="text-[#C50403]" /> },
-                  { title: "Cashless Claims Settlement", icon: <Lock className="text-[#C50403]" /> },
-                  { title: "24/7 Claim Support", icon: <PhoneCall className="text-[#C50403]" /> },
-                  { title: "Zero Depreciation Covers", icon: <ShieldCheck className="text-[#C50403]" /> },
+                  { title: "Instant Policy Issuance", icon: <FileCheck className="text-[#C4141A]" /> },
+                  { title: "Cashless Claims Settlement", icon: <Lock className="text-[#C4141A]" /> },
+                  { title: "24/7 Claim Support", icon: <PhoneCall className="text-[#C4141A]" /> },
+                  { title: "Zero Depreciation Covers", icon: <ShieldCheck className="text-[#C4141A]" /> },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-neutral-50 border border-neutral-100">
                     {item.icon}
