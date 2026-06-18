@@ -29,7 +29,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Check active session on mount
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session }, error }) => {
+      if (error) {
+        console.error("Auth session error:", error.message);
+        // Clear local storage / session if refresh token is invalid
+        supabase.auth.signOut();
+      }
+      
       if (session) {
         const role = session.user.email?.toLowerCase().endsWith("@omindiancars.com") ? "admin" : "user";
         setUser({

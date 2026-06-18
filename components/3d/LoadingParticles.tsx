@@ -57,83 +57,23 @@ export default function LoadingParticles() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
 
-        {/* Car Silhouette SVG */}
+        {/* Brand Logo */}
         <motion.div 
-          className="w-full relative z-10 px-4 md:px-0"
+          className="w-full relative z-10 px-8 md:px-12 flex justify-center"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
         >
-          <motion.svg
-            viewBox="0 0 400 150"
-            className="w-full h-auto drop-shadow-[0_0_30px_rgba(206,17,38,0.8)]"
-          >
-            <defs>
-              <linearGradient id="premiumGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#C4141A" />
-                <stop offset="50%" stopColor="#FFFFFF" />
-                <stop offset="100%" stopColor="#C4141A" />
-              </linearGradient>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
-                <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            {/* Luxury Car Body */}
-            <motion.path
-              d="M 40 100 L 40 85 Q 40 65 70 55 L 140 45 Q 200 35 260 45 L 330 55 Q 360 65 360 85 L 360 100 L 370 105 L 30 105 Z"
-              fill="transparent"
-              stroke="url(#premiumGradient)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              filter="url(#glow)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{
-                pathLength: { duration: 1.5, ease: "easeInOut", repeat: Infinity },
-                opacity: { duration: 1 }
-              }}
-            />
-
-            {/* Wheels */}
-            <motion.circle
-              cx="100" cy="105" r="18"
-              fill="black" stroke="url(#premiumGradient)" strokeWidth="3"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1, rotate: 360 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-            />
-            <motion.circle
-              cx="300" cy="105" r="18"
-              fill="black" stroke="url(#premiumGradient)" strokeWidth="3"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1, rotate: 360 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-            />
-
-            {/* Speed Lines */}
-            {[...Array(5)].map((_, i) => (
-              <motion.line
-                key={i}
-                x1={400 + i * 20} y1={80 + i * 10}
-                x2={430 + i * 20} y2={80 + i * 10}
-                stroke="#C4141A"
-                strokeWidth="1"
-                initial={{ x: 0, opacity: 0 }}
-                animate={{ x: -600, opacity: [0, 1, 0] }}
-                transition={{ 
-                  duration: 0.6, 
-                  repeat: Infinity, 
-                  delay: i * 0.1,
-                  ease: "linear" 
-                }}
-              />
-            ))}
-          </motion.svg>
+          <motion.img
+            src="/OMINDCARS_LOGO_TRANSPARENT.png"
+            alt="OM Indian Cars"
+            className="w-full max-w-[300px] h-auto object-contain drop-shadow-[0_0_30px_rgba(206,17,38,0.5)]"
+            animate={{ 
+              scale: [1, 1.05, 1],
+              opacity: [0.8, 1, 0.8]
+            }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
         
         <div className="mt-8 md:mt-12 flex flex-col items-center gap-6">
@@ -160,7 +100,7 @@ export default function LoadingParticles() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              V8 ENGINE IGNITION
+              LOADING...
             </motion.p>
             <motion.div 
               className="h-[1px] w-12 bg-[#C4141A]/50"

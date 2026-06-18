@@ -94,7 +94,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              src="/brand-lettering.png" 
+              src="/OMINDCARS_LOGO_TRANSPARENT.png" 
               alt="OM Indian Cars" 
               className="w-full max-w-[80%] h-auto object-contain drop-shadow-2xl"
               onError={(e) => {
