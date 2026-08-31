@@ -107,77 +107,117 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Half: Video */}
-        <div className="relative md:flex-[0.4] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20">
-          <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700" />
-          {heroVideos.map((videoUrl, idx) => (
-            <video
-              key={videoUrl + idx}
-              ref={el => { videoRefs.current[idx] = el; }}
-              src={videoUrl}
-              muted={isMuted}
-              playsInline
-              preload="auto"
-              onEnded={() => {
-                if (idx === currentVideoIndex) {
-                  if (heroVideos.length > 1) {
-                    setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
-                  } else if (videoRefs.current[idx]) {
-                    videoRefs.current[idx]?.play(); // Fallback loop if only 1 video
+          {/* Right Half: Video */}
+          <div 
+            onClick={() => {
+              const activeVid = videoRefs.current[currentVideoIndex];
+              if (activeVid && activeVid.paused) {
+                activeVid.play().catch(() => {});
+              }
+            }}
+            className="relative md:flex-[0.4] min-h-[40vh] md:min-h-0 group overflow-hidden rounded-[3rem] bg-black/20 cursor-pointer"
+          >
+            <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-700 pointer-events-none" />
+            {heroVideos.map((videoUrl, idx) => (
+              <video
+                key={videoUrl + idx}
+                ref={el => { 
+                  videoRefs.current[idx] = el;
+                  if (el && idx === currentVideoIndex) {
+                    el.muted = isMuted;
+                    el.play().catch(() => {});
                   }
-                }
-              }}
-              className={`absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-[2s] ease-out bg-black/50 ${
-                idx === currentVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            />
-          ))}
-          <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12 pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2 }}
-            >
-              <div className="opacity-40 group-hover:opacity-70 transition-opacity duration-700 max-w-[60px] md:max-w-[90px]">
-                <img 
-                  src="/omindlogo.png" 
-                  alt="OM Indian Cars" 
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* Custom Video Controls Overlay */}
-          <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3">
-            <button 
-              onClick={() => {
-                const activeVid = videoRefs.current[currentVideoIndex];
-                if(activeVid) activeVid.currentTime += 10;
-              }} 
-              title="Forward 10s"
-              className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md flex items-center justify-center text-white border border-white/10 transition-all hover:scale-105"
-            >
-              <FastForward size={16} />
-            </button>
-            {heroVideos.length > 1 && (
+                }}
+                src={videoUrl}
+                autoPlay
+                muted={isMuted}
+                playsInline
+                loop={heroVideos.length === 1}
+                preload="auto"
+                onLoadedData={(e) => {
+                  const vid = e.currentTarget;
+                  vid.muted = isMuted;
+                  if (idx === currentVideoIndex) {
+                    vid.play().catch(() => {});
+                  }
+                }}
+                onError={(e) => {
+                  console.warn("Video failed to load, falling back to local asset:", videoUrl);
+                  const vid = e.currentTarget;
+                  if (vid.src !== window.location.origin + "/VID_20260505_052351_976.mp4") {
+                    vid.src = "/VID_20260505_052351_976.mp4";
+                    vid.load();
+                    vid.play().catch(() => {});
+                  }
+                }}
+                onEnded={() => {
+                  if (idx === currentVideoIndex) {
+                    if (heroVideos.length > 1) {
+                      setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+                    } else if (videoRefs.current[idx]) {
+                      videoRefs.current[idx]?.play().catch(() => {});
+                    }
+                  }
+                }}
+                className={`absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-[2s] ease-out bg-black/50 ${
+                  idx === currentVideoIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+              />
+            ))}
+            <div className="relative z-20 h-full flex flex-col items-center justify-center text-center p-12 pointer-events-none">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2 }}
+              >
+                <div className="opacity-40 group-hover:opacity-70 transition-opacity duration-700 max-w-[60px] md:max-w-[90px]">
+                  <img 
+                    src="/omindlogo.png" 
+                    alt="OM Indian Cars" 
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Custom Video Controls Overlay */}
+            <div className="absolute bottom-6 right-6 z-30 flex items-center gap-3" onClick={(e) => e.stopPropagation()}>
               <button 
-                onClick={() => setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length)} 
-                title="Next Video"
+                onClick={() => {
+                  const activeVid = videoRefs.current[currentVideoIndex];
+                  if(activeVid) activeVid.currentTime += 10;
+                }} 
+                title="Forward 10s"
                 className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md flex items-center justify-center text-white border border-white/10 transition-all hover:scale-105"
               >
-                <SkipForward size={16} />
+                <FastForward size={16} />
               </button>
-            )}
-            <button 
-              onClick={() => setIsMuted(!isMuted)} 
-              title={isMuted ? "Unmute" : "Mute"}
-              className="w-10 h-10 rounded-full bg-white text-[#C4141A] hover:scale-105 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all ml-2"
-            >
-              {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-            </button>
+              {heroVideos.length > 1 && (
+                <button 
+                  onClick={() => setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length)} 
+                  title="Next Video"
+                  className="w-10 h-10 rounded-full bg-black/40 hover:bg-black/80 backdrop-blur-md flex items-center justify-center text-white border border-white/10 transition-all hover:scale-105"
+                >
+                  <SkipForward size={16} />
+                </button>
+              )}
+              <button 
+                onClick={() => {
+                  const newMuted = !isMuted;
+                  setIsMuted(newMuted);
+                  const activeVid = videoRefs.current[currentVideoIndex];
+                  if (activeVid) {
+                    activeVid.muted = newMuted;
+                    if (activeVid.paused) activeVid.play().catch(() => {});
+                  }
+                }} 
+                title={isMuted ? "Unmute" : "Mute"}
+                className="w-10 h-10 rounded-full bg-white text-[#C4141A] hover:scale-105 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all ml-2"
+              >
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              </button>
+            </div>
           </div>
-        </div>
 
         {/* Browse Collection Button Overlay */}
         <div className="absolute bottom-12 left-0 w-full z-40 flex justify-center">
