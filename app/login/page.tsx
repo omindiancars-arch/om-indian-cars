@@ -111,8 +111,8 @@ function LoginContent() {
                       type="text" 
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      placeholder="Enter your name"
-                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
+                      placeholder="Full Name"
+                      className="w-full bg-white border border-black/10 p-4 pl-12 text-xs tracking-wider focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
                     />
                   </div>
                 </motion.div>
@@ -129,7 +129,7 @@ function LoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="name@example.com"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 text-xs tracking-wider focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
                 />
               </div>
             </div>
@@ -144,7 +144,7 @@ function LoginContent() {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   placeholder="••••••••"
-                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
+                  className="w-full bg-white border border-black/10 p-4 pl-12 pr-12 text-xs tracking-wider focus:border-[#C4141A] outline-none transition-colors text-black rounded-xl"
                 />
                 <button 
                   type="button"

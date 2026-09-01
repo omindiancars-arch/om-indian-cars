@@ -67,7 +67,7 @@ function AdminLoginContent() {
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
                   placeholder="admin@omindiancars.com"
-                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-white"
+                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 text-xs tracking-wider focus:border-[#C4141A] outline-none transition-colors text-white"
                 />
               </div>
             </div>
@@ -82,7 +82,7 @@ function AdminLoginContent() {
                   value={formData.password}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
                   placeholder="••••••••"
-                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 pr-12 text-xs uppercase tracking-widest focus:border-[#C4141A] outline-none transition-colors text-white"
+                  className="w-full bg-white/5 border border-white/10 p-4 pl-12 pr-12 text-xs tracking-wider focus:border-[#C4141A] outline-none transition-colors text-white"
                 />
                 <button 
                   type="button"
