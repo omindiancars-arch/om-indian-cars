@@ -9,25 +9,62 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export const uploadFile = async (file: File, path: string) => {
-  const sanitizedPath = path.replace(/[^a-zA-Z0-9._-]/g, '_');
-  const { data, error } = await supabase.storage
-    .from('car-assets')
-    .upload(sanitizedPath, file, {
-      cacheControl: '3600',
-      contentType: file.type || undefined,
-      upsert: true
-    });
+import { compressImageFile } from './imageUtils';
 
-  if (error) {
-    console.error("Supabase storage upload error:", error);
-    throw error;
+export const uploadFile = async (file: File, path: string): Promise<string> => {
+  let fileToUpload = file;
+  let compressedDataUrl = '';
+
+  // 1. Client-side compression & format conversion (WebP/JPEG)
+  if (typeof window !== 'undefined' && file.type.startsWith('image/')) {
+    try {
+      const compressionResult = await compressImageFile(file, 1600, 1200, 0.75);
+      fileToUpload = compressionResult.file;
+      compressedDataUrl = compressionResult.dataUrl;
+    } catch (e) {
+      console.warn("Client-side compression skipped:", e);
+    }
   }
 
-  const { data: { publicUrl } } = supabase.storage
-    .from('car-assets')
-    .getPublicUrl(data.path);
+  const sanitizedPath = path.replace(/[^a-zA-Z0-9._-]/g, '_');
 
-  return publicUrl;
+  try {
+    const { data, error } = await supabase.storage
+      .from('car-assets')
+      .upload(sanitizedPath, fileToUpload, {
+        cacheControl: '3600',
+        contentType: fileToUpload.type || undefined,
+        upsert: true
+      });
+
+    if (error) {
+      throw error;
+    }
+
+    const { data: { publicUrl } } = supabase.storage
+      .from('car-assets')
+      .getPublicUrl(data.path);
+
+    return publicUrl;
+  } catch (error: any) {
+    console.warn("Supabase storage upload failed (e.g. egress quota limit or restricted bucket). Using converted optimized data fallback:", error?.message || error);
+    
+    // 2. If storage egress is restricted or quota exceeded, fallback to compressed data URL
+    if (compressedDataUrl) {
+      return compressedDataUrl;
+    }
+
+    // Try converting file directly to dataUrl
+    if (typeof window !== 'undefined') {
+      try {
+        const { fileToDataUrl } = await import('./imageUtils');
+        const directDataUrl = await fileToDataUrl(file);
+        return directDataUrl;
+      } catch (e) {}
+    }
+
+    throw error;
+  }
 };
+
 
