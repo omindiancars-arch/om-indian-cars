@@ -68,6 +68,7 @@ export default function AdminCars() {
     showOnHome: true
   });
   const [isUploading, setIsUploading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleReset = () => {
     setFormData({
@@ -125,74 +126,89 @@ export default function AdminCars() {
     setEditingId(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const carData = {
-      name: formData.name.trim() || `${formData.make} ${formData.model} ${formData.variant}`.trim(),
-      price: formData.price,
-      image: formData.image || "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
-      images: formData.images,
-      videos: formData.videos,
-      description: formData.description,
-      specs: {
-        make: formData.make,
-        model: formData.model,
-        variant: formData.variant,
-        year: formData.year,
-        makeMonth: formData.makeMonth,
-        owner: formData.owner,
-        color: formData.color,
-        fuel: formData.fuel,
-        transmission: formData.transmission,
-        insuranceType: formData.insuranceType,
-        registrationPlace: formData.registrationPlace,
-        numberPlate: formData.numberPlate,
-        kmsDriven: formData.kmsDriven,
-        engineCapacity: formData.engineCapacity,
-        location: formData.location,
-        postingDate: formData.postingDate
-      },
-      features: {
-        powerSteering: formData.powerSteering,
-        cruiseControl: formData.cruiseControl,
-        navigationSystem: formData.navigationSystem,
-        adjustableSteering: formData.adjustableSteering,
-        airConditioning: formData.airConditioning,
-        powerWindows: formData.powerWindows,
-        sunroof: formData.sunroof,
-        alloyWheels: formData.alloyWheels,
-        adjustableMirror: formData.adjustableMirror,
-        bluetooth: formData.bluetooth,
-        amFmRadio: formData.amFmRadio,
-        usbCompatibility: formData.usbCompatibility,
-        auxCompatibility: formData.auxCompatibility,
-        abs: formData.abs,
-        antiTheftDevice: formData.antiTheftDevice,
-        rearParkingCamera: formData.rearParkingCamera,
-        parkingSensors: formData.parkingSensors,
-        lockSystem: formData.lockSystem,
-        numberOfAirbags: formData.numberOfAirbags
-      },
-      condition: {
-        battery: formData.battery,
-        tyre: formData.tyre,
-        serviceHistory: formData.serviceHistory,
-        vehicleCertified: formData.vehicleCertified,
-        accidental: formData.accidental
-      },
-      services: {
-        finance: formData.finance,
-        exchange: formData.exchange
-      },
-      showOnHome: formData.showOnHome
-    };
-
-    if (editingId) {
-      updateCar(editingId, carData);
-    } else {
-      addCar(carData);
+    if (isUploading) {
+      alert("Please wait until images/videos have finished uploading.");
+      return;
     }
-    handleReset();
+
+    setIsSubmitting(true);
+    try {
+      const carData = {
+        name: formData.name.trim() || `${formData.make} ${formData.model} ${formData.variant}`.trim() || "OM Certified Car",
+        price: formData.price,
+        image: formData.image || (formData.images.length > 0 ? formData.images[0] : "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop"),
+        images: formData.images,
+        videos: formData.videos,
+        description: formData.description,
+        specs: {
+          make: formData.make,
+          model: formData.model,
+          variant: formData.variant,
+          year: formData.year,
+          makeMonth: formData.makeMonth,
+          owner: formData.owner,
+          color: formData.color,
+          fuel: formData.fuel,
+          transmission: formData.transmission,
+          insuranceType: formData.insuranceType,
+          registrationPlace: formData.registrationPlace,
+          numberPlate: formData.numberPlate,
+          kmsDriven: formData.kmsDriven,
+          engineCapacity: formData.engineCapacity,
+          location: formData.location,
+          postingDate: formData.postingDate
+        },
+        features: {
+          powerSteering: formData.powerSteering,
+          cruiseControl: formData.cruiseControl,
+          navigationSystem: formData.navigationSystem,
+          adjustableSteering: formData.adjustableSteering,
+          airConditioning: formData.airConditioning,
+          powerWindows: formData.powerWindows,
+          sunroof: formData.sunroof,
+          alloyWheels: formData.alloyWheels,
+          adjustableMirror: formData.adjustableMirror,
+          bluetooth: formData.bluetooth,
+          amFmRadio: formData.amFmRadio,
+          usbCompatibility: formData.usbCompatibility,
+          auxCompatibility: formData.auxCompatibility,
+          abs: formData.abs,
+          antiTheftDevice: formData.antiTheftDevice,
+          rearParkingCamera: formData.rearParkingCamera,
+          parkingSensors: formData.parkingSensors,
+          lockSystem: formData.lockSystem,
+          numberOfAirbags: formData.numberOfAirbags
+        },
+        condition: {
+          battery: formData.battery,
+          tyre: formData.tyre,
+          serviceHistory: formData.serviceHistory,
+          vehicleCertified: formData.vehicleCertified,
+          accidental: formData.accidental
+        },
+        services: {
+          finance: formData.finance,
+          exchange: formData.exchange
+        },
+        showOnHome: formData.showOnHome
+      };
+
+      if (editingId) {
+        await updateCar(editingId, carData);
+        alert("Asset updated successfully!");
+      } else {
+        await addCar(carData);
+        alert("Car posted successfully! It is now visible on the website.");
+      }
+      handleReset();
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      alert("Failed to save car: " + (err?.message || "Please check your internet connection"));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleEdit = (car: Car) => {
@@ -1014,9 +1030,21 @@ export default function AdminCars() {
                 <div className="pt-10 shrink-0 pb-10">
                   <button 
                     type="submit"
-                    className="w-full bg-[#C4141A] text-white py-8 rounded-2xl font-heading font-black uppercase tracking-[0.4em] text-sm hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-6 shadow-[0_20px_50px_rgba(206,17,38,0.3)]"
+                    disabled={isSubmitting || isUploading}
+                    className={`w-full bg-[#C4141A] text-white py-8 rounded-2xl font-heading font-black uppercase tracking-[0.4em] text-sm transition-all flex items-center justify-center gap-6 shadow-[0_20px_50px_rgba(206,17,38,0.3)] ${
+                      isSubmitting || isUploading ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] active:scale-[0.98]'
+                    }`}
                   >
-                    {editingId ? "Update Asset" : "Post New Car"} <Check size={28} strokeWidth={4} />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin" size={24} />
+                        <span>Saving Asset...</span>
+                      </>
+                    ) : (
+                      <>
+                        {editingId ? "Update Asset" : "Post New Car"} <Check size={28} strokeWidth={4} />
+                      </>
+                    )}
                   </button>
                 </div>
               </form>

@@ -105,12 +105,36 @@ export function CarProvider({ children }: { children: React.ReactNode }) {
         if (carsError) throw carsError;
 
         if (carsData && carsData.length > 0) {
-          setCars(carsData.map(c => ({
-            ...c,
-            showOnHome: c.show_on_home
-          })));
+          const mappedCars: Car[] = carsData.map(c => ({
+            id: c.id,
+            name: c.name,
+            price: c.price,
+            image: c.image || "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+            images: c.images || [],
+            videos: c.videos || [],
+            description: c.description || "",
+            showOnHome: c.show_on_home !== false,
+            specs: c.specs || {},
+            features: c.features || {},
+            condition: c.condition || {},
+            services: c.services || {}
+          }));
+          setCars(mappedCars);
+          try {
+            localStorage.setItem('om_cached_cars', JSON.stringify(mappedCars));
+          } catch (e) {}
         } else {
-          setCars(INITIAL_CARS);
+          // Check local storage cache if available
+          try {
+            const cached = localStorage.getItem('om_cached_cars');
+            if (cached) {
+              setCars(JSON.parse(cached));
+            } else {
+              setCars(INITIAL_CARS);
+            }
+          } catch (e) {
+            setCars(INITIAL_CARS);
+          }
         }
 
         const { data: inquiriesData, error: inquiriesError } = await supabase
@@ -130,8 +154,17 @@ export function CarProvider({ children }: { children: React.ReactNode }) {
           })));
         }
       } catch (error) {
-        console.warn("Supabase load failed. Using initial data.", error);
-        setCars(INITIAL_CARS);
+        console.warn("Supabase load failed. Using local cache/initial data.", error);
+        try {
+          const cached = localStorage.getItem('om_cached_cars');
+          if (cached) {
+            setCars(JSON.parse(cached));
+          } else {
+            setCars(INITIAL_CARS);
+          }
+        } catch (e) {
+          setCars(INITIAL_CARS);
+        }
       } finally {
         setIsLoaded(true);
       }
@@ -141,30 +174,73 @@ export function CarProvider({ children }: { children: React.ReactNode }) {
 
   const addCar = async (carData: Omit<Car, "id">) => {
     try {
+      const insertPayload = {
+        name: carData.name,
+        price: carData.price,
+        image: carData.image,
+        images: carData.images || [],
+        videos: carData.videos || [],
+        description: carData.description || "",
+        show_on_home: carData.showOnHome ?? true,
+        specs: carData.specs || {},
+        features: carData.features || {},
+        condition: carData.condition || {},
+        services: carData.services || {}
+      };
+
       const { data, error } = await supabase
         .from('cars')
-        .insert([{
-          name: carData.name,
-          price: carData.price,
-          image: carData.image,
-          images: carData.images,
-          videos: carData.videos,
-          description: carData.description,
-          show_on_home: carData.showOnHome,
-          specs: carData.specs,
-          features: carData.features,
-          condition: carData.condition,
-          services: carData.services
-        }])
+        .insert([insertPayload])
         .select()
         .single();
 
       if (error) throw error;
-      setCars(prev => [data, ...prev]);
+
+      const formattedCar: Car = {
+        id: data.id,
+        name: data.name,
+        price: data.price,
+        image: data.image,
+        images: data.images || [],
+        videos: data.videos || [],
+        description: data.description || "",
+        showOnHome: data.show_on_home !== false,
+        specs: data.specs || {},
+        features: data.features || {},
+        condition: data.condition || {},
+        services: data.services || {}
+      };
+
+      setCars(prev => {
+        const updated = [formattedCar, ...prev.filter(c => c.id !== formattedCar.id)];
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
+      return formattedCar;
     } catch (error) {
-      console.error("Failed to add car:", error instanceof Error ? error.message : JSON.stringify(error, null, 2) || error);
-      const newCar = { ...carData, id: Math.random().toString(36).substr(2, 9) };
-      setCars(prev => [newCar, ...prev]);
+      console.error("Failed to add car to Supabase:", error instanceof Error ? error.message : JSON.stringify(error, null, 2) || error);
+      const newCar: Car = { 
+        ...carData, 
+        id: Math.random().toString(36).substring(2, 11),
+        showOnHome: carData.showOnHome ?? true,
+        images: carData.images || [],
+        videos: carData.videos || [],
+        description: carData.description || "",
+        specs: carData.specs || {},
+        features: carData.features || {},
+        condition: carData.condition || {},
+        services: carData.services || {}
+      };
+      setCars(prev => {
+        const updated = [newCar, ...prev];
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
+      return newCar;
     }
   };
 
@@ -173,19 +249,38 @@ export function CarProvider({ children }: { children: React.ReactNode }) {
   const updateCar = async (id: string, carData: Partial<Car>) => {
     try {
       if (isUUID(id)) {
-        const updatePayload: any = { ...carData };
-        if (carData.showOnHome !== undefined) {
-          updatePayload.show_on_home = carData.showOnHome;
-          delete updatePayload.showOnHome;
-        }
+        const updatePayload: any = {};
+        if (carData.name !== undefined) updatePayload.name = carData.name;
+        if (carData.price !== undefined) updatePayload.price = carData.price;
+        if (carData.image !== undefined) updatePayload.image = carData.image;
+        if (carData.images !== undefined) updatePayload.images = carData.images;
+        if (carData.videos !== undefined) updatePayload.videos = carData.videos;
+        if (carData.description !== undefined) updatePayload.description = carData.description;
+        if (carData.showOnHome !== undefined) updatePayload.show_on_home = carData.showOnHome;
+        if (carData.specs !== undefined) updatePayload.specs = carData.specs;
+        if (carData.features !== undefined) updatePayload.features = carData.features;
+        if (carData.condition !== undefined) updatePayload.condition = carData.condition;
+        if (carData.services !== undefined) updatePayload.services = carData.services;
 
         const { error } = await supabase.from('cars').update(updatePayload).eq('id', id);
         if (error) throw error;
       }
-      setCars(prev => prev.map(car => car.id === id ? { ...car, ...carData } : car));
+      setCars(prev => {
+        const updated = prev.map(car => car.id === id ? { ...car, ...carData } : car);
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
     } catch (error) {
       console.error("Failed to update car:", error);
-      setCars(prev => prev.map(car => car.id === id ? { ...car, ...carData } : car));
+      setCars(prev => {
+        const updated = prev.map(car => car.id === id ? { ...car, ...carData } : car);
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
     }
   };
 
@@ -195,10 +290,22 @@ export function CarProvider({ children }: { children: React.ReactNode }) {
         const { error } = await supabase.from('cars').delete().eq('id', id);
         if (error) throw error;
       }
-      setCars(prev => prev.filter(car => car.id !== id));
+      setCars(prev => {
+        const updated = prev.filter(car => car.id !== id);
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
     } catch (error) {
       console.error("Failed to delete car:", error);
-      setCars(prev => prev.filter(car => car.id !== id));
+      setCars(prev => {
+        const updated = prev.filter(car => car.id !== id);
+        try {
+          localStorage.setItem('om_cached_cars', JSON.stringify(updated));
+        } catch (e) {}
+        return updated;
+      });
     }
   };
 
